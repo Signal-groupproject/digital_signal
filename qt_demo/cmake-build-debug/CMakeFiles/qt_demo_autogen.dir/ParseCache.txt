@@ -356,5 +356,5 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
-D:/Github/digital_signal/qt_demo/mainwindow.cpp
 D:/Github/digital_signal/qt_demo/main.cpp
+D:/Github/digital_signal/qt_demo/mainwindow.cpp
