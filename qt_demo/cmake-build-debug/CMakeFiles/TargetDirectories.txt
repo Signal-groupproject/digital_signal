@@ -1,0 +1,5 @@
+D:/Github/digital_signal/qt_demo/cmake-build-debug/CMakeFiles/qt_demo.dir
+D:/Github/digital_signal/qt_demo/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Github/digital_signal/qt_demo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Github/digital_signal/qt_demo/cmake-build-debug/CMakeFiles/qt_demo_autogen_timestamp_deps.dir
+D:/Github/digital_signal/qt_demo/cmake-build-debug/CMakeFiles/qt_demo_autogen.dir

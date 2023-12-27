@@ -1,0 +1,16 @@
+# ninja log v5
+20	744	7253691441584535	qt_demo_autogen/timestamp	c4f94c28169b3643
+20	744	7253691441584535	qt_demo_autogen/mocs_compilation.cpp	c4f94c28169b3643
+744	3577	7253691470910658	CMakeFiles/qt_demo.dir/qt_demo_autogen/mocs_compilation.cpp.obj	edff9610cc855390
+756	5120	7253691486369590	CMakeFiles/qt_demo.dir/mainwindow.cpp.obj	65b75d947498f40f
+5120	5698	7253691489290477	qt_demo.exe	562649e3cd0ed9a6
+750	3283	7253691468009222	CMakeFiles/qt_demo.dir/main.cpp.obj	15a98870b533f177
+1	625	7253818865087909	build.ninja	b373bb4d9d6ff1a
+9	764	7253819142550476	qt_demo_autogen/timestamp	6cbd0c32414eb0b6
+9	764	7253819142550476	qt_demo_autogen/mocs_compilation.cpp	6cbd0c32414eb0b6
+9	764	7253819142550476	D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/timestamp	6cbd0c32414eb0b6
+9	764	7253819142550476	D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/mocs_compilation.cpp	6cbd0c32414eb0b6
+775	3266	7253819168560833	CMakeFiles/qt_demo.dir/main.cpp.obj	f571a7eb640a95af
+765	3335	7253819169232462	CMakeFiles/qt_demo.dir/qt_demo_autogen/mocs_compilation.cpp.obj	853bd10bd5994120
+770	5157	7253819187485246	CMakeFiles/qt_demo.dir/mainwindow.cpp.obj	cd4a413356f7ebcb
+5158	5867	7253819190998904	qt_demo.exe	ec6a876b7edce0e4
