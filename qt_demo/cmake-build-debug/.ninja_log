@@ -14,3 +14,11 @@
 765	3335	7253819169232462	CMakeFiles/qt_demo.dir/qt_demo_autogen/mocs_compilation.cpp.obj	853bd10bd5994120
 770	5157	7253819187485246	CMakeFiles/qt_demo.dir/mainwindow.cpp.obj	cd4a413356f7ebcb
 5158	5867	7253819190998904	qt_demo.exe	ec6a876b7edce0e4
+30	848	7253919850315191	qt_demo_autogen/timestamp	6cbd0c32414eb0b6
+30	848	7253919850315191	qt_demo_autogen/mocs_compilation.cpp	6cbd0c32414eb0b6
+30	848	7253919850315191	D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/timestamp	6cbd0c32414eb0b6
+30	848	7253919850315191	D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/mocs_compilation.cpp	6cbd0c32414eb0b6
+849	4077	7253919883599658	CMakeFiles/qt_demo.dir/qt_demo_autogen/mocs_compilation.cpp.obj	853bd10bd5994120
+911	4087	7253919883714052	CMakeFiles/qt_demo.dir/main.cpp.obj	f571a7eb640a95af
+903	5561	7253919898412271	CMakeFiles/qt_demo.dir/mainwindow.cpp.obj	cd4a413356f7ebcb
+5562	6920	7253919907968376	qt_demo.exe	ec6a876b7edce0e4
