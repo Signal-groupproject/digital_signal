@@ -20,42 +20,37 @@ QT_BEGIN_NAMESPACE
 class Ui_mainwindow
 {
 public:
-    QPushButton *pushButton;
+    QPushButton *select_Image;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QPushButton *pushButton_2;
-    QScrollArea *scrollArea_2;
-    QWidget *scrollAreaWidgetContents_2;
+    QPushButton *pushButton_3;
 
     void setupUi(QWidget *mainwindow)
     {
         if (mainwindow->objectName().isEmpty())
             mainwindow->setObjectName("mainwindow");
-        mainwindow->resize(1286, 761);
-        pushButton = new QPushButton(mainwindow);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(80, 140, 231, 121));
-        pushButton->setCheckable(false);
+        mainwindow->resize(1131, 723);
+        select_Image = new QPushButton(mainwindow);
+        select_Image->setObjectName("select_Image");
+        select_Image->setGeometry(QRect(40, 150, 121, 51));
+        select_Image->setCheckable(false);
         scrollArea = new QScrollArea(mainwindow);
         scrollArea->setObjectName("scrollArea");
-        scrollArea->setGeometry(QRect(350, 140, 341, 371));
+        scrollArea->setGeometry(QRect(220, 150, 711, 381));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 339, 369));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 709, 379));
         scrollArea->setWidget(scrollAreaWidgetContents);
         pushButton_2 = new QPushButton(mainwindow);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(80, 330, 231, 121));
+        pushButton_2->setGeometry(QRect(40, 270, 121, 51));
         pushButton_2->setCheckable(false);
-        scrollArea_2 = new QScrollArea(mainwindow);
-        scrollArea_2->setObjectName("scrollArea_2");
-        scrollArea_2->setGeometry(QRect(740, 140, 341, 371));
-        scrollArea_2->setWidgetResizable(true);
-        scrollAreaWidgetContents_2 = new QWidget();
-        scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 339, 369));
-        scrollArea_2->setWidget(scrollAreaWidgetContents_2);
+        pushButton_3 = new QPushButton(mainwindow);
+        pushButton_3->setObjectName("pushButton_3");
+        pushButton_3->setGeometry(QRect(40, 210, 121, 51));
+        pushButton_3->setCheckable(false);
 
         retranslateUi(mainwindow);
 
@@ -65,8 +60,9 @@ public:
     void retranslateUi(QWidget *mainwindow)
     {
         mainwindow->setWindowTitle(QCoreApplication::translate("mainwindow", "mainwindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("mainwindow", "\346\230\276\347\244\272\345\233\276\347\211\207", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("mainwindow", "\351\225\234\345\203\217\345\244\204\347\220\206", nullptr));
+        select_Image->setText(QCoreApplication::translate("mainwindow", "\351\200\211\346\213\251\345\233\276\347\211\207", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("mainwindow", "\350\243\201\345\211\252", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("mainwindow", "\346\230\276\347\244\272\345\216\237\345\233\276", nullptr));
     } // retranslateUi
 
 };

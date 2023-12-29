@@ -4,6 +4,8 @@
 #include <QWidget>
 #include<QLabel>
 #include<QScrollArea>
+#include<QScrollBar>
+#include<QFileDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class mainwindow; }
@@ -23,7 +25,7 @@ private:
     Ui::mainwindow *ui;
 
 private slots:
-    void on_pushButton_clicked();
+    void on_select_Image_clicked();
 };
 
 #endif //QT_DEMO_MAINWINDOW_H
