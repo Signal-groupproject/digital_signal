@@ -154,6 +154,7 @@ qt_demo_autogen/timestamp: \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/x64/mingw/lib/OpenCVConfig.cmake \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/x64/mingw/lib/OpenCVModules-release.cmake \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/x64/mingw/lib/OpenCVModules.cmake \
+  D:/Qt/6.6.1/mingw_64/include/QtCore/QString \
   D:/Qt/6.6.1/mingw_64/include/QtCore/q20functional.h \
   D:/Qt/6.6.1/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.6.1/mingw_64/include/QtCore/q20type_traits.h \
@@ -310,17 +311,13 @@ qt_demo_autogen/timestamp: \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel \
-  D:/Qt/6.6.1/mingw_64/include/QtWidgets/QScrollArea \
-  D:/Qt/6.6.1/mingw_64/include/QtWidgets/QScrollBar \
+  D:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget \
-  D:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-  D:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/qfiledialog.h \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h \
-  D:/Qt/6.6.1/mingw_64/include/QtWidgets/qscrollarea.h \
-  D:/Qt/6.6.1/mingw_64/include/QtWidgets/qscrollbar.h \
+  D:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \

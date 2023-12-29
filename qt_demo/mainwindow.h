@@ -2,12 +2,14 @@
 #define QT_DEMO_MAINWINDOW_H
 
 #include <QWidget>
-#include<QLabel>
-#include<QScrollArea>
-#include<QScrollBar>
-#include<QFileDialog>
-#include<QPainter>
-#include<opencv2/opencv.hpp>
+#include <QFileDialog>
+#include <QPainter>
+#include <QMessageBox>
+#include <QString>
+#include <iostream>
+#include <opencv2/opencv.hpp>
+#define test std::cout<<"This is a test"
+using namespace cv;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class mainwindow; }
@@ -18,19 +20,24 @@ Q_OBJECT
 
 public:
     explicit mainwindow(QWidget *parent = nullptr);
-
     ~mainwindow() override;
 
+    QImage Image_Processing(const QImage&);
+
 private:
-    QLabel *imageLabel;
     Ui::mainwindow *ui;
     cv::Rect selectCropRegion(const cv::Mat& image);
 
 private slots:
-    QImage Image_Processing(const QImage& , QLabel*);
-    void on_Contrast_clicked();//图像对比
+    void on_Contrast_pressed();//图像对比，按钮按下时显示原图
+    void on_Contrast_released();//图像对比，按钮释时显示处理后的图
     void on_Load_Image_clicked();//加载图片
-    void on_Crop_Image_clicked();//裁剪图片
+    void on_Crop_Image_clicked();//裁剪图片 有点难度，先放着
+    void on_horizontalSlider_valueChanged(int value);//角度滑动条变化，图像随着旋转角度变化而变化先放着
+    void on_pushButton1_clicked();//顺时针90°
+    void on_pushButton2_clicked();//逆时针90°
+    void on_pushButton3_clicked();//x轴对称
+    void on_pushButton4_clicked();//y轴对称
 };
 
 #endif //QT_DEMO_MAINWINDOW_H

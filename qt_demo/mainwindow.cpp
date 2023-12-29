@@ -1,17 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <opencv2/opencv.hpp>
-#include <iostream>
-#define test std::cout<<"This is a test"
 
-using namespace cv;
-Mat image;//保存图片之后，内容重新覆盖一次
+//因为得考虑到回退操作，后续使用Mat图像数组存储操作的图片
+//后续在实现保存图片的时候，通过检测按下保存按钮来进行全局变量的覆盖
+Mat image,image_se;//保存图片之后，内容重新覆盖一次
 
 mainwindow::mainwindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::mainwindow) {
     ui->setupUi(this);
-    imageLabel = new QLabel;
     setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);    // 禁止最大化按钮
     setFixedSize(this->width(),this->height());                     // 禁止拖动窗口大小
 
@@ -22,11 +19,11 @@ mainwindow::~mainwindow() {
 }
 
 //图片缩放和居中
-QImage mainwindow::Image_Processing(const QImage& qimage, QLabel* qLabel)
+QImage mainwindow::Image_Processing(const QImage& qimage)
 {
     QSize imageSize = qimage.size();
-    QSize labelSize = qLabel->size();
-    QImage image;
+    QSize labelSize = ui->label_show->size();
+    QImage image_temp;
 
     double dWidthRatio = static_cast<double>(imageSize.width()) / labelSize.width();
     double dHeightRatio = static_cast<double>(imageSize.height()) / labelSize.height();
@@ -34,29 +31,38 @@ QImage mainwindow::Image_Processing(const QImage& qimage, QLabel* qLabel)
     if (dWidthRatio > dHeightRatio)
     {
         int newHeight = static_cast<int>(imageSize.height() / dWidthRatio);
-        image = qimage.scaled(labelSize.width(), newHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        image_temp = qimage.scaled(labelSize.width(), newHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     }
     else
     {
         int newWidth = static_cast<int>(imageSize.width() / dHeightRatio);
-        image = qimage.scaled(newWidth, labelSize.height(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        image_temp = qimage.scaled(newWidth, labelSize.height(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     }
 
-    int xOffset = (labelSize.width() - image.width()) / 2;
-    int yOffset = (labelSize.height() - image.height()) / 2;
+    int xOffset = (labelSize.width() - image_temp.width()) / 2;
+    int yOffset = (labelSize.height() - image_temp.height()) / 2;
 
     QImage processed_image(labelSize, QImage::Format_ARGB32);
     processed_image.fill(Qt::transparent);
 
     QPainter painter(&processed_image);
-    painter.drawImage(QPoint(xOffset, yOffset), image);
+    painter.drawImage(QPoint(xOffset, yOffset), image_temp);
 
     return processed_image;
 }
 
 //图像对比
-void mainwindow::on_Contrast_clicked() {
+//通过调用全局变量实现图像处理前后对比
+void mainwindow::on_Contrast_pressed() {
+    QImage original_image(image.data, image.cols, image.rows, image.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(original_image);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
 
+void mainwindow::on_Contrast_released() {
+    QImage original_image(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(original_image);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
 
 //加载图片
@@ -66,18 +72,20 @@ void mainwindow::on_Load_Image_clicked() {
     if (filePath.isEmpty()) {
         return;
     }
+
     image = imread(filePath.toStdString());
 
     if (image.empty()) {
+        QMessageBox::warning(this, tr("警告"), tr("图片加载失败，请选择一个有效的图片文件。"));
         return;
     }
 
     QImage original_image(image.data, image.cols, image.rows, image.step, QImage::Format_BGR888);
-    QImage processed_image = Image_Processing(original_image, imageLabel);
+    QImage processed_image = Image_Processing(original_image);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
 
-//裁剪图片
+//裁剪图片，先调用opencv库应付一下
 void mainwindow::on_Crop_Image_clicked() {
     if (image.empty()) {
         return;
@@ -90,10 +98,10 @@ void mainwindow::on_Crop_Image_clicked() {
     if (cropRect.width > 0 && cropRect.height > 0) {
         // 执行裁剪
         Mat croppedImage = image(cropRect).clone();
-
+        image_se = croppedImage;
         // 显示裁剪后的图片
         QImage croppedQImage(croppedImage.data, croppedImage.cols, croppedImage.rows, croppedImage.step, QImage::Format_BGR888);
-        QImage processedImage = Image_Processing(croppedQImage, imageLabel);
+        QImage processedImage = Image_Processing(croppedQImage);
         ui->label_show->setPixmap(QPixmap::fromImage(processedImage));
     }
 }
@@ -106,4 +114,29 @@ Rect mainwindow::selectCropRegion(const Mat& image) {
     destroyAllWindows();
 
     return cropRect;
+}
+
+//角度滑动条变化，实时显示角度值
+void mainwindow::on_horizontalSlider_valueChanged(int value) {
+    ui->angle->setText(QString("%1").arg(value));
+}
+
+//顺时针90°
+void mainwindow::on_pushButton1_clicked() {
+
+}
+
+//逆时针90°
+void mainwindow::on_pushButton2_clicked() {
+
+}
+
+//x轴对称
+void mainwindow::on_pushButton3_clicked() {
+
+}
+
+//y轴对称
+void mainwindow::on_pushButton4_clicked() {
+
 }

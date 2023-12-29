@@ -108,6 +108,7 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/video/background_segm.hpp
  mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/video/tracking.hpp
  mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/videoio.hpp
+ mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/QString
  mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/q20functional.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/q20memory.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/q20type_traits.h
@@ -264,17 +265,13 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel
- mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QScrollArea
- mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QScrollBar
+ mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget
- mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractscrollarea.h
- mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qfiledialog.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h
- mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qscrollarea.h
- mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qscrollbar.h
+ mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsexports.h
