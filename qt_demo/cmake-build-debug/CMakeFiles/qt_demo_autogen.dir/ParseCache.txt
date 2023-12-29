@@ -3,6 +3,111 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mmc:Q_OBJECT
  mdp:D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/moc_predefs.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/calib3d.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/affine.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/async.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/base.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/bufferpool.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/check.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cuda.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cuda.inl.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cuda_types.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cv_cpu_dispatch.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cvdef.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cvstd.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cvstd.inl.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cvstd_wrapper.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/fast_math.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/hal/interface.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/mat.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/mat.inl.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/matx.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/neon_utils.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/operations.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/optim.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/ovx.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/persistence.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/saturate.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/traits.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/types.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/utility.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/version.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/vsx_utils.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/dict.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/dnn.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/dnn.inl.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/layer.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/utils/inference_engine.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/version.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/features2d.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/all_indices.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/allocator.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/any.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/autotuned_index.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/composite_index.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/config.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/defines.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/dist.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/dynamic_bitset.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/flann_base.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/general.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/ground_truth.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/heap.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/hierarchical_clustering_index.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/index_testing.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/kdtree_index.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/kdtree_single_index.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/kmeans_index.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/linear_index.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/logger.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/lsh_index.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/lsh_table.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/matrix.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/miniflann.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/nn_index.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/params.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/random.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/result_set.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/sampling.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/saving.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/timer.h
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/highgui.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/imgcodecs.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/imgproc.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/imgproc/segmentation.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/ml.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/ml/ml.inl.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/aruco_board.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/aruco_detector.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/aruco_dictionary.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/barcode.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/charuco_detector.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/detection_based_tracker.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/face.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/graphical_code_detector.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/opencv.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/opencv_modules.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/photo.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/blenders.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/camera.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/exposure_compensate.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/matchers.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/motion_estimators.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/seam_finders.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/util.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/util_inl.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/warpers.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/warpers_inl.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/warpers.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/video.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/video/background_segm.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/video/tracking.hpp
+ mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/videoio.hpp
  mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/q20functional.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/q20memory.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/q20type_traits.h
@@ -126,6 +231,7 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/qvarlengtharray.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtCore/qxptype_traits.h
+ mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/QPainter
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qaction.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qbitmap.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qbrush.h
@@ -138,7 +244,9 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qimage.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qkeysequence.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpaintdevice.h
+ mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpainter.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpalette.h
+ mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpixelformat.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpixmap.h
@@ -147,6 +255,7 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h
+ mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qtguiglobal.h
@@ -197,6 +306,7 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_init_exception.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/enable_special_members.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception.h
@@ -243,10 +353,12 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_abs.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_function.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_mutex.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algo.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algobase.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_construct.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_function.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_heap.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator.h
@@ -255,10 +367,13 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_queue.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_set.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h
@@ -269,17 +384,20 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/string_view.tcc
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stringfwd.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_lock.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cctype
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cerrno
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cfloat
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/climits
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/clocale
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cmath
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/complex
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstddef
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstdint
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstdio
@@ -290,6 +408,7 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwctype
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/assertions.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/debug.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/exception
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/alloc_traits.h
@@ -305,13 +424,16 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iomanip
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iosfwd
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iterator
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/math.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/mutex
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/new
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numeric
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/optional
@@ -320,7 +442,9 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_algorithm_defs.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/queue
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h
@@ -360,10 +484,15 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/emmintrin.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/float.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h
  mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdint.h
+ mdp:D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_mac.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_off_t.h
@@ -400,5 +529,5 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
-D:/Github/digital_signal/qt_demo/mainwindow.cpp
 D:/Github/digital_signal/qt_demo/main.cpp
+D:/Github/digital_signal/qt_demo/mainwindow.cpp

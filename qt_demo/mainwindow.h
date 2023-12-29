@@ -6,6 +6,8 @@
 #include<QScrollArea>
 #include<QScrollBar>
 #include<QFileDialog>
+#include<QPainter>
+#include<opencv2/opencv.hpp>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class mainwindow; }
@@ -20,12 +22,15 @@ public:
     ~mainwindow() override;
 
 private:
-    QScrollArea *scrollArea;
     QLabel *imageLabel;
     Ui::mainwindow *ui;
+    cv::Rect selectCropRegion(const cv::Mat& image);
 
 private slots:
-    void on_select_Image_clicked();
+    QImage Image_Processing(const QImage& , QLabel*);
+    void on_Contrast_clicked();//图像对比
+    void on_Load_Image_clicked();//加载图片
+    void on_Crop_Image_clicked();//裁剪图片
 };
 
 #endif //QT_DEMO_MAINWINDOW_H

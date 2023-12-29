@@ -1,99 +1,24 @@
 qt_demo_autogen/timestamp: \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCCompiler.cmake.in \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCCompilerABI.c \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCInformation.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCXXCompiler.cmake.in \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeCompilerIdDetection.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeDetermineCCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeDetermineCXXCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeDetermineCompileFeatures.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeDetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerABI.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeDetermineCompilerId.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeDetermineRCCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeDetermineSystem.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeFindBinUtils.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeFindDependencyMacro.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeParseImplicitIncludeInfo.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeParseImplicitLinkInfo.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeParseLibraryArchitecture.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeRCCompiler.cmake.in \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeRCInformation.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeSystem.cmake.in \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeTestCCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeTestCXXCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeTestCompilerCommon.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CMakeTestRCCompiler.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CheckCXXCompilerFlag.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CheckCXXSourceCompiles.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CheckIncludeFile.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/CheckLibraryExists.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Borland-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Bruce-C-DetermineCompiler.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Compaq-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Cray-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/GHS-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/GNU-C-DetermineCompiler.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/GNU-C.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/GNU-FindBinUtils.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/HP-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/IAR-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Intel-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/LCC-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/PGI-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/SCO-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/SDCC-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/SunPro-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/TI-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/XL-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/XLClang-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/zOS-C-DetermineCompiler.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/FindPackageMessage.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/FindThreads.cmake \
@@ -102,8 +27,6 @@ qt_demo_autogen/timestamp: \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Internal/CheckCompilerFlag.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Internal/CheckFlagCommonConfig.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Internal/FeatureTesting.cmake \
-  D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Platform/Windows-Determine-CXX.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Platform/Windows-GNU-C-ABI.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Platform/Windows-GNU-C.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
@@ -123,6 +46,111 @@ qt_demo_autogen/timestamp: \
   D:/Github/digital_signal/qt_demo/mainwindow.h \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/OpenCVConfig-version.cmake \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/OpenCVConfig.cmake \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/calib3d.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/affine.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/async.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/base.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/bufferpool.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/check.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cuda.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cuda.inl.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cuda_types.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cv_cpu_dispatch.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cvdef.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cvstd.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cvstd.inl.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/cvstd_wrapper.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/fast_math.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/hal/interface.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/mat.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/mat.inl.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/matx.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/neon_utils.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/operations.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/optim.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/ovx.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/persistence.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/saturate.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/traits.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/types.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/utility.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/version.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core/vsx_utils.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/dict.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/dnn.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/dnn.inl.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/layer.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/utils/inference_engine.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/dnn/version.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/features2d.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/all_indices.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/allocator.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/any.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/autotuned_index.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/composite_index.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/config.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/defines.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/dist.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/dynamic_bitset.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/flann_base.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/general.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/ground_truth.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/heap.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/hierarchical_clustering_index.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/index_testing.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/kdtree_index.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/kdtree_single_index.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/kmeans_index.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/linear_index.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/logger.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/lsh_index.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/lsh_table.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/matrix.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/miniflann.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/nn_index.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/params.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/random.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/result_set.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/sampling.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/saving.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/flann/timer.h \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/highgui.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/imgcodecs.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/imgproc.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/imgproc/segmentation.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/ml.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/ml/ml.inl.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/aruco_board.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/aruco_detector.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/aruco_dictionary.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/barcode.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/charuco_detector.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/detection_based_tracker.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/face.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/objdetect/graphical_code_detector.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/opencv.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/opencv_modules.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/photo.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/blenders.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/camera.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/exposure_compensate.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/matchers.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/motion_estimators.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/seam_finders.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/util.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/util_inl.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/warpers.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/detail/warpers_inl.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/stitching/warpers.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/video.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/video/background_segm.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/video/tracking.hpp \
+  D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/videoio.hpp \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/x64/mingw/lib/OpenCVConfig.cmake \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/x64/mingw/lib/OpenCVModules-release.cmake \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/x64/mingw/lib/OpenCVModules.cmake \
@@ -249,6 +277,7 @@ qt_demo_autogen/timestamp: \
   D:/Qt/6.6.1/mingw_64/include/QtCore/qvarlengtharray.h \
   D:/Qt/6.6.1/mingw_64/include/QtCore/qversiontagging.h \
   D:/Qt/6.6.1/mingw_64/include/QtCore/qxptype_traits.h \
+  D:/Qt/6.6.1/mingw_64/include/QtGui/QPainter \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qaction.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qbitmap.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qbrush.h \
@@ -261,7 +290,9 @@ qt_demo_autogen/timestamp: \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qimage.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qkeysequence.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qpaintdevice.h \
+  D:/Qt/6.6.1/mingw_64/include/QtGui/qpainter.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qpalette.h \
+  D:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qpixelformat.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qpixmap.h \
@@ -270,6 +301,7 @@ qt_demo_autogen/timestamp: \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h \
+  D:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h \
   D:/Qt/6.6.1/mingw_64/include/QtGui/qtguiglobal.h \
@@ -486,6 +518,7 @@ qt_demo_autogen/timestamp: \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_init_exception.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/enable_special_members.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception.h \
@@ -532,10 +565,12 @@ qt_demo_autogen/timestamp: \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_abs.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_function.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_mutex.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algo.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algobase.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_construct.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_function.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_heap.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator.h \
@@ -544,10 +579,13 @@ qt_demo_autogen/timestamp: \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_queue.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_set.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h \
@@ -558,17 +596,20 @@ qt_demo_autogen/timestamp: \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/string_view.tcc \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stringfwd.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_lock.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cctype \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cerrno \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cfloat \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/climits \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/clocale \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cmath \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/complex \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstddef \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstdint \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstdio \
@@ -579,6 +620,7 @@ qt_demo_autogen/timestamp: \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwctype \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/assertions.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/debug.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/exception \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/alloc_traits.h \
@@ -594,13 +636,16 @@ qt_demo_autogen/timestamp: \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iomanip \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iosfwd \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iterator \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/math.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/mutex \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/new \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numeric \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/optional \
@@ -609,7 +654,9 @@ qt_demo_autogen/timestamp: \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_algorithm_defs.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/queue \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h \
@@ -649,10 +696,15 @@ qt_demo_autogen/timestamp: \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/emmintrin.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/float.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
   D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdint.h \
+  D:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h \
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw.h \
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_mac.h \
   D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_off_t.h \
