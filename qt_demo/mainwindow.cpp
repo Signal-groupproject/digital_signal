@@ -5,6 +5,7 @@ Mat original_image,image_now; //初始图片和当前处理图像
 int image_index = -1;
 std::vector<cv::Mat> imageStates;
 int remakeCount = 0;
+int lightAdjustLast = 0;
 
 mainwindow::mainwindow(QWidget *parent) :
     QWidget(parent),
@@ -210,14 +211,13 @@ void mainwindow::on_pushButton4_clicked() {
 //光感调整
 void mainwindow::on_light_perception_valueChanged(int value) {
     ui->angle_2->setText(QString("%1").arg(value));
-    image_now = adjust::light_adjust(original_image,value);
+    image_now = adjust::light_adjust(image_now,value, lightAdjustLast);
+    lightAdjustLast = value;
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
 void mainwindow::on_light_perception_sliderReleased() {
-    if(image_index != -1)
-        imageStates.erase(imageStates.begin()+image_index+1, imageStates.end());
     // 显示当前图像
     update();
 }

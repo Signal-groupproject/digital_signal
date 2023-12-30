@@ -83,7 +83,7 @@ cv::Mat adjust::equalization(const cv::Mat& image)
 }
 
 //光感调整
-cv::Mat adjust::light_adjust(const cv::Mat &image, int value) {
+cv::Mat adjust::light_adjust(const cv::Mat &image, int value, int lastValue) {
     CV_Assert(image.depth() == CV_8U);
 
     cv::Mat result = image.clone();
@@ -96,7 +96,7 @@ cv::Mat adjust::light_adjust(const cv::Mat &image, int value) {
         cols *= rows;
         rows = 1;
     }
-
+    value = value - lastValue;
     for (int i = 0; i < rows; ++i) {
         uchar* p = result.ptr<uchar>(i);
 

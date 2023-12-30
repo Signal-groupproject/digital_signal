@@ -9,7 +9,7 @@
 
 class adjust {
 public:
-    static cv::Mat light_adjust(const cv::Mat& image, int value);
+    static cv::Mat light_adjust(const cv::Mat &image, int value, int lastValue);
     static cv::Mat exposure_adjust(const cv::Mat& image, int value);
     static cv::Mat contrast_adjust(const cv::Mat& image, int value);
     static cv::Mat sharpen_adjust(const cv::Mat& image, int value);
