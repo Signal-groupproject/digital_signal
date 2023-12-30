@@ -48,6 +48,8 @@ private slots:
     void on_color_temperature_valueChanged(int value);//色温滑动条变化
     void on_tone_valueChanged(int value);//色调滑动条变化
     void update(); // 更新图片与显示
+    void on_Withdraw_clicked(); // 撤销操作
+    void on_Remake_clicked(); // 重做操作
     void on_Equalize_clicked(); // 直方图均衡化
     void on_Save_Image_clicked(); // 保存图片
 };

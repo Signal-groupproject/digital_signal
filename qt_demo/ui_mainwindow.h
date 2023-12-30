@@ -42,7 +42,7 @@ public:
     QPushButton *Withdraw;
     QPushButton *Save_Image;
     QCheckBox *checkBox;
-    QPushButton *Withdraw_2;
+    QPushButton *Remake;
     QTabWidget *tabWidget;
     QWidget *tab;
     QLabel *angle_2;
@@ -394,10 +394,10 @@ public:
         checkBox = new QCheckBox(widget);
         checkBox->setObjectName("checkBox");
         checkBox->setGeometry(QRect(400, 490, 79, 20));
-        Withdraw_2 = new QPushButton(widget);
-        Withdraw_2->setObjectName("Withdraw_2");
-        Withdraw_2->setGeometry(QRect(610, 470, 31, 31));
-        Withdraw_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        Remake = new QPushButton(widget);
+        Remake->setObjectName("Remake");
+        Remake->setGeometry(QRect(610, 470, 31, 31));
+        Remake->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
@@ -726,7 +726,7 @@ public:
         Withdraw->setText(QString());
         Save_Image->setText(QCoreApplication::translate("mainwindow", "\344\277\235\345\255\230\345\233\276\347\211\207", nullptr));
         checkBox->setText(QCoreApplication::translate("mainwindow", "\346\260\264\345\215\260", nullptr));
-        Withdraw_2->setText(QString());
+        Remake->setText(QString());
         angle_2->setText(QString());
         label_3->setText(QCoreApplication::translate("mainwindow", "\345\205\211\346\204\237\350\260\203\346\225\264\357\274\232", nullptr));
         label_5->setText(QCoreApplication::translate("mainwindow", "\346\233\235\345\205\211\350\260\203\346\225\264\357\274\232", nullptr));

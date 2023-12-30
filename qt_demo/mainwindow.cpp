@@ -56,6 +56,14 @@ void mainwindow::update() {
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
+// 撤销操作
+void mainwindow::on_Withdraw_clicked() {
+
+}
+// 重做操作
+void mainwindow::on_Remake_clicked() {
+
+}
 
 //图像对比
 //通过调用全局变量实现图像处理前后对比

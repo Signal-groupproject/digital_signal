@@ -552,7 +552,7 @@ QPushButton:checked {
      <string>水印</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Withdraw_2">
+   <widget class="QPushButton" name="Remake">
     <property name="geometry">
      <rect>
       <x>610</x>
