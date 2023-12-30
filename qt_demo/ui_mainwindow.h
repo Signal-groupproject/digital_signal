@@ -15,6 +15,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -37,14 +38,15 @@ public:
     QPushButton *Contrast;
     QLabel *label_show;
     QPushButton *Withdraw;
-    QDockWidget *dockWidget_2;
-    QWidget *dockWidgetContents_2;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QWidget *tab_2;
 
     void setupUi(QWidget *mainwindow)
     {
         if (mainwindow->objectName().isEmpty())
             mainwindow->setObjectName("mainwindow");
-        mainwindow->resize(1131, 752);
+        mainwindow->resize(1133, 752);
         dockWidget = new QDockWidget(mainwindow);
         dockWidget->setObjectName("dockWidget");
         dockWidget->setGeometry(QRect(0, 0, 181, 751));
@@ -149,15 +151,15 @@ public:
 ""));
         pushButton1 = new QPushButton(dockWidgetContents);
         pushButton1->setObjectName("pushButton1");
-        pushButton1->setGeometry(QRect(10, 170, 75, 71));
+        pushButton1->setGeometry(QRect(10, 170, 71, 71));
         pushButton1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "    border-radius: 15px;\n"
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    padding: 5px;\n"
+"	image:url(:/left.svg)\n"
 "}\n"
 "\n"
 "QPushButton:hover,\n"
@@ -183,6 +185,7 @@ public:
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    padding: 5px;\n"
+"    image:url(:/right.svg)\n"
 "}\n"
 "\n"
 "QPushButton:hover,\n"
@@ -208,6 +211,7 @@ public:
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    padding: 5px;\n"
+"	image:url(:/X.svg)\n"
 "}\n"
 "\n"
 "QPushButton:hover,\n"
@@ -233,6 +237,7 @@ public:
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    padding: 5px;\n"
+"	image:url(:/Y.svg)\n"
 "}\n"
 "\n"
 "QPushButton:hover,\n"
@@ -309,16 +314,21 @@ public:
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "}\n"
 ""));
-        dockWidget_2 = new QDockWidget(mainwindow);
-        dockWidget_2->setObjectName("dockWidget_2");
-        dockWidget_2->setGeometry(QRect(950, 0, 181, 751));
-        dockWidget_2->setMinimumSize(QSize(172, 111));
-        dockWidget_2->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 100);"));
-        dockWidgetContents_2 = new QWidget();
-        dockWidgetContents_2->setObjectName("dockWidgetContents_2");
-        dockWidget_2->setWidget(dockWidgetContents_2);
+        tabWidget = new QTabWidget(mainwindow);
+        tabWidget->setObjectName("tabWidget");
+        tabWidget->setGeometry(QRect(950, 0, 181, 761));
+        tabWidget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 100);"));
+        tab = new QWidget();
+        tab->setObjectName("tab");
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName("tab_2");
+        tabWidget->addTab(tab_2, QString());
 
         retranslateUi(mainwindow);
+
+        tabWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(mainwindow);
     } // setupUi
@@ -338,7 +348,8 @@ public:
         Contrast->setText(QString());
         label_show->setText(QString());
         Withdraw->setText(QString());
-        dockWidget_2->setWindowTitle(QCoreApplication::translate("mainwindow", "\345\237\272\346\234\254\350\260\203\346\225\264", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("mainwindow", "\345\237\272\347\241\200\350\260\203\346\225\2641", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("mainwindow", "\345\237\272\347\241\200\350\260\203\346\225\2642", nullptr));
     } // retranslateUi
 
 };

@@ -120,23 +120,33 @@ Rect mainwindow::selectCropRegion(const Mat& image) {
 void mainwindow::on_horizontalSlider_valueChanged(int value) {
     ui->angle->setText(QString("%1").arg(value));
 }
-
 //顺时针90°
 void mainwindow::on_pushButton1_clicked() {
 
 }
-
 //逆时针90°
 void mainwindow::on_pushButton2_clicked() {
 
 }
-
 //x轴对称
 void mainwindow::on_pushButton3_clicked() {
 
 }
-
 //y轴对称
 void mainwindow::on_pushButton4_clicked() {
 
 }
+
+//光感调整
+//亮度调整
+//曝光调整
+//对比度调整
+//曲线调整
+//直方图均衡化
+//饱和度调整
+//曲线调色
+//HSL
+//锐化
+//平滑
+//色温
+//色调

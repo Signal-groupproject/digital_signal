@@ -248,14 +248,12 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpainter.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpalette.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpen.h
- mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpicture.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpixelformat.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpixmap.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qpolygon.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qregion.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qrgb.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qrgba64.h
- mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qtextdocument.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qtextoption.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qtgui-config.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qtguiexports.h
@@ -264,13 +262,10 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog
- mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qfiledialog.h
- mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qframe.h
- mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qlabel.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qmessagebox.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:D:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgets-config.h

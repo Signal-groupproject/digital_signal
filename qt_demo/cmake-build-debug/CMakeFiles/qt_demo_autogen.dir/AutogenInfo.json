@@ -264,15 +264,7 @@
 	"CMAKE_SOURCE_DIR" : "D:/Github/digital_signal/qt_demo",
 	"DEP_FILE" : "D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "qt_demo_autogen/timestamp",
-	"HEADERS" : 
-	[
-		[
-			"D:/Github/digital_signal/qt_demo/mainwindow.h",
-			"Mu",
-			"EWIEGA46WW/moc_mainwindow.cpp",
-			null
-		]
-	],
+	"HEADERS" : [],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/include",
 	"MOC_COMPILATION_FILE" : "D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/mocs_compilation.cpp",
@@ -340,10 +332,6 @@
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 6,
 	"SETTINGS_FILE" : "D:/Github/digital_signal/qt_demo/cmake-build-debug/CMakeFiles/qt_demo_autogen.dir/AutogenUsed.txt",
-	"SOURCES" : 
-	[
-		[ "D:/Github/digital_signal/qt_demo/main.cpp", "Mu", null ],
-		[ "D:/Github/digital_signal/qt_demo/mainwindow.cpp", "Mu", null ]
-	],
+	"SOURCES" : [],
 	"VERBOSITY" : 0
 }

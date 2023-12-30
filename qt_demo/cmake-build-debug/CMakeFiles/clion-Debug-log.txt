@@ -6,5 +6,11 @@
 -- Found OpenCV 4.8.0 in D:/Opencv_4.8.0/opencv/qt_opencv/install/x64/mingw/lib
 -- You might need to add D:\Opencv_4.8.0\opencv\qt_opencv\install\x64\mingw\bin to your PATH to be able to run your applications.
 -- Configuring done
+CMake Error at CMakeLists.txt:21 (add_executable):
+  Cannot find source file:
+
+    icon.qrc
+
+
 -- Generating done
--- Build files have been written to: D:/Github/digital_signal/qt_demo/cmake-build-debug
+CMake Generate step failed.  Build files cannot be regenerated correctly.
