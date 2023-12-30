@@ -210,8 +210,8 @@ void mainwindow::on_pushButton4_clicked() {
 //光感调整
 void mainwindow::on_light_perception_valueChanged(int value) {
     ui->angle_2->setText(QString("%1").arg(value));
-    Mat image_temp = adjust::light_adjust(image_now,value);
-    QImage qImage(image_temp.data, image_temp.cols, image_temp.rows, image_temp.step, QImage::Format_BGR888);
+    image_now = adjust::light_adjust(original_image,value);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
@@ -219,9 +219,8 @@ void mainwindow::on_light_perception_sliderReleased() {
     test;
     if(image_index != -1)
         imageStates.erase(imageStates.begin()+image_index+1, imageStates.end());
-    remakeCount = 0;
-    image_index++;
-    imageStates.push_back(image_now);
+    // 显示当前图像
+    update();
 }
 
 //曝光调整
