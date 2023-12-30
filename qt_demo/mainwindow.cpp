@@ -68,7 +68,7 @@ void mainwindow::on_Contrast_released() {
 
 //加载图片
 void mainwindow::on_Load_Image_clicked() {
-    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "D:/", tr("Images (*.png *.jpg *.bmp *.tif)"));
+    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "F:\\", tr("Images (*.png *.jpg *.bmp *.tif)"));
 
     if (filePath.isEmpty()) {
         return;
@@ -132,11 +132,9 @@ void mainwindow::on_pushButton2_clicked() {
 // x轴对称
 void mainwindow::on_pushButton3_clicked() {
     // 对图像进行x轴对称操作
-    cv::Mat xSymmetryImage = Symmetry::xSymmetry(image);
-    image_se = xSymmetryImage;
-
+    image_se = Symmetry::xSymmetry(image);
     // 显示对称后的图像
-    QImage qImage = QImage(xSymmetryImage.data, xSymmetryImage.cols, xSymmetryImage.rows, xSymmetryImage.step, QImage::Format_RGB888);
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
     QImage processImage = Image_Processing((qImage));
     ui->label_show->setPixmap(QPixmap::fromImage(processImage));
 }
@@ -144,11 +142,9 @@ void mainwindow::on_pushButton3_clicked() {
 // y轴对称
 void mainwindow::on_pushButton4_clicked() {
     // 对图像进行y轴对称操作
-    cv::Mat ySymmetryImage = Symmetry::ySymmetry(image);
-    image_se = ySymmetryImage;
-
+    image_se = Symmetry::ySymmetry(image);
     // 显示对称后的图像
-    QImage qImage = QImage(ySymmetryImage.data, ySymmetryImage.cols, ySymmetryImage.rows, ySymmetryImage.step, QImage::Format_RGB888);
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
     QImage processImage = Image_Processing((qImage));
     ui->label_show->setPixmap(QPixmap::fromImage(processImage));
 }
