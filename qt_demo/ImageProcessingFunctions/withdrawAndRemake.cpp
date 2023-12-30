@@ -5,11 +5,11 @@
 #include "withdrawAndRemake.h"
 
 // 撤销操作
-cv::Mat UpdateImage::UpdateImage::withdraw(const cv::Mat& image){
+cv::Mat WithdrawAndRemake::withdraw(const cv::Mat& image){
 
 }
 
 // 重做操作
-cv::Mat UpdateImage::remake(const cv::Mat& image) {
+cv::Mat WithdrawAndRemake::remake(const cv::Mat& image) {
 
 }
