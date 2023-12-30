@@ -6,11 +6,59 @@
 
 // 向左旋转90°
 cv::Mat Revolve90::left90(const cv::Mat& image) {
+    cv::Mat result(image.cols, image.rows, image.type());
 
+    int rows = image.rows;
+    int cols = image.cols;
+
+    int channels = image.channels();
+
+    // 分别对每行的数据进行旋转
+    if (channels == 1) {
+        // 灰度图像处理逻辑
+        for (int y = 0; y < rows; y++) {
+            for (int x = 0; x < cols; x++) {
+                result.at<uchar>(cols - x - 1, y) = image.at<uchar>(y, x);
+            }
+        }
+    } else if (channels == 3) {
+        // 彩色图像处理逻辑
+        for (int y = 0; y < rows; y++) {
+            for (int x = 0; x < cols; x++) {
+                result.at<cv::Vec3b>(cols - x - 1, y) = image.at<cv::Vec3b>(y, x);
+            }
+        }
+    }
+
+    return result;
 }
 // 向右旋转90°
 cv::Mat Revolve90::right90(const cv::Mat& image) {
+    cv::Mat result(image.cols, image.rows, image.type());
 
+    int rows = image.rows;
+    int cols = image.cols;
+
+    int channels = image.channels();
+
+    // 分别对每行的数据进行旋转
+    if (channels == 1) {
+        // 灰度图像处理逻辑
+        for (int y = 0; y < rows; y++) {
+            for (int x = 0; x < cols; x++) {
+                result.at<uchar>(x, rows - y - 1) = image.at<uchar>(y, x);
+            }
+        }
+    } else if (channels == 3) {
+        // 彩色图像处理逻辑
+        for (int y = 0; y < rows; y++) {
+            for (int x = 0; x < cols; x++) {
+                result.at<cv::Vec3b>(x, rows - y - 1) = image.at<cv::Vec3b>(y, x);
+            }
+        }
+    }
+
+    return result;
 }
 
 // X 对称实现

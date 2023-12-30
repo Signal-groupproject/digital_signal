@@ -121,14 +121,23 @@ Rect mainwindow::selectCropRegion(const Mat& image) {
 void mainwindow::on_horizontalSlider_valueChanged(int value) {
     ui->angle->setText(QString("%1").arg(value));
 }
-//顺时针90°
+// 向右旋转90°
 void mainwindow::on_pushButton1_clicked() {
-
+    image_se = Revolve90::left90(image);
+    // 显示对称后的图像
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
 }
-//逆时针90°
+// 向左旋转90°
 void mainwindow::on_pushButton2_clicked() {
-
+    image_se = Revolve90::right90(image);
+    // 显示对称后的图像
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
 }
+
 // x轴对称
 void mainwindow::on_pushButton3_clicked() {
     // 对图像进行x轴对称操作
