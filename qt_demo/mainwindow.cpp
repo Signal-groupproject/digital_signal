@@ -1,10 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
-//因为得考虑到回退操作，后续使用Mat图像数组存储操作的图片
-//后续在实现保存图片的时候，通过检测按下保存按钮来进行全局变量的覆盖
-Mat image,image_se;//保存图片之后，内容重新覆盖一次
+Mat original_image,image_now; //初始图片和当前处理图像
 
 mainwindow::mainwindow(QWidget *parent) :
     QWidget(parent),
@@ -51,40 +48,47 @@ QImage mainwindow::Image_Processing(const QImage& qimage)
 
     return processed_image;
 }
+// 每当对图像进行一次操作，将其更新在存储数组中，并重新显示
+void mainwindow::update() {
+    imageStates.push_back(image_now);
+    // 显示当前图像
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
 
 //图像对比
 //通过调用全局变量实现图像处理前后对比
 void mainwindow::on_Contrast_pressed() {
-    QImage original_image(image.data, image.cols, image.rows, image.step, QImage::Format_BGR888);
-    QImage processed_image = Image_Processing(original_image);
+    QImage qImage(original_image.data, original_image.cols, original_image.rows, original_image.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
-
 void mainwindow::on_Contrast_released() {
-    QImage original_image(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processed_image = Image_Processing(original_image);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
 
 //加载图片
 void mainwindow::on_Load_Image_clicked() {
-    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "D:/", tr("Images (*.png *.jpg *.bmp *.tif)"));
+    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "D:/",
+                                                    tr("Images (*.png *.jpg *.bmp *.tif)"));
 
     if (filePath.isEmpty()) {
         return;
     }
 
-    image = imread(filePath.toStdString());
+    original_image = imread(filePath.toStdString());
 
-    if (image.empty()) {
+    if (original_image.empty()) {
         QMessageBox::warning(this, tr("警告"), tr("图片加载失败，请选择一个有效的图片文件。"));
         return;
     }
-
-    QImage original_image(image.data, image.cols, image.rows, image.step, QImage::Format_BGR888);
-    QImage processed_image = Image_Processing(original_image);
-    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+    image_now = original_image;
+    update();
 }
+
 // 保存图片
 void mainwindow::on_Save_Image_clicked()
 {
@@ -95,7 +99,7 @@ void mainwindow::on_Save_Image_clicked()
         std::string savePathStr = savePath.toStdString();
 
         // 保存图像
-        bool success = cv::imwrite(savePathStr, image_se);
+        bool success = cv::imwrite(savePathStr, image_now);
 
         // 显示保存结果弹窗
         if (success) {
@@ -109,22 +113,20 @@ void mainwindow::on_Save_Image_clicked()
 
 //裁剪图片，先调用opencv库应付一下
 void mainwindow::on_Crop_Image_clicked() {
-    if (image.empty()) {
+    if (image_now.empty()) {
         return;
     }
 
     // 提示用户选择裁剪区域
-    Rect cropRect = selectCropRegion(image);
+    Rect cropRect = selectCropRegion(image_now);
 
     // 检查是否选择了有效的裁剪区域
     if (cropRect.width > 0 && cropRect.height > 0) {
         // 执行裁剪
-        Mat croppedImage = image(cropRect).clone();
-        image_se = croppedImage;
-        // 显示裁剪后的图片
-        QImage croppedQImage(croppedImage.data, croppedImage.cols, croppedImage.rows, croppedImage.step, QImage::Format_BGR888);
-        QImage processedImage = Image_Processing(croppedQImage);
-        ui->label_show->setPixmap(QPixmap::fromImage(processedImage));
+        Mat croppedImage = image_now(cropRect).clone();
+        image_now = croppedImage;
+        // 显示当前图像
+        update();
     }
 }
 
@@ -144,66 +146,55 @@ void mainwindow::on_horizontalSlider_valueChanged(int value) {
 }
 // 向右旋转90°
 void mainwindow::on_pushButton1_clicked() {
-    image_se = Revolve90::left90(image);
-    // 显示对称后的图像
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = Revolve90::left90(image_now);
+    // 显示当前图像
+    update();
 }
 // 向左旋转90°
 void mainwindow::on_pushButton2_clicked() {
-    image_se = Revolve90::right90(image);
-    // 显示对称后的图像
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = Revolve90::right90(image_now);
+    // 显示当前图像
+    update();
 }
 
 // x轴对称
 void mainwindow::on_pushButton3_clicked() {
     // 对图像进行x轴对称操作
-    image_se = Symmetry::xSymmetry(image);
-    // 显示对称后的图像
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = Symmetry::xSymmetry(image_now);
+    // 显示当前图像
+    update();
 }
 
 // y轴对称
 void mainwindow::on_pushButton4_clicked() {
     // 对图像进行y轴对称操作
-    image_se = Symmetry::ySymmetry(image);
-    // 显示对称后的图像
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = Symmetry::ySymmetry(image_now);
+    // 显示当前图像
+    update();
 }
 
 //光感调整
 void mainwindow::on_light_perception_valueChanged(int value) {
     ui->angle_2->setText(QString("%1").arg(value));
-    image_se = adjust::light_adjust(image,value);
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = adjust::light_adjust(image_now,value);
+    // 显示当前图像
+    update();
 }
 
 //曝光调整
 void mainwindow::on_exposure_valueChanged(int value) {
     ui->angle_4->setText(QString("%1").arg(value));
-    image_se = adjust::exposure_adjust(image,value);
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = adjust::exposure_adjust(image_now,value);
+    // 显示当前图像
+    update();
 }
 
 //对比度调整
 void mainwindow::on_contrast_ratio_valueChanged(int value) {
     ui->angle_5->setText(QString("%1").arg(value));
-    image_se = adjust::contrast_adjust(image,value);
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = adjust::contrast_adjust(image_now,value);
+    // 显示当前图像
+    update();
 }
 
 //曲线调整
@@ -211,11 +202,9 @@ void mainwindow::on_contrast_ratio_valueChanged(int value) {
 //直方图均衡化
 void mainwindow::on_Equalize_clicked() {
     // 对图像进行y轴对称操作
-    image_se = adjust::equalization(image);
-    // 显示对称后的图像
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = adjust::equalization(image_now);
+    // 显示当前图像
+    update();
 }
 //饱和度调整
 //曲线调色
@@ -223,26 +212,23 @@ void mainwindow::on_Equalize_clicked() {
 //锐化
 void mainwindow::on_sharpening_valueChanged(int value) {
     ui->angle_6->setText(QString("%1").arg(value));
-    image_se = adjust::sharpen_adjust(image,value);
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = adjust::sharpen_adjust(image_now,value);
+    // 显示当前图像
+    update();
 }
 
 //色温
 void mainwindow::on_color_temperature_valueChanged(int value) {
     ui->angle_7->setText(QString("%1").arg(value));
-    image_se = adjust::cot_adjust(image,value);
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = adjust::cot_adjust(image_now,value);
+    // 显示当前图像
+    update();
 }
 
 //色调
 void mainwindow::on_tone_valueChanged(int value) {
     ui->angle_8->setText(QString("%1").arg(value));
-    image_se = adjust::tone_adjust(image,value);
-    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
-    QImage processImage = Image_Processing((qImage));
-    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+    image_now = adjust::tone_adjust(image_now,value);
+    // 显示当前图像
+    update();
 }

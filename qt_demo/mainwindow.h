@@ -10,6 +10,7 @@
 #include <opencv2/opencv.hpp>
 #include "ImageProcessingFunctions/revolve.h"
 #include "ImageProcessingFunctions/adjust.h"
+#include "ImageProcessingFunctions/withdrawAndRemake.h"
 #define test std::cout<<"This is a test"
 using namespace cv;
 
@@ -46,7 +47,7 @@ private slots:
     void on_sharpening_valueChanged(int value);//锐化滑动条变化
     void on_color_temperature_valueChanged(int value);//色温滑动条变化
     void on_tone_valueChanged(int value);//色调滑动条变化
-
+    void update(); // 更新图片与显示
     void on_Equalize_clicked(); // 直方图均衡化
     void on_Save_Image_clicked(); // 保存图片
 };
