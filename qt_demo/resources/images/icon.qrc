@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>X.ico</file>
+        <file>Y.ico</file>
+        <file>逆时针.ico</file>
+        <file>顺时针.ico</file>
+    </qresource>
+</RCC>
