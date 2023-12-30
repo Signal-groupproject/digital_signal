@@ -41,6 +41,7 @@ private slots:
     void on_pushButton3_clicked();//x轴对称
     void on_pushButton4_clicked();//y轴对称
     void on_light_perception_valueChanged(int value);//光感滑动条变化
+    void on_light_perception_sliderReleased();
     void on_exposure_valueChanged(int value);//曝光滑动条变化
     void on_contrast_ratio_valueChanged(int value);//对比度滑动条变化
     void on_sharpening_valueChanged(int value);//锐化滑动条变化
