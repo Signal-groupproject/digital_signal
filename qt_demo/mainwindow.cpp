@@ -85,6 +85,27 @@ void mainwindow::on_Load_Image_clicked() {
     QImage processed_image = Image_Processing(original_image);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
+// 保存图片
+void mainwindow::on_Save_Image_clicked()
+{
+    QString savePath = QFileDialog::getSaveFileName(nullptr, "保存图像", "", "图像文件 (*.png *.jpg *.bmp)");
+
+    if (!savePath.isEmpty()) {
+        // 将QString转换为std::string
+        std::string savePathStr = savePath.toStdString();
+
+        // 保存图像
+        bool success = cv::imwrite(savePathStr, image_se);
+
+        // 显示保存结果弹窗
+        if (success) {
+            QMessageBox::information(nullptr, "保存结果", "保存成功");
+        }
+        else {
+            QMessageBox::critical(nullptr, "保存结果", "保存失败");
+        }
+    }
+}
 
 //裁剪图片，先调用opencv库应付一下
 void mainwindow::on_Crop_Image_clicked() {
@@ -121,14 +142,23 @@ Rect mainwindow::selectCropRegion(const Mat& image) {
 void mainwindow::on_horizontalSlider_valueChanged(int value) {
     ui->angle->setText(QString("%1").arg(value));
 }
-//顺时针90°
+// 向右旋转90°
 void mainwindow::on_pushButton1_clicked() {
-
+    image_se = Revolve90::left90(image);
+    // 显示对称后的图像
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
 }
-//逆时针90°
+// 向左旋转90°
 void mainwindow::on_pushButton2_clicked() {
-
+    image_se = Revolve90::right90(image);
+    // 显示对称后的图像
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
 }
+
 // x轴对称
 void mainwindow::on_pushButton3_clicked() {
     // 对图像进行x轴对称操作
@@ -177,7 +207,16 @@ void mainwindow::on_contrast_ratio_valueChanged(int value) {
 }
 
 //曲线调整
+
 //直方图均衡化
+void mainwindow::on_Equalize_clicked() {
+    // 对图像进行y轴对称操作
+    image_se = histogramEqualization::equalization(image);
+    // 显示对称后的图像
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+}
 //饱和度调整
 //曲线调色
 //HSL

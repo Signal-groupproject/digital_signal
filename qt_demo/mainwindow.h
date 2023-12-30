@@ -10,6 +10,7 @@
 #include <opencv2/opencv.hpp>
 #include "ImageProcessingFunctions/revolve.h"
 #include "ImageProcessingFunctions/adjust.h"
+#include "ImageProcessingFunctions/histogramEqualization.h"
 #define test std::cout<<"This is a test"
 using namespace cv;
 
@@ -47,6 +48,8 @@ private slots:
     void on_color_temperature_valueChanged(int value);//色温滑动条变化
     void on_tone_valueChanged(int value);//色调滑动条变化
 
+    void on_Equalize_clicked(); // 直方图均衡化
+    void on_Save_Image_clicked(); // 保存图片
 };
 
 #endif //QT_DEMO_MAINWINDOW_H

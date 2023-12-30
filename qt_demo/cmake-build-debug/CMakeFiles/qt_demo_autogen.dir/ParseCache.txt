@@ -4,6 +4,7 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/moc_predefs.h
  mdp:D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.h
+ mdp:D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/histogramEqualization.h
  mdp:D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h
  mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/calib3d.hpp
  mdp:D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core.hpp
@@ -523,9 +524,11 @@ D:/Github/digital_signal/qt_demo/mainwindow.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
-D:/Github/digital_signal/qt_demo/main.cpp
 D:/Github/digital_signal/qt_demo/mainwindow.cpp
+D:/Github/digital_signal/qt_demo/main.cpp
 D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h
 D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.h
+D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/histogramEqualization.h
 D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.cpp
 D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.cpp
+D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/histogramEqualization.cpp
