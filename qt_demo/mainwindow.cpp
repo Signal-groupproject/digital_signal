@@ -216,7 +216,6 @@ void mainwindow::on_light_perception_valueChanged(int value) {
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
 void mainwindow::on_light_perception_sliderReleased() {
-    test;
     if(image_index != -1)
         imageStates.erase(imageStates.begin()+image_index+1, imageStates.end());
     // 显示当前图像
