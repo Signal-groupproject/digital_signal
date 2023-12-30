@@ -85,6 +85,27 @@ void mainwindow::on_Load_Image_clicked() {
     QImage processed_image = Image_Processing(original_image);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
+// 保存图片
+void mainwindow::on_Save_Image_clicked()
+{
+    QString savePath = QFileDialog::getSaveFileName(nullptr, "保存图像", "", "图像文件 (*.png *.jpg *.bmp)");
+
+    if (!savePath.isEmpty()) {
+        // 将QString转换为std::string
+        std::string savePathStr = savePath.toStdString();
+
+        // 保存图像
+        bool success = cv::imwrite(savePathStr, image_se);
+
+        // 显示保存结果弹窗
+        if (success) {
+            QMessageBox::information(nullptr, "保存结果", "保存成功");
+        }
+        else {
+            QMessageBox::critical(nullptr, "保存结果", "保存失败");
+        }
+    }
+}
 
 //裁剪图片，先调用opencv库应付一下
 void mainwindow::on_Crop_Image_clicked() {

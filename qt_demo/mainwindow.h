@@ -40,7 +40,8 @@ private slots:
     void on_pushButton2_clicked();//逆时针90°
     void on_pushButton3_clicked();//x轴对称
     void on_pushButton4_clicked();//y轴对称
-    void on_Equalize_clicked();
+    void on_Equalize_clicked(); // 直方图均衡化
+    void on_Save_Image_clicked(); // 保存图片
 };
 
 #endif //QT_DEMO_MAINWINDOW_H
