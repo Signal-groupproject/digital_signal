@@ -67,13 +67,18 @@ void mainwindow::update() {
 }
 // 撤销操作
 void mainwindow::on_Withdraw_clicked() {
-    remakeCount++;
-    image_index--;
-    image_now = imageStates[image_index];
-    // 显示当前图像
-    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
-    QImage processed_image = Image_Processing(qImage);
-    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+    if(image_index > 0){
+        remakeCount++;
+        image_index--;
+        image_now = imageStates[image_index];
+        // 显示当前图像
+        QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+        QImage processed_image = Image_Processing(qImage);
+        ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+    }else{
+
+    }
+
 }
 // 重做操作
 void mainwindow::on_Remake_clicked() {

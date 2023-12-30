@@ -273,12 +273,6 @@
 			null
 		],
 		[
-			"D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/histogramEqualization.h",
-			"Mu",
-			"SDMPEJRWFU/moc_histogramEqualization.cpp",
-			null
-		],
-		[
 			"D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h",
 			"Mu",
 			"SDMPEJRWFU/moc_revolve.cpp",
@@ -362,11 +356,6 @@
 	[
 		[
 			"D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.cpp",
-			"Mu",
-			null
-		],
-		[
-			"D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/histogramEqualization.cpp",
 			"Mu",
 			null
 		],

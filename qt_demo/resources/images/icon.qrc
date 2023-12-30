@@ -4,5 +4,7 @@
         <file>right.svg</file>
         <file>X.svg</file>
         <file>Y.svg</file>
+        <file>1.png</file>
+        <file>2.png</file>
     </qresource>
 </RCC>

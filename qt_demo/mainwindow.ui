@@ -29,7 +29,7 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255, 100);</string>
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="windowTitle">
     <string>工具箱</string>
@@ -212,11 +212,11 @@ background-color:rgba(255,255,255,0);
       <string notr="true">QPushButton {
     color: #FFFFFF;
     background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
-    border-radius: 15px;
+    border-radius: 20px;
     border-style: solid;
     border-width: 2px;
     padding: 5px;
-	image:url(:/left.svg)
+	image:url(:/1.png)
 }
 
 QPushButton:hover,
@@ -234,6 +234,12 @@ QPushButton:checked {
      </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton2">
@@ -254,7 +260,7 @@ QPushButton:checked {
     border-style: solid;
     border-width: 2px;
     padding: 5px;
-    image:url(:/right.svg)
+    image:url(:/2.png)
 }
 
 QPushButton:hover,
@@ -600,7 +606,7 @@ QPushButton:checked {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255, 100);</string>
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="currentIndex">
     <number>0</number>

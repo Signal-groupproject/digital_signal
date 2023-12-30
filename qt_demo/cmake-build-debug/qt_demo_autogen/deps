@@ -38,8 +38,6 @@ qt_demo_autogen/timestamp: \
 	D:/Github/digital_signal/qt_demo/CMakeLists.txt \
 	D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.cpp \
 	D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.h \
-	D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/histogramEqualization.cpp \
-	D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/histogramEqualization.h \
 	D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.cpp \
 	D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h \
 	D:/Github/digital_signal/qt_demo/cmake-build-debug/CMakeFiles/3.25.2/CMakeCCompiler.cmake \

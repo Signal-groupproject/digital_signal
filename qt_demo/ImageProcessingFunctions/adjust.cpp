@@ -45,7 +45,7 @@ cv::Mat adjust::equalization(const cv::Mat& image)
             }
         }
     }
-        // 彩色图像处理逻辑
+    // 彩色图像处理逻辑
     else {
         std::vector<cv::Mat> channels;
         cv::split(image, channels);

@@ -74,7 +74,7 @@ public:
         dockWidget->setObjectName("dockWidget");
         dockWidget->setGeometry(QRect(0, 0, 181, 751));
         dockWidget->setMinimumSize(QSize(172, 111));
-        dockWidget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 100);"));
+        dockWidget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);"));
         dockWidgetContents = new QWidget();
         dockWidgetContents->setObjectName("dockWidgetContents");
         Load_Image = new QPushButton(dockWidgetContents);
@@ -180,11 +180,11 @@ public:
         pushButton1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    color: #FFFFFF;\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"    border-radius: 15px;\n"
+"    border-radius: 20px;\n"
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    padding: 5px;\n"
-"	image:url(:/left.svg)\n"
+"	image:url(:/1.png)\n"
 "}\n"
 "\n"
 "QPushButton:hover,\n"
@@ -199,6 +199,7 @@ public:
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "}\n"
 ""));
+        pushButton1->setIconSize(QSize(32, 32));
         pushButton2 = new QPushButton(dockWidgetContents);
         pushButton2->setObjectName("pushButton2");
         pushButton2->setGeometry(QRect(100, 170, 75, 71));
@@ -210,7 +211,7 @@ public:
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    padding: 5px;\n"
-"    image:url(:/right.svg)\n"
+"    image:url(:/2.png)\n"
 "}\n"
 "\n"
 "QPushButton:hover,\n"
@@ -422,7 +423,7 @@ public:
         tabWidget = new QTabWidget(mainwindow);
         tabWidget->setObjectName("tabWidget");
         tabWidget->setGeometry(QRect(950, 0, 181, 761));
-        tabWidget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 100);"));
+        tabWidget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);"));
         tab = new QWidget();
         tab->setObjectName("tab");
         angle_2 = new QLabel(tab);

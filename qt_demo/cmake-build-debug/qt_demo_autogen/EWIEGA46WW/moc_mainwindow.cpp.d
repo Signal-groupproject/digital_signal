@@ -1,7 +1,6 @@
 D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/EWIEGA46WW/moc_mainwindow.cpp: D:/Github/digital_signal/qt_demo/mainwindow.h \
   D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/moc_predefs.h \
   D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.h \
-  D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/histogramEqualization.h \
   D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/calib3d.hpp \
   D:/Opencv_4.8.0/opencv/qt_opencv/install/include/opencv2/core.hpp \
