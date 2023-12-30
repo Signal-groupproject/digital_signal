@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 
 Mat original_image,image_now; //初始图片和当前处理图像
+int image_index = -1;
+std::vector<cv::Mat> imageStates;
+int remakeCount = 0;
 
 mainwindow::mainwindow(QWidget *parent) :
     QWidget(parent),
@@ -50,7 +53,13 @@ QImage mainwindow::Image_Processing(const QImage& qimage)
 }
 // 每当对图像进行一次操作，将其更新在存储数组中，并重新显示
 void mainwindow::update() {
+    // 当进行一个新操作时，删除当前图片位置以后所有图片状态，然后再更新当前图片进去
+    if(image_index != -1)
+    imageStates.erase(imageStates.begin()+image_index+1, imageStates.end());
+    remakeCount = 0;
+    image_index++;
     imageStates.push_back(image_now);
+
     // 显示当前图像
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     QImage processed_image = Image_Processing(qImage);
@@ -58,11 +67,25 @@ void mainwindow::update() {
 }
 // 撤销操作
 void mainwindow::on_Withdraw_clicked() {
-
+    remakeCount++;
+    image_index--;
+    image_now = imageStates[image_index];
+    // 显示当前图像
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
 // 重做操作
 void mainwindow::on_Remake_clicked() {
-
+    if(remakeCount && image_index < imageStates.size())
+    {
+        image_index++;
+        image_now = imageStates[image_index];
+        // 显示当前图像
+        QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+        QImage processed_image = Image_Processing(qImage);
+        ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+    }
 }
 
 //图像对比
@@ -82,17 +105,17 @@ void mainwindow::on_Contrast_released() {
 void mainwindow::on_Load_Image_clicked() {
     QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "D:/",
                                                     tr("Images (*.png *.jpg *.bmp *.tif)"));
-
     if (filePath.isEmpty()) {
         return;
     }
-
+    // 更新初始图片、当前图片和图片状态存储
     original_image = imread(filePath.toStdString());
-
     if (original_image.empty()) {
         QMessageBox::warning(this, tr("警告"), tr("图片加载失败，请选择一个有效的图片文件。"));
         return;
     }
+    imageStates.clear();
+    image_index = -1;
     image_now = original_image;
     update();
 }
