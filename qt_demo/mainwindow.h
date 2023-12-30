@@ -8,6 +8,7 @@
 #include <QString>
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include "ImageProcessingFunctions/revolve.h"
 #define test std::cout<<"This is a test"
 using namespace cv;
 

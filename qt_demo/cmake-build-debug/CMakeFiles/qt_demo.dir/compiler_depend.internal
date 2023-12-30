@@ -543,6 +543,7 @@ CMakeFiles/qt_demo.dir/main.cpp.obj
  F:/opencv4.8.0/opencv/opencv-build/install/include/opencv2/video/background_segm.hpp
  F:/opencv4.8.0/opencv/opencv-build/install/include/opencv2/video/tracking.hpp
  F:/opencv4.8.0/opencv/opencv-build/install/include/opencv2/videoio.hpp
+ F:/Qt/Repositories/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h
  F:/Qt/Repositories/digital_signal/qt_demo/mainwindow.h
 
 CMakeFiles/qt_demo.dir/mainwindow.cpp.obj
@@ -718,6 +719,7 @@ CMakeFiles/qt_demo.dir/mainwindow.cpp.obj
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/QMessageBox
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/QPushButton
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/QSlider
+ F:/Qt/6.6.1/mingw_64/include/QtWidgets/QTabWidget
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/QWidget
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractbutton.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h
@@ -731,6 +733,7 @@ CMakeFiles/qt_demo.dir/mainwindow.cpp.obj
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qpushbutton.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qsizepolicy.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qslider.h
+ F:/Qt/6.6.1/mingw_64/include/QtWidgets/qtabwidget.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgets-config.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsexports.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h
@@ -1101,6 +1104,7 @@ CMakeFiles/qt_demo.dir/mainwindow.cpp.obj
  F:/opencv4.8.0/opencv/opencv-build/install/include/opencv2/video/background_segm.hpp
  F:/opencv4.8.0/opencv/opencv-build/install/include/opencv2/video/tracking.hpp
  F:/opencv4.8.0/opencv/opencv-build/install/include/opencv2/videoio.hpp
+ F:/Qt/Repositories/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h
  F:/Qt/Repositories/digital_signal/qt_demo/mainwindow.h
  F:/Qt/Repositories/digital_signal/qt_demo/ui_mainwindow.h
 
@@ -1271,6 +1275,7 @@ CMakeFiles/qt_demo.dir/qt_demo_autogen/mocs_compilation.cpp.obj
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsexports.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qwidget.h
+ F:/Qt/Repositories/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h
  F:/Qt/Repositories/digital_signal/qt_demo/mainwindow.h
  F:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/limits.h
  F:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/syslimits.h

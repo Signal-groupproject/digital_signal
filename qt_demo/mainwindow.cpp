@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 //因为得考虑到回退操作，后续使用Mat图像数组存储操作的图片
 //后续在实现保存图片的时候，通过检测按下保存按钮来进行全局变量的覆盖
 Mat image,image_se;//保存图片之后，内容重新覆盖一次
@@ -128,13 +129,28 @@ void mainwindow::on_pushButton1_clicked() {
 void mainwindow::on_pushButton2_clicked() {
 
 }
-//x轴对称
+// x轴对称
 void mainwindow::on_pushButton3_clicked() {
+    // 对图像进行x轴对称操作
+    cv::Mat xSymmetryImage = Symmetry::xSymmetry(image);
+    image_se = xSymmetryImage;
 
+    // 显示对称后的图像
+    QImage qImage = QImage(xSymmetryImage.data, xSymmetryImage.cols, xSymmetryImage.rows, xSymmetryImage.step, QImage::Format_RGB888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
 }
-//y轴对称
-void mainwindow::on_pushButton4_clicked() {
 
+// y轴对称
+void mainwindow::on_pushButton4_clicked() {
+    // 对图像进行y轴对称操作
+    cv::Mat ySymmetryImage = Symmetry::ySymmetry(image);
+    image_se = ySymmetryImage;
+
+    // 显示对称后的图像
+    QImage qImage = QImage(ySymmetryImage.data, ySymmetryImage.cols, ySymmetryImage.rows, ySymmetryImage.step, QImage::Format_RGB888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
 }
 
 //光感调整
