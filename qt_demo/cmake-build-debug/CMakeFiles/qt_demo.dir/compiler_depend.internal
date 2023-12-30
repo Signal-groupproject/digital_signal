@@ -1066,6 +1066,7 @@ CMakeFiles/qt_demo.dir/mainwindow.cpp.obj
  F:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs.h
  F:/Qt/6.6.1/mingw_64/include/QtGui/qwindowdefs_win.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication
+ F:/Qt/6.6.1/mingw_64/include/QtWidgets/QCheckBox
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/QDockWidget
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/QFileDialog
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/QLabel
@@ -1077,6 +1078,7 @@ CMakeFiles/qt_demo.dir/mainwindow.cpp.obj
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractbutton.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qabstractslider.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qapplication.h
+ F:/Qt/6.6.1/mingw_64/include/QtWidgets/qcheckbox.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qdialog.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qdockwidget.h
  F:/Qt/6.6.1/mingw_64/include/QtWidgets/qfiledialog.h

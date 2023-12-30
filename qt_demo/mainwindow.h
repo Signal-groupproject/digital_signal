@@ -9,6 +9,7 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include "ImageProcessingFunctions/revolve.h"
+#include "ImageProcessingFunctions/histogramEqualization.h"
 #define test std::cout<<"This is a test"
 using namespace cv;
 
@@ -39,6 +40,7 @@ private slots:
     void on_pushButton2_clicked();//逆时针90°
     void on_pushButton3_clicked();//x轴对称
     void on_pushButton4_clicked();//y轴对称
+    void on_Equalize_clicked();
 };
 
 #endif //QT_DEMO_MAINWINDOW_H
