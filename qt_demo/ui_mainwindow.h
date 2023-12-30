@@ -42,6 +42,7 @@ public:
     QPushButton *Withdraw;
     QPushButton *Save_Image;
     QCheckBox *checkBox;
+    QPushButton *Withdraw_2;
     QTabWidget *tabWidget;
     QWidget *tab;
     QLabel *angle_2;
@@ -341,7 +342,7 @@ public:
         label_show->setLineWidth(1);
         Withdraw = new QPushButton(widget);
         Withdraw->setObjectName("Withdraw");
-        Withdraw->setGeometry(QRect(670, 380, 31, 31));
+        Withdraw->setGeometry(QRect(560, 470, 31, 31));
         Withdraw->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
@@ -393,6 +394,31 @@ public:
         checkBox = new QCheckBox(widget);
         checkBox->setObjectName("checkBox");
         checkBox->setGeometry(QRect(400, 490, 79, 20));
+        Withdraw_2 = new QPushButton(widget);
+        Withdraw_2->setObjectName("Withdraw_2");
+        Withdraw_2->setGeometry(QRect(610, 470, 31, 31));
+        Withdraw_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover,\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+"\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+""));
         tabWidget = new QTabWidget(mainwindow);
         tabWidget->setObjectName("tabWidget");
         tabWidget->setGeometry(QRect(950, 0, 181, 761));
@@ -700,6 +726,7 @@ public:
         Withdraw->setText(QString());
         Save_Image->setText(QCoreApplication::translate("mainwindow", "\344\277\235\345\255\230\345\233\276\347\211\207", nullptr));
         checkBox->setText(QCoreApplication::translate("mainwindow", "\346\260\264\345\215\260", nullptr));
+        Withdraw_2->setText(QString());
         angle_2->setText(QString());
         label_3->setText(QCoreApplication::translate("mainwindow", "\345\205\211\346\204\237\350\260\203\346\225\264\357\274\232", nullptr));
         label_5->setText(QCoreApplication::translate("mainwindow", "\346\233\235\345\205\211\350\260\203\346\225\264\357\274\232", nullptr));

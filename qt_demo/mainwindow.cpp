@@ -211,7 +211,7 @@ void mainwindow::on_contrast_ratio_valueChanged(int value) {
 //直方图均衡化
 void mainwindow::on_Equalize_clicked() {
     // 对图像进行y轴对称操作
-    image_se = histogramEqualization::equalization(image);
+    image_se = adjust::equalization(image);
     // 显示对称后的图像
     QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
     QImage processImage = Image_Processing((qImage));
