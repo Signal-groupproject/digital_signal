@@ -2,7 +2,17 @@
 // Created by luokon on 2023/12/30.
 //
 
-#include "symmetry.h"
+#include "revolve.h"
+
+// 向左旋转90°
+cv::Mat Revolve90::left90(const cv::Mat& image) {
+
+}
+// 向右旋转90°
+cv::Mat Revolve90::right90(const cv::Mat& image) {
+
+}
+
 // X 对称实现
 cv::Mat Symmetry::xSymmetry(const cv::Mat& image) {
     cv::Mat result(image.size(), image.type());
