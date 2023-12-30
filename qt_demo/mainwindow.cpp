@@ -68,7 +68,7 @@ void mainwindow::on_Contrast_released() {
 
 //加载图片
 void mainwindow::on_Load_Image_clicked() {
-    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "F:\\", tr("Images (*.png *.jpg *.bmp *.tif)"));
+    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "D:/", tr("Images (*.png *.jpg *.bmp *.tif)"));
 
     if (filePath.isEmpty()) {
         return;
@@ -150,15 +150,60 @@ void mainwindow::on_pushButton4_clicked() {
 }
 
 //光感调整
-//亮度调整
+void mainwindow::on_light_perception_valueChanged(int value) {
+    ui->angle_2->setText(QString("%1").arg(value));
+    image_se = adjust::light_adjust(image,value);
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+}
+
 //曝光调整
+void mainwindow::on_exposure_valueChanged(int value) {
+    ui->angle_4->setText(QString("%1").arg(value));
+    image_se = adjust::exposure_adjust(image,value);
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+}
+
 //对比度调整
+void mainwindow::on_contrast_ratio_valueChanged(int value) {
+    ui->angle_5->setText(QString("%1").arg(value));
+    image_se = adjust::contrast_adjust(image,value);
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+}
+
 //曲线调整
 //直方图均衡化
 //饱和度调整
 //曲线调色
 //HSL
 //锐化
-//平滑
+void mainwindow::on_sharpening_valueChanged(int value) {
+    ui->angle_6->setText(QString("%1").arg(value));
+    image_se = adjust::sharpen_adjust(image,value);
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+}
+
 //色温
+void mainwindow::on_color_temperature_valueChanged(int value) {
+    ui->angle_7->setText(QString("%1").arg(value));
+    image_se = adjust::cot_adjust(image,value);
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+}
+
 //色调
+void mainwindow::on_tone_valueChanged(int value) {
+    ui->angle_8->setText(QString("%1").arg(value));
+    image_se = adjust::tone_adjust(image,value);
+    QImage qImage = QImage(image_se.data, image_se.cols, image_se.rows, image_se.step, QImage::Format_BGR888);
+    QImage processImage = Image_Processing((qImage));
+    ui->label_show->setPixmap(QPixmap::fromImage(processImage));
+}

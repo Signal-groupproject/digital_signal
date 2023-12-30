@@ -36,6 +36,10 @@ qt_demo_autogen/timestamp: \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Platform/Windows.cmake \
   D:/Clion/CLion\ 2023.1.3/bin/cmake/win/x64/share/cmake-3.25/Modules/Platform/WindowsPaths.cmake \
   D:/Github/digital_signal/qt_demo/CMakeLists.txt \
+  D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.cpp \
+  D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.h \
+  D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.cpp \
+  D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h \
   CMakeFiles/3.25.2/CMakeCCompiler.cmake \
   CMakeFiles/3.25.2/CMakeCXXCompiler.cmake \
   CMakeFiles/3.25.2/CMakeRCCompiler.cmake \

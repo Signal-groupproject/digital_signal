@@ -23,15 +23,15 @@
 		"files" : 
 		[
 			"CMakeLists.txt",
-			"F:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessTargets.cmake",
-			"F:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
-			"F:/Qt/6.6.1/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
-			"F:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiVersionlessTargets.cmake",
-			"F:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
-			"F:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreVersionlessTargets.cmake",
-			"F:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
-			"F:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
-			"F:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake"
+			"D:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessTargets.cmake",
+			"D:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
+			"D:/Qt/6.6.1/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
+			"D:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiVersionlessTargets.cmake",
+			"D:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
+			"D:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreVersionlessTargets.cmake",
+			"D:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
+			"D:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
+			"D:/Qt/6.6.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake"
 		],
 		"nodes" : 
 		[
@@ -41,19 +41,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 22,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 26,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 12,
+				"line" : 11,
 				"parent" : 0
 			},
 			{
@@ -173,7 +173,7 @@
 			{
 				"command" : 5,
 				"file" : 0,
-				"line" : 19,
+				"line" : 18,
 				"parent" : 0
 			}
 		]
@@ -233,39 +233,38 @@
 			"includes" : 
 			[
 				{
+					"backtrace" : 0,
+					"path" : "D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/include"
+				},
+				{
 					"backtrace" : 26,
 					"isSystem" : true,
-					"path" : "F:/opencv4.8.0/opencv/opencv-build/install/include"
-				},
-				{
-					"backtrace" : 0,
-					"isSystem" : true,
-					"path" : "F:/Qt/Repositories/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/include"
+					"path" : "D:/Opencv_4.8.0/opencv/qt_opencv/install/include"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "F:/Qt/6.6.1/mingw_64/include/QtCore"
+					"path" : "D:/Qt/6.6.1/mingw_64/include/QtCore"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "F:/Qt/6.6.1/mingw_64/include"
+					"path" : "D:/Qt/6.6.1/mingw_64/include"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "F:/Qt/6.6.1/mingw_64/mkspecs/win32-g++"
+					"path" : "D:/Qt/6.6.1/mingw_64/mkspecs/win32-g++"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "F:/Qt/6.6.1/mingw_64/include/QtGui"
+					"path" : "D:/Qt/6.6.1/mingw_64/include/QtGui"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "F:/Qt/6.6.1/mingw_64/include/QtWidgets"
+					"path" : "D:/Qt/6.6.1/mingw_64/include/QtWidgets"
 				}
 			],
 			"language" : "CXX",
@@ -284,12 +283,16 @@
 				0,
 				1,
 				2,
-				5
+				5,
+				6
 			]
 		}
 	],
 	"dependencies" : 
 	[
+		{
+			"id" : "qt_demo_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+		},
 		{
 			"backtrace" : 0,
 			"id" : "qt_demo_autogen::@6890427a1f51a3e7e1df"
@@ -310,57 +313,62 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_gapi480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_gapi480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_highgui480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_highgui480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_ml480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_ml480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_objdetect480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_objdetect480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_photo480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_photo480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_stitching480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_stitching480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_video480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_video480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_videoio480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_videoio480.dll.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_imgcodecs480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 9,
-				"fragment" : "F:\\Qt\\6.6.1\\mingw_64\\lib\\libQt6Widgets.a",
+				"fragment" : "D:\\Qt\\6.6.1\\mingw_64\\lib\\libQt6Widgets.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 14,
-				"fragment" : "F:\\Qt\\6.6.1\\mingw_64\\lib\\libQt6Gui.a",
+				"fragment" : "D:\\Qt\\6.6.1\\mingw_64\\lib\\libQt6Gui.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 19,
-				"fragment" : "F:\\Qt\\6.6.1\\mingw_64\\lib\\libQt6Core.a",
+				"fragment" : "D:\\Qt\\6.6.1\\mingw_64\\lib\\libQt6Core.a",
 				"role" : "libraries"
 			},
 			{
@@ -395,37 +403,32 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_imgcodecs480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_dnn480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_dnn480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_calib3d480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_calib3d480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_features2d480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_features2d480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_flann480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_flann480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_imgproc480.dll.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_imgproc480.dll.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "F:\\opencv4.8.0\\opencv\\opencv-build\\install\\x64\\mingw\\lib\\libopencv_core480.dll.a",
+				"fragment" : "D:\\Opencv_4.8.0\\opencv\\qt_opencv\\install\\x64\\mingw\\lib\\libopencv_core480.dll.a",
 				"role" : "libraries"
 			},
 			{
@@ -451,22 +454,30 @@
 				0,
 				1,
 				2,
-				5
+				5,
+				6
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				3,
-				6
+				3
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				4
+				4,
+				7
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				8
 			]
 		}
 	],
@@ -509,8 +520,21 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "ImageProcessingFunctions/revolve.h",
-			"sourceGroupIndex" : 1
+			"compileGroupIndex" : 0,
+			"path" : "ImageProcessingFunctions/adjust.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/qt_demo_autogen/timestamp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/qt_demo_autogen/timestamp.rule",
+			"sourceGroupIndex" : 3
 		}
 	],
 	"type" : "EXECUTABLE"

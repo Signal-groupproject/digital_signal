@@ -264,7 +264,27 @@
 	"CMAKE_SOURCE_DIR" : "D:/Github/digital_signal/qt_demo",
 	"DEP_FILE" : "D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "qt_demo_autogen/timestamp",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.h",
+			"Mu",
+			"SDMPEJRWFU/moc_adjust.cpp",
+			null
+		],
+		[
+			"D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.h",
+			"Mu",
+			"SDMPEJRWFU/moc_revolve.cpp",
+			null
+		],
+		[
+			"D:/Github/digital_signal/qt_demo/mainwindow.h",
+			"Mu",
+			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/include",
 	"MOC_COMPILATION_FILE" : "D:/Github/digital_signal/qt_demo/cmake-build-debug/qt_demo_autogen/mocs_compilation.cpp",
@@ -332,6 +352,20 @@
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 6,
 	"SETTINGS_FILE" : "D:/Github/digital_signal/qt_demo/cmake-build-debug/CMakeFiles/qt_demo_autogen.dir/AutogenUsed.txt",
-	"SOURCES" : [],
+	"SOURCES" : 
+	[
+		[
+			"D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/adjust.cpp",
+			"Mu",
+			null
+		],
+		[
+			"D:/Github/digital_signal/qt_demo/ImageProcessingFunctions/revolve.cpp",
+			"Mu",
+			null
+		],
+		[ "D:/Github/digital_signal/qt_demo/main.cpp", "Mu", null ],
+		[ "D:/Github/digital_signal/qt_demo/mainwindow.cpp", "Mu", null ]
+	],
 	"VERBOSITY" : 0
 }

@@ -18,7 +18,7 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 
-add_executable(qt_demo main.cpp mainwindow.cpp mainwindow.h mainwindow.ui})
+add_executable(qt_demo main.cpp mainwindow.cpp mainwindow.h mainwindow.ui ImageProcessingFunctions/revolve.cpp ImageProcessingFunctions/adjust.cpp)
 target_link_libraries(qt_demo
         Qt::Core
         Qt::Gui

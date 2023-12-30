@@ -49,11 +49,17 @@ static constexpr auto qt_meta_stringdata_CLASSmainwindowENDCLASS = QtMocHelpers:
     "on_pushButton1_clicked",
     "on_pushButton2_clicked",
     "on_pushButton3_clicked",
-    "on_pushButton4_clicked"
+    "on_pushButton4_clicked",
+    "on_light_perception_valueChanged",
+    "on_exposure_valueChanged",
+    "on_contrast_ratio_valueChanged",
+    "on_sharpening_valueChanged",
+    "on_color_temperature_valueChanged",
+    "on_tone_valueChanged"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSmainwindowENDCLASS_t {
-    uint offsetsAndSizes[24];
+    uint offsetsAndSizes[36];
     char stringdata0[11];
     char stringdata1[20];
     char stringdata2[1];
@@ -66,6 +72,12 @@ struct qt_meta_stringdata_CLASSmainwindowENDCLASS_t {
     char stringdata9[23];
     char stringdata10[23];
     char stringdata11[23];
+    char stringdata12[33];
+    char stringdata13[25];
+    char stringdata14[31];
+    char stringdata15[27];
+    char stringdata16[34];
+    char stringdata17[21];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSmainwindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -82,7 +94,13 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSmainwindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(136, 22),  // "on_pushButton1_clicked"
         QT_MOC_LITERAL(159, 22),  // "on_pushButton2_clicked"
         QT_MOC_LITERAL(182, 22),  // "on_pushButton3_clicked"
-        QT_MOC_LITERAL(205, 22)   // "on_pushButton4_clicked"
+        QT_MOC_LITERAL(205, 22),  // "on_pushButton4_clicked"
+        QT_MOC_LITERAL(228, 32),  // "on_light_perception_valueChanged"
+        QT_MOC_LITERAL(261, 24),  // "on_exposure_valueChanged"
+        QT_MOC_LITERAL(286, 30),  // "on_contrast_ratio_valueChanged"
+        QT_MOC_LITERAL(317, 26),  // "on_sharpening_valueChanged"
+        QT_MOC_LITERAL(344, 33),  // "on_color_temperature_valueCha..."
+        QT_MOC_LITERAL(378, 20)   // "on_tone_valueChanged"
     },
     "mainwindow",
     "on_Contrast_pressed",
@@ -95,7 +113,13 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSmainwindowENDCLASS_t qt_meta_st
     "on_pushButton1_clicked",
     "on_pushButton2_clicked",
     "on_pushButton3_clicked",
-    "on_pushButton4_clicked"
+    "on_pushButton4_clicked",
+    "on_light_perception_valueChanged",
+    "on_exposure_valueChanged",
+    "on_contrast_ratio_valueChanged",
+    "on_sharpening_valueChanged",
+    "on_color_temperature_valueChanged",
+    "on_tone_valueChanged"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -107,7 +131,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSmainwindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -115,15 +139,21 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSmainwindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   68,    2, 0x08,    1 /* Private */,
-       3,    0,   69,    2, 0x08,    2 /* Private */,
-       4,    0,   70,    2, 0x08,    3 /* Private */,
-       5,    0,   71,    2, 0x08,    4 /* Private */,
-       6,    1,   72,    2, 0x08,    5 /* Private */,
-       8,    0,   75,    2, 0x08,    7 /* Private */,
-       9,    0,   76,    2, 0x08,    8 /* Private */,
-      10,    0,   77,    2, 0x08,    9 /* Private */,
-      11,    0,   78,    2, 0x08,   10 /* Private */,
+       1,    0,  104,    2, 0x08,    1 /* Private */,
+       3,    0,  105,    2, 0x08,    2 /* Private */,
+       4,    0,  106,    2, 0x08,    3 /* Private */,
+       5,    0,  107,    2, 0x08,    4 /* Private */,
+       6,    1,  108,    2, 0x08,    5 /* Private */,
+       8,    0,  111,    2, 0x08,    7 /* Private */,
+       9,    0,  112,    2, 0x08,    8 /* Private */,
+      10,    0,  113,    2, 0x08,    9 /* Private */,
+      11,    0,  114,    2, 0x08,   10 /* Private */,
+      12,    1,  115,    2, 0x08,   11 /* Private */,
+      13,    1,  118,    2, 0x08,   13 /* Private */,
+      14,    1,  121,    2, 0x08,   15 /* Private */,
+      15,    1,  124,    2, 0x08,   17 /* Private */,
+      16,    1,  127,    2, 0x08,   19 /* Private */,
+      17,    1,  130,    2, 0x08,   21 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -135,6 +165,12 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSmainwindowENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, QMetaType::Int,    7,
 
        0        // eod
 };
@@ -166,7 +202,25 @@ Q_CONSTINIT const QMetaObject mainwindow::staticMetaObject = { {
         // method 'on_pushButton3_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_pushButton4_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_light_perception_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_exposure_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_contrast_ratio_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_sharpening_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_color_temperature_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_tone_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
     nullptr
 } };
@@ -186,6 +240,12 @@ void mainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->on_pushButton2_clicked(); break;
         case 7: _t->on_pushButton3_clicked(); break;
         case 8: _t->on_pushButton4_clicked(); break;
+        case 9: _t->on_light_perception_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 10: _t->on_exposure_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 11: _t->on_contrast_ratio_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 12: _t->on_sharpening_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 13: _t->on_color_temperature_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 14: _t->on_tone_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     }
@@ -210,13 +270,13 @@ int mainwindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 15)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 15;
     }
     return _id;
 }

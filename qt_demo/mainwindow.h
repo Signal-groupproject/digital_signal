@@ -9,6 +9,7 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include "ImageProcessingFunctions/revolve.h"
+#include "ImageProcessingFunctions/adjust.h"
 #define test std::cout<<"This is a test"
 using namespace cv;
 
@@ -39,6 +40,13 @@ private slots:
     void on_pushButton2_clicked();//逆时针90°
     void on_pushButton3_clicked();//x轴对称
     void on_pushButton4_clicked();//y轴对称
+    void on_light_perception_valueChanged(int value);//光感滑动条变化
+    void on_exposure_valueChanged(int value);//曝光滑动条变化
+    void on_contrast_ratio_valueChanged(int value);//对比度滑动条变化
+    void on_sharpening_valueChanged(int value);//锐化滑动条变化
+    void on_color_temperature_valueChanged(int value);//色温滑动条变化
+    void on_tone_valueChanged(int value);//色调滑动条变化
+
 };
 
 #endif //QT_DEMO_MAINWINDOW_H
