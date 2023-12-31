@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
 Mat original_image,image_now; //初始图片和当前处理图像
 int image_index = -1;
 std::vector<cv::Mat> imageStates;
@@ -25,7 +24,7 @@ void mainwindow::onCheckBoxStateChanged(int state)
         ismark = 1;
         // 读取原始图像和水印图像
         cv::Mat originalImage = image_now;
-        cv::Mat watermarkImage = cv::imread("F:\\Qt\\Repositories\\digital_signal\\qt_demo\\resources\\images\\waterMark.png");
+        cv::Mat watermarkImage = cv::imread("./images/waterMark.png");
 
         // 检查图像是否成功加载
         if (originalImage.empty() || watermarkImage.empty())
