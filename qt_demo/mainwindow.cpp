@@ -5,6 +5,7 @@
 Mat original_image,image_now; //初始图片和当前处理图像
 int image_index = -1;
 std::vector<cv::Mat> imageStates;
+int ismark = 0;
 
 mainwindow::mainwindow(QWidget *parent) :
     QWidget(parent),
@@ -12,7 +13,44 @@ mainwindow::mainwindow(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);    // 禁止最大化按钮
     setFixedSize(this->width(),this->height());                     // 禁止拖动窗口大小
+    // 监控水印是否勾选进行动作
+    connect(ui->checkBox, &QCheckBox::stateChanged, this, &mainwindow::onCheckBoxStateChanged);
+}
 
+// 水印勾选
+void mainwindow::onCheckBoxStateChanged(int state)
+{
+    if (state == Qt::Checked)
+    {  // 加水印
+        ismark = 1;
+        // 读取原始图像和水印图像
+        cv::Mat originalImage = image_now;
+        cv::Mat watermarkImage = cv::imread("F:\\Qt\\Repositories\\digital_signal\\qt_demo\\resources\\images\\waterMark.png");
+
+        // 检查图像是否成功加载
+        if (originalImage.empty() || watermarkImage.empty())
+        {
+            std::cout << "Failed to load images." << std::endl;
+            return;
+        }
+
+        // 调整水印图像的大小以适应原始图像的左下角
+        cv::resize(watermarkImage, watermarkImage, cv::Size(originalImage.cols / 4, originalImage.rows / 4));
+
+        // 将水印图像添加到原始图像的左下角
+        cv::Mat imageWithWatermark = originalImage.clone();
+        cv::Mat roi = imageWithWatermark(cv::Rect(0, imageWithWatermark.rows - watermarkImage.rows, watermarkImage.cols, watermarkImage.rows));
+        cv::addWeighted(roi, 1.0, watermarkImage, 0.5, 0, roi);
+
+        image_now = imageWithWatermark;
+        updateState();
+    }
+    else if (state == Qt::Unchecked && ismark)
+    { // 若上一次动作是有加水印的，则现在回退到未加状态
+        ismark = 0;
+        image_now = imageStates[--image_index];
+        updateState();
+    }
 }
 
 mainwindow::~mainwindow() {
