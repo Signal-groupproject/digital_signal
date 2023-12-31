@@ -169,6 +169,15 @@ void mainwindow::on_Crop_Image_clicked() {
 //角度滑动条变化，实时显示角度值
 void mainwindow::on_horizontalSlider_valueChanged(int value) {
     ui->angle->setText(QString("%1").arg(value));
+    image_now = adjust::rotateImage(original_image,value);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
+void mainwindow::on_horizontalSlider_sliderReleased() {
+    updateState();
 }
 // 向右旋转90°
 void mainwindow::on_pushButton1_clicked() {

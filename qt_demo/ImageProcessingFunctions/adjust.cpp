@@ -3,7 +3,20 @@
 //
 
 #include "adjust.h"
+// 根据拉动角度旋转图片
+cv::Mat adjust::rotateImage(const cv::Mat& image, int value) {
+    // 计算旋转中心
+    cv::Point2f center(image.cols / 2.0, image.rows / 2.0);
 
+    // 获取旋转矩阵
+    cv::Mat rotationMatrix = cv::getRotationMatrix2D(center, value, 1.0);
+
+    // 应用旋转矩阵进行图像旋转
+    cv::Mat rotatedImage;
+    cv::warpAffine(image, rotatedImage, rotationMatrix, image.size());
+
+    return rotatedImage;
+}
 // 直方图均衡化
 cv::Mat adjust::equalization(const cv::Mat& image)
 {
