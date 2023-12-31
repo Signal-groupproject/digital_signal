@@ -144,7 +144,7 @@ void mainwindow::on_Save_Image_clicked()
 
 // 裁剪图片
 void mainwindow::on_Crop_Image_clicked() {
-    ImageLabel* label = new ImageLabel(this);
+    ImageLabel* label = new ImageLabel(ui->label_show);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     label->setImage(QPixmap::fromImage(Image_Processing(qImage)));
     label->show();
