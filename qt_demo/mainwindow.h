@@ -10,6 +10,7 @@
 #include <opencv2/opencv.hpp>
 #include "ImageProcessingFunctions/revolve.h"
 #include "ImageProcessingFunctions/adjust.h"
+#include "ImageProcessingFunctions/copper.h"
 #define test std::cout<<"This is a test";
 using namespace cv;
 
