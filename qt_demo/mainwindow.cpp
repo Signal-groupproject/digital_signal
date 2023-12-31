@@ -52,7 +52,7 @@ QImage mainwindow::Image_Processing(const QImage& qimage)
     return processed_image;
 }
 // 每当对图像进行一次操作，将其更新在存储数组中，并重新显示
-void mainwindow::update() {
+void mainwindow::updateState() {
     // 当进行一个新操作时，删除当前图片位置以后所有图片状态，然后再更新当前图片进去
     if(image_index != -1)
     imageStates.erase(imageStates.begin()+image_index+1, imageStates.end());
@@ -117,7 +117,7 @@ void mainwindow::on_Load_Image_clicked() {
     imageStates.clear();
     image_index = -1;
     image_now = original_image;
-    update();
+    updateState();
 }
 
 // 保存图片
@@ -189,13 +189,13 @@ void mainwindow::on_horizontalSlider_valueChanged(int value) {
 void mainwindow::on_pushButton1_clicked() {
     image_now = Revolve90::left90(image_now);
     // 显示当前图像
-    update();
+    updateState();
 }
 // 向左旋转90°
 void mainwindow::on_pushButton2_clicked() {
     image_now = Revolve90::right90(image_now);
     // 显示当前图像
-    update();
+    updateState();
 }
 
 // x轴对称
@@ -203,7 +203,7 @@ void mainwindow::on_pushButton3_clicked() {
     // 对图像进行x轴对称操作
     image_now = Symmetry::xSymmetry(image_now);
     // 显示当前图像
-    update();
+    updateState();
 }
 
 // y轴对称
@@ -211,7 +211,7 @@ void mainwindow::on_pushButton4_clicked() {
     // 对图像进行y轴对称操作
     image_now = Symmetry::ySymmetry(image_now);
     // 显示当前图像
-    update();
+    updateState();
 }
 
 //光感调整
@@ -224,7 +224,7 @@ void mainwindow::on_light_perception_valueChanged(int value) {
 }
 //通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_light_perception_sliderReleased() {
-    update();
+    updateState();
 }
 
 //曝光调整
@@ -237,7 +237,7 @@ void mainwindow::on_exposure_valueChanged(int value) {
 }
 //通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_exposure_sliderReleased() {
-    update();
+    updateState();
 }
 
 //对比度调整
@@ -250,7 +250,7 @@ void mainwindow::on_contrast_ratio_valueChanged(int value) {
 }
 //通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_contrast_ratio_sliderReleased() {
-    update();
+    updateState();
 }
 
 //曲线调整
@@ -260,7 +260,7 @@ void mainwindow::on_Equalize_clicked() {
     // 对图像进行y轴对称操作
     image_now = adjust::equalization(image_now);
     // 显示当前图像
-    update();
+    updateState();
 }
 //饱和度调整
 //曲线调色
@@ -276,7 +276,7 @@ void mainwindow::on_sharpening_valueChanged(int value) {
 //通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_sharpening_sliderReleased() {
     test
-    update();
+    updateState();
 }
 
 //色温
@@ -289,7 +289,7 @@ void mainwindow::on_color_temperature_valueChanged(int value) {
 }
 //通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_color_temperature_sliderReleased() {
-    update();
+    updateState();
 }
 
 //色调
@@ -297,5 +297,5 @@ void mainwindow::on_tone_valueChanged(int value) {
     ui->angle_8->setText(QString("%1").arg(value));
     image_now = adjust::tone_adjust(image_now,value);
     // 显示当前图像
-    update();
+    updateState();
 }
