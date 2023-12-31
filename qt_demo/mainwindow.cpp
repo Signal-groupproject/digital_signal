@@ -145,7 +145,7 @@ void mainwindow::on_Contrast_released() {
 
 //加载图片
 void mainwindow::on_Load_Image_clicked() {
-    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "./",
+    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "./images/testImage",
                                                     tr("Images (*.png *.jpg *.bmp *.tif)"));
     if (filePath.isEmpty()) {
         return;
