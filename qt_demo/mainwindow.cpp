@@ -61,6 +61,7 @@ void mainwindow::updateState() {
 
     // 显示当前图像
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
@@ -71,6 +72,7 @@ void mainwindow::on_Withdraw_clicked() {
         image_now = imageStates[image_index];
         // 显示当前图像
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+        qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
         ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
     }
@@ -83,6 +85,7 @@ void mainwindow::on_Remake_clicked() {
         image_now = imageStates[image_index];
         // 显示当前图像
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+        qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
         ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
     }
@@ -92,11 +95,13 @@ void mainwindow::on_Remake_clicked() {
 //通过调用全局变量实现图像处理前后对比
 void mainwindow::on_Contrast_pressed() {
     QImage qImage(original_image.data, original_image.cols, original_image.rows, original_image.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
 void mainwindow::on_Contrast_released() {
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
@@ -156,6 +161,7 @@ void mainwindow::on_Crop_Image_clicked() {
     connect(label, &ImageLabel::cropResultAvailable, this, &mainwindow::handleCropResult);
 
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     label->setImage(QPixmap::fromImage(Image_Processing(qImage)));
     label->show();
 }
@@ -198,6 +204,7 @@ void mainwindow::on_light_perception_valueChanged(int value) {
     ui->angle_2->setText(QString("%1").arg(value));
     image_now = adjust::light_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
@@ -211,6 +218,7 @@ void mainwindow::on_exposure_valueChanged(int value) {
     ui->angle_4->setText(QString("%1").arg(value));
     image_now = adjust::exposure_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
@@ -224,6 +232,7 @@ void mainwindow::on_contrast_ratio_valueChanged(int value) {
     ui->angle_5->setText(QString("%1").arg(value));
     image_now = adjust::contrast_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
@@ -249,12 +258,12 @@ void mainwindow::on_sharpening_valueChanged(int value) {
     ui->angle_6->setText(QString("%1").arg(value));
     image_now = adjust::sharpen_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
 //通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_sharpening_sliderReleased() {
-    test
     updateState();
 }
 
@@ -263,6 +272,7 @@ void mainwindow::on_color_temperature_valueChanged(int value) {
     ui->angle_7->setText(QString("%1").arg(value));
     image_now = adjust::cot_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
@@ -274,7 +284,13 @@ void mainwindow::on_color_temperature_sliderReleased() {
 //色调
 void mainwindow::on_tone_valueChanged(int value) {
     ui->angle_8->setText(QString("%1").arg(value));
-    image_now = adjust::tone_adjust(image_now,value);
-    // 显示当前图像
+    image_now = adjust::cot_adjust(original_image,value);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
+void mainwindow::on_tone_sliderReleased() {
     updateState();
 }

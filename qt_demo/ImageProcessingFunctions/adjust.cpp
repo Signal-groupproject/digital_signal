@@ -185,7 +185,25 @@ cv::Mat adjust::contrast_adjust(const cv::Mat &image, int value) {
 
 //锐化
 cv::Mat adjust::sharpen_adjust(const cv::Mat &image, int value) {
-    cv::Mat result(image.size(),image.type());
+    cv::Mat result(image.rows, image.cols, image.type());
+    memcpy(result.data, image.data, image.total() * image.elemSize());
+    result.convertTo(result, CV_8U);
+    int channels = image.channels();
+    for (int y = 1; y < image.rows - 1; ++y) {
+        const uchar* current_row = image.ptr<uchar>(y);
+        uchar* result_row = result.ptr<uchar>(y);
+
+        for (int x = channels; x < channels * (image.cols - 1); ++x) {
+            int sum = 5 * current_row[x];
+            sum -= current_row[x - channels];
+            sum -= current_row[x + channels];
+            sum -= current_row[x - channels * image.cols];
+            sum -= current_row[x + channels * image.cols];
+
+            result_row[x] = cv::saturate_cast<uchar>(current_row[x] + value * sum / 255);
+        }
+    }
+
     return result;
 }
 
@@ -201,7 +219,6 @@ cv::Mat adjust::tone_adjust(const cv::Mat &image, int value) {
     return result;
 }
 
-//直方图均衡化
 //曲线调整
 //饱和度调整
 //曲线调色
