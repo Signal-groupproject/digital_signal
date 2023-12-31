@@ -2,6 +2,7 @@
 // Created by luokon on 2023/12/31.
 //
 
+#include <QMainWindow>
 #include "copper.h"
 
 ImageLabel::ImageLabel(QWidget* parent)
@@ -39,8 +40,7 @@ void ImageLabel::mouseReleaseEvent(QMouseEvent* event)
         update(); // 重新绘制窗口以显示最终的裁剪区域
 
         performCrop(); // 执行裁剪操作
-
-//        close(); // 关闭窗口
+        delete this;
     }
 }
 
@@ -65,12 +65,12 @@ void ImageLabel::performCrop()
     QRect rect(x, y, width, height);
     QPixmap croppedPixmap = originalPixmap.copy(rect);
 
-    QImage image = croppedPixmap.toImage().convertToFormat(QImage::Format_RGB888);
-    cv::Mat mat(image.height(), image.width(), CV_8UC3, image.bits(), image.bytesPerLine());
-    cv::cvtColor(mat, mat, cv::COLOR_RGB2BGR); // 将颜色通道顺序从RGB转换为BGR
-    result = mat;
-    QLabel* croppedLabel = new QLabel(this);
-    croppedLabel->setPixmap(croppedPixmap);
-    croppedLabel->show();
+    // 将QPixmap转换为QImage
+    QImage qImage = croppedPixmap.toImage();
+    // 将QImage转换为cv::Mat
+    cv::Mat mat(qImage.height(), qImage.width(), CV_8UC4, qImage.bits(), qImage.bytesPerLine());
+    cv::cvtColor(mat, mat, cv::COLOR_RGBA2RGB);
+    // 当裁剪操作完成后，触发信号并传递 result 的值给父类对象
+    emit cropResultAvailable(mat);
 }
 

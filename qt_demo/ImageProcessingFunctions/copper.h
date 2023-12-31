@@ -20,7 +20,8 @@ public:
     ImageLabel(QWidget* parent = nullptr);
 
     void setImage(const QPixmap& pixmap);
-    cv::Mat result;
+signals:
+    void cropResultAvailable(const cv::Mat& result);
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;

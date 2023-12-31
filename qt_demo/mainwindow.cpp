@@ -143,43 +143,22 @@ void mainwindow::on_Save_Image_clicked()
 }
 
 // 裁剪图片
+// 声明一个新的槽函数，用于处理裁剪结果的信号
+void mainwindow::handleCropResult(const cv::Mat& result) {
+    // 处理接收到的 result 的值
+    image_now = result;
+    updateState();
+}
 void mainwindow::on_Crop_Image_clicked() {
     ImageLabel* label = new ImageLabel(ui->label_show);
+
+    // 将 cropResultAvailable 信号连接到 handleCropResult 槽函数
+    connect(label, &ImageLabel::cropResultAvailable, this, &mainwindow::handleCropResult);
+
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     label->setImage(QPixmap::fromImage(Image_Processing(qImage)));
     label->show();
-//    image_now = label->result;
-//    label->close();
-//    updateState();
 }
-
-//void mainwindow::on_Crop_Image_clicked() {
-//    if (image_now.empty()) {
-//        return;
-//    }
-//
-//    // 提示用户选择裁剪区域
-//    Rect cropRect = selectCropRegion(image_now);
-//
-//    // 检查是否选择了有效的裁剪区域
-//    if (cropRect.width > 0 && cropRect.height > 0) {
-//        // 执行裁剪
-//        Mat croppedImage = image_now(cropRect).clone();
-//        image_now = croppedImage;
-//        // 显示当前图像
-//        update();
-//    }
-//}
-//
-//Rect mainwindow::selectCropRegion(const Mat& image) {
-//    // 使用OpenCV的selectROI函数获取用户选择的矩形区域
-//    Rect cropRect = selectROI("Select Crop Region", image);
-//
-//    // 关闭OpenCV的选择框
-//    destroyAllWindows();
-//
-//    return cropRect;
-//}
 
 //角度滑动条变化，实时显示角度值
 void mainwindow::on_horizontalSlider_valueChanged(int value) {
