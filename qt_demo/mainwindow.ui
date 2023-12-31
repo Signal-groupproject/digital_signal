@@ -253,10 +253,9 @@ QPushButton:checked {
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-    font: 10pt &quot;微软雅黑&quot;;
     color: #FFFFFF;
     background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
-    border-radius: 15px;
+    border-radius: 20px;
     border-style: solid;
     border-width: 2px;
     padding: 5px;
@@ -291,10 +290,9 @@ QPushButton:checked {
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-    font: 10pt &quot;微软雅黑&quot;;
     color: #FFFFFF;
     background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
-    border-radius: 15px;
+    border-radius: 20px;
     border-style: solid;
     border-width: 2px;
     padding: 5px;
@@ -329,10 +327,9 @@ QPushButton:checked {
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-    font: 10pt &quot;微软雅黑&quot;;
     color: #FFFFFF;
     background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
-    border-radius: 15px;
+    border-radius: 20px;
     border-style: solid;
     border-width: 2px;
     padding: 5px;
@@ -563,6 +560,43 @@ QPushButton:checked {
      <rect>
       <x>610</x>
       <y>470</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font: 10pt &quot;微软雅黑&quot;;
+    color: #FFFFFF;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+QPushButton:hover,
+QPushButton:pressed,
+QPushButton:checked {
+    color: #FFFFFF;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
+}
+
+QPushButton:pressed,
+QPushButton:checked {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="merge">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>230</y>
       <width>31</width>
       <height>31</height>
      </rect>

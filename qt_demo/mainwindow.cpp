@@ -350,3 +350,11 @@ void mainwindow::on_saturation_valueChanged(int value) {
 void mainwindow::on_saturation_sliderReleased() {
     updateState();
 }
+
+//图层合并
+void mainwindow::on_merge_clicked() {
+    original_image = image_now;
+    image_index = -1;
+    imageStates.clear();
+    updateState();
+}
