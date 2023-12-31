@@ -62,15 +62,23 @@ void ImageLabel::performCrop()
     int width = std::abs(startPoint.x() - endPoint.x());
     int height = std::abs(startPoint.y() - endPoint.y());
 
-    QRect rect(x, y, width, height);
-    QPixmap croppedPixmap = originalPixmap.copy(rect);
+    QImage originalImage = originalPixmap.toImage();
+    QImage croppedImage(width, height, originalImage.format());
+
+    for (int j = 0; j < height; j++) {
+        for (int i = 0; i < width; i++) {
+            QRgb pixel = originalImage.pixel(x + i, y + j);
+            croppedImage.setPixel(i, j, pixel);
+        }
+    }
+    QPixmap croppedPixmap = QPixmap::fromImage(croppedImage);
 
     // 将QPixmap转换为QImage
     QImage qImage = croppedPixmap.toImage();
     // 将QImage转换为cv::Mat
     cv::Mat mat(qImage.height(), qImage.width(), CV_8UC4, qImage.bits(), qImage.bytesPerLine());
     cv::cvtColor(mat, mat, cv::COLOR_RGBA2RGB);
+
     // 当裁剪操作完成后，触发信号并传递 result 的值给父类对象
     emit cropResultAvailable(mat);
 }
-
