@@ -10,7 +10,7 @@
 #include <opencv2/opencv.hpp>
 #include "ImageProcessingFunctions/revolve.h"
 #include "ImageProcessingFunctions/adjust.h"
-#define test std::cout<<"This is a test"
+#define test std::cout<<"This is a test";
 using namespace cv;
 
 QT_BEGIN_NAMESPACE
@@ -49,6 +49,7 @@ private slots:
     void on_sharpening_valueChanged(int value);//锐化滑动条变化
     void on_sharpening_sliderReleased();//锐化滑动条状态保存
     void on_color_temperature_valueChanged(int value);//色温滑动条变化
+    void on_color_temperature_sliderReleased();//色温滑动条状态保存
     void on_tone_valueChanged(int value);//色调滑动条变化
     void update(); // 更新图片与显示
     void on_Withdraw_clicked(); // 撤销操作

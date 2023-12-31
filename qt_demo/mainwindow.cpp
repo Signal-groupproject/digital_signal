@@ -4,7 +4,6 @@
 Mat original_image,image_now; //初始图片和当前处理图像
 int image_index = -1;
 std::vector<cv::Mat> imageStates;
-int remakeCount = 0;
 
 mainwindow::mainwindow(QWidget *parent) :
     QWidget(parent),
@@ -56,7 +55,6 @@ void mainwindow::update() {
     // 当进行一个新操作时，删除当前图片位置以后所有图片状态，然后再更新当前图片进去
     if(image_index != -1)
     imageStates.erase(imageStates.begin()+image_index+1, imageStates.end());
-    remakeCount = 0;
     image_index++;
     imageStates.push_back(image_now);
 
@@ -68,7 +66,6 @@ void mainwindow::update() {
 // 撤销操作
 void mainwindow::on_Withdraw_clicked() {
     if(image_index > 0){
-        remakeCount++;
         image_index--;
         image_now = imageStates[image_index];
         // 显示当前图像
@@ -79,7 +76,7 @@ void mainwindow::on_Withdraw_clicked() {
 }
 // 重做操作
 void mainwindow::on_Remake_clicked() {
-    if(remakeCount && image_index < imageStates.size())
+    if(image_index < imageStates.size() - 1)
     {
         image_index++;
         image_now = imageStates[image_index];
@@ -87,7 +84,6 @@ void mainwindow::on_Remake_clicked() {
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         QImage processed_image = Image_Processing(qImage);
         ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
-        remakeCount--;
     }
 }
 
@@ -106,7 +102,7 @@ void mainwindow::on_Contrast_released() {
 
 //加载图片
 void mainwindow::on_Load_Image_clicked() {
-    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "D:/",
+    QString filePath = QFileDialog::getOpenFileName(this, tr("选择图片"), "./",
                                                     tr("Images (*.png *.jpg *.bmp *.tif)"));
     if (filePath.isEmpty()) {
         return;
@@ -266,16 +262,22 @@ void mainwindow::on_sharpening_valueChanged(int value) {
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
-//
+//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_sharpening_sliderReleased() {
+    test
     update();
 }
 
 //色温
 void mainwindow::on_color_temperature_valueChanged(int value) {
     ui->angle_7->setText(QString("%1").arg(value));
-    image_now = adjust::cot_adjust(image_now,value);
-    // 显示当前图像
+    image_now = adjust::cot_adjust(original_image,value);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
+void mainwindow::on_color_temperature_sliderReleased() {
     update();
 }
 
