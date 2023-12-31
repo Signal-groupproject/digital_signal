@@ -45,7 +45,7 @@ cv::Mat adjust::equalization(const cv::Mat& image)
             }
         }
     }
-    // 彩色图像处理逻辑
+        // 彩色图像处理逻辑
     else {
         std::vector<cv::Mat> channels;
         cv::split(image, channels);
@@ -83,7 +83,7 @@ cv::Mat adjust::equalization(const cv::Mat& image)
 }
 
 //光感调整
-cv::Mat adjust::light_adjust(const cv::Mat &image, int value, int lastValue) {
+cv::Mat adjust::light_adjust(const cv::Mat &image, int value) {
     CV_Assert(image.depth() == CV_8U);
 
     cv::Mat result = image.clone();
@@ -96,7 +96,7 @@ cv::Mat adjust::light_adjust(const cv::Mat &image, int value, int lastValue) {
         cols *= rows;
         rows = 1;
     }
-    value = value - lastValue;
+
     for (int i = 0; i < rows; ++i) {
         uchar* p = result.ptr<uchar>(i);
 
@@ -116,13 +116,74 @@ cv::Mat adjust::light_adjust(const cv::Mat &image, int value, int lastValue) {
 
 //曝光调整
 cv::Mat adjust::exposure_adjust(const cv::Mat &image, int value) {
-    cv::Mat result(image.size(),image.type());
+    CV_Assert(image.depth() == CV_8U);
+
+    cv::Mat result = image.clone();
+
+    int channels = result.channels();
+    int rows = result.rows;
+    int cols = result.cols * channels;
+
+    if (result.isContinuous()) {
+        cols *= rows;
+        rows = 1;
+    }
+
+    // 将曝光因子限制在-100到100之间
+    int adjusted_exposure = std::max(-100, std::min(100, value));
+
+    for (int i = 0; i < rows; ++i) {
+        uchar* p = result.ptr<uchar>(i);
+
+        for (int j = 0; j < cols; j += channels) {
+            int blue = cv::saturate_cast<uchar>(p[j] * (100 + adjusted_exposure) / 100);
+            int green = cv::saturate_cast<uchar>(p[j + 1] * (100 + adjusted_exposure) / 100);
+            int red = cv::saturate_cast<uchar>(p[j + 2] * (100 + adjusted_exposure) / 100);
+
+            p[j] = blue;
+            p[j + 1] = green;
+            p[j + 2] = red;
+        }
+    }
+
     return result;
 }
 
 //对比度调整
 cv::Mat adjust::contrast_adjust(const cv::Mat &image, int value) {
-    cv::Mat result(image.size(),image.type());
+    CV_Assert(image.depth() == CV_8U);
+
+    cv::Mat result = image.clone();
+
+    int channels = result.channels();
+    int rows = result.rows;
+    int cols = result.cols * channels;
+
+    if (result.isContinuous()) {
+        cols *= rows;
+        rows = 1;
+    }
+
+    // 将对比度因子限制在-100到100之间
+    int adjusted_contrast = std::max(-100, std::min(100, value));
+
+    // 计算对比度调整的倍数
+    float contrast_multiplier = (100.0f + adjusted_contrast) / 100.0f;
+
+    for (int i = 0; i < rows; ++i) {
+        uchar* p = result.ptr<uchar>(i);
+
+        for (int j = 0; j < cols; j += channels) {
+            int blue = cv::saturate_cast<uchar>(contrast_multiplier * p[j]);
+            int green = cv::saturate_cast<uchar>(contrast_multiplier * p[j + 1]);
+            int red = cv::saturate_cast<uchar>(contrast_multiplier * p[j + 2]);
+
+            p[j] = blue;
+            p[j + 1] = green;
+            p[j + 2] = red;
+        }
+    }
+
     return result;
 }
 

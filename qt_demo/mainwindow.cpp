@@ -5,7 +5,6 @@ Mat original_image,image_now; //初始图片和当前处理图像
 int image_index = -1;
 std::vector<cv::Mat> imageStates;
 int remakeCount = 0;
-int lightAdjustLast = 0;
 
 mainwindow::mainwindow(QWidget *parent) :
     QWidget(parent),
@@ -211,30 +210,39 @@ void mainwindow::on_pushButton4_clicked() {
 //光感调整
 void mainwindow::on_light_perception_valueChanged(int value) {
     ui->angle_2->setText(QString("%1").arg(value));
-    image_now = adjust::light_adjust(image_now,value, lightAdjustLast);
-    lightAdjustLast = value;
+    image_now = adjust::light_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
+//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_light_perception_sliderReleased() {
-    // 显示当前图像
     update();
 }
 
 //曝光调整
 void mainwindow::on_exposure_valueChanged(int value) {
     ui->angle_4->setText(QString("%1").arg(value));
-    image_now = adjust::exposure_adjust(image_now,value);
-    // 显示当前图像
+    image_now = adjust::exposure_adjust(original_image,value);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
+void mainwindow::on_exposure_sliderReleased() {
     update();
 }
 
 //对比度调整
 void mainwindow::on_contrast_ratio_valueChanged(int value) {
     ui->angle_5->setText(QString("%1").arg(value));
-    image_now = adjust::contrast_adjust(image_now,value);
-    // 显示当前图像
+    image_now = adjust::contrast_adjust(original_image,value);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
+void mainwindow::on_contrast_ratio_sliderReleased() {
     update();
 }
 
@@ -253,8 +261,13 @@ void mainwindow::on_Equalize_clicked() {
 //锐化
 void mainwindow::on_sharpening_valueChanged(int value) {
     ui->angle_6->setText(QString("%1").arg(value));
-    image_now = adjust::sharpen_adjust(image_now,value);
-    // 显示当前图像
+    image_now = adjust::sharpen_adjust(original_image,value);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+//
+void mainwindow::on_sharpening_sliderReleased() {
     update();
 }
 
