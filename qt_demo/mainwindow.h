@@ -58,6 +58,8 @@ private slots:
     void on_Save_Image_clicked(); // 保存图片
     void handleCropResult(const Mat &result); // 接收裁剪图片结果的槽函数
     void on_Crop_Image_clicked();   // 裁剪图片
+    void on_saturation_valueChanged(int value);//饱和度滑动条变化
+    void on_saturation_sliderReleased();//饱和度滑动条状态保存
 };
 
 #endif //QT_DEMO_MAINWINDOW_H

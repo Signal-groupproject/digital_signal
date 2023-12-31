@@ -16,6 +16,7 @@ public:
     static cv::Mat cot_adjust(const cv::Mat& image, int value);
     static cv::Mat tone_adjust(const cv::Mat& image, int value);
     static cv::Mat equalization(const cv::Mat& image);
+    static cv::Mat saturation_adjust(const cv::Mat& image, int value);
 };
 
 

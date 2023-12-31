@@ -63,6 +63,9 @@ public:
     QLabel *label_9;
     QSlider *tone;
     QLabel *angle_8;
+    QLabel *angle_9;
+    QSlider *saturation;
+    QLabel *label_10;
     QWidget *tab_2;
 
     void setupUi(QWidget *mainwindow)
@@ -696,6 +699,51 @@ public:
 "background-color:rgba(255,255,255,0);\n"
 "}\n"
 ""));
+        angle_9 = new QLabel(tab);
+        angle_9->setObjectName("angle_9");
+        angle_9->setGeometry(QRect(80, 370, 61, 16));
+        angle_9->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
+"background-color:rgba(255,255,255,0);\n"
+"}\n"
+""));
+        saturation = new QSlider(tab);
+        saturation->setObjectName("saturation");
+        saturation->setGeometry(QRect(10, 400, 161, 22));
+        saturation->setStyleSheet(QString::fromUtf8("QSlider::add-page:Horizontal {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    height: 4px;\n"
+"	background-color:rgba(255,255,255,0);\n"
+"}\n"
+"\n"
+"QSlider::sub-page:Horizontal {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    height: 4px;\n"
+"	background-color:rgba(255,255,255,0);\n"
+"}\n"
+"\n"
+"QSlider::groove:Horizontal {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    height: 10px;\n"
+"}\n"
+"\n"
+"QSlider::handle:Horizontal {\n"
+"    width: 8px;\n"
+"    margin: -4 0px;\n"
+"    background: qradialgradient(cx:0, cy:0, radius:1, fx:0.5, fy:0.5, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+""));
+        saturation->setMinimum(-100);
+        saturation->setMaximum(100);
+        saturation->setOrientation(Qt::Horizontal);
+        label_10 = new QLabel(tab);
+        label_10->setObjectName("label_10");
+        label_10->setGeometry(QRect(10, 370, 71, 16));
+        label_10->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
+"	background-color:rgba(255,255,255,0);\n"
+"}\n"
+""));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
@@ -736,10 +784,12 @@ public:
         angle_5->setText(QString());
         label_7->setText(QCoreApplication::translate("mainwindow", "\351\224\220\345\214\226\357\274\232", nullptr));
         angle_6->setText(QString());
-        label_8->setText(QCoreApplication::translate("mainwindow", "\350\211\262\346\270\251\357\274\232", nullptr));
+        label_8->setText(QCoreApplication::translate("mainwindow", "\350\211\262\346\270\251\350\260\203\346\225\264\357\274\232", nullptr));
         angle_7->setText(QString());
-        label_9->setText(QCoreApplication::translate("mainwindow", "\350\211\262\350\260\203\357\274\232", nullptr));
+        label_9->setText(QCoreApplication::translate("mainwindow", "\350\211\262\350\260\203\350\260\203\346\225\264\357\274\232", nullptr));
         angle_8->setText(QString());
+        angle_9->setText(QString());
+        label_10->setText(QCoreApplication::translate("mainwindow", "\351\245\261\345\222\214\345\272\246\350\260\203\346\225\264\357\274\232", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("mainwindow", "\345\237\272\347\241\200\350\260\203\346\225\2641", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("mainwindow", "\345\237\272\347\241\200\350\260\203\346\225\2642", nullptr));
     } // retranslateUi

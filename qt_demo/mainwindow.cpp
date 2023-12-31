@@ -241,8 +241,6 @@ void mainwindow::on_contrast_ratio_sliderReleased() {
     updateState();
 }
 
-//曲线调整
-
 //直方图均衡化
 void mainwindow::on_Equalize_clicked() {
     // 对图像进行y轴对称操作
@@ -250,9 +248,7 @@ void mainwindow::on_Equalize_clicked() {
     // 显示当前图像
     updateState();
 }
-//饱和度调整
-//曲线调色
-//HSL
+
 //锐化
 void mainwindow::on_sharpening_valueChanged(int value) {
     ui->angle_6->setText(QString("%1").arg(value));
@@ -292,5 +288,19 @@ void mainwindow::on_tone_valueChanged(int value) {
 }
 //通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_tone_sliderReleased() {
+    updateState();
+}
+
+//饱和度
+void mainwindow::on_saturation_valueChanged(int value) {
+    ui->angle_9->setText(QString("%1").arg(value));
+    image_now = adjust::cot_adjust(original_image,value);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
+void mainwindow::on_saturation_sliderReleased() {
     updateState();
 }

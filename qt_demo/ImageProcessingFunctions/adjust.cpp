@@ -210,6 +210,23 @@ cv::Mat adjust::sharpen_adjust(const cv::Mat &image, int value) {
 //色温
 cv::Mat adjust::cot_adjust(const cv::Mat &image, int value) {
     cv::Mat result(image.size(),image.type());
+
+    int image_rows = image.rows;
+    int image_cols = image.cols;
+    int level = value / 2;
+
+    for (int i = 0; i < image_rows; ++i) {
+        const uchar *input_pixel = image.ptr<uchar>(i);
+        uchar *output_pixel = result.ptr<uchar>(i);
+
+        for (int j = 0; j < image_cols; ++j) {
+            for (int c = 2; c >= 0; --c) { // Loop through B, G, R channels
+                int value = input_pixel[j * 3 + c] + ((c == 0) ? -level : level);
+                output_pixel[j * 3 + c] = cv::saturate_cast<uchar>(value);
+            }
+        }
+    }
+
     return result;
 }
 
@@ -219,7 +236,33 @@ cv::Mat adjust::tone_adjust(const cv::Mat &image, int value) {
     return result;
 }
 
-//曲线调整
 //饱和度调整
+cv::Mat adjust::saturation_adjust(const cv::Mat &image, int value) {
+    cv::Mat result = image.clone();
+
+    if (image.channels() == 3) {
+        for (int i = 0; i < result.rows; i++) {
+            for (int j = 0; j < result.cols; j++) {
+                cv::Vec3b &pixel = result.at<cv::Vec3b>(i, j);
+
+                float h, s, v;
+                cv::Mat3f pixel_hsv;
+                cv::cvtColor(cv::Mat(1, 1, CV_8UC3, pixel), pixel_hsv, cv::COLOR_BGR2HSV);
+                h = pixel_hsv(0, 0)[0] / 180.0;
+                s = pixel_hsv(0, 0)[1];
+                v = pixel_hsv(0, 0)[2];
+
+                s = std::max(0.0f, std::min(s + value / 100.0f, 1.0f));
+
+                pixel_hsv(0, 0)[0] = h * 180.0;
+                pixel_hsv(0, 0)[1] = s;
+                pixel_hsv(0, 0)[2] = v;
+
+                cv::cvtColor(pixel_hsv, cv::Mat(1, 1, CV_8UC3, pixel), cv::COLOR_HSV2BGR);
+            }
+        }
+    }
+}
+
 //曲线调色
 //HSL
