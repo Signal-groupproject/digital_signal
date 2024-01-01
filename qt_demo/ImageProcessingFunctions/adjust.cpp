@@ -26,10 +26,24 @@ cv::Mat adjust::processFace(const cv::Mat& image) {
         // 获取人脸区域
         cv::Mat faceROI = blurredImage(faceRect);
 
-        // 创建一个3x3的高斯模糊内核
-        cv::Mat kernel = (cv::Mat_<float>(3, 3) << 1, 2, 1, 2, 4, 2, 1, 2, 1);
-        kernel /= 16;  // 标准化内核
+        // 创建一个5x5的高斯模糊内核
+        int kernelSize = 5;
+        float sigma = 1.0f;
+        int radius = kernelSize / 2;
 
+        cv::Mat kernel(kernelSize, kernelSize, CV_32FC1);
+
+        float sum = 0.0f;
+        for (int x = -radius; x <= radius; ++x) {
+            for (int y = -radius; y <= radius; ++y) {
+                float value = std::exp(-(x * x + y * y) / (2 * sigma * sigma));
+                kernel.at<float>(x + radius, y + radius) = value;
+                sum += value;
+            }
+        }
+
+        // 标准化内核
+        kernel /= sum;
         // 执行卷积运算
         cv::filter2D(faceROI, faceROI, -1, kernel);
 
@@ -406,4 +420,9 @@ cv::Mat adjust::edge_detection(const cv::Mat &image) {
     cv::GaussianBlur(result, result, cv::Size(3, 3), 0, 0, cv::BORDER_DEFAULT);
 
     return result;
+}
+
+// 去雾
+cv::Mat adjust::defog(const cv::Mat &image) {
+    return cv::Mat();
 }
