@@ -304,24 +304,22 @@ cv::Mat adjust::contrast_adjust(const cv::Mat &image, int value) {
 
 //锐化
 cv::Mat adjust::sharpen_adjust(const cv::Mat &image, int value) {
-    cv::Mat result(image.rows, image.cols, image.type());
-    memcpy(result.data, image.data, image.total() * image.elemSize());
-    result.convertTo(result, CV_8U);
-    int channels = image.channels();
-    for (int y = 1; y < image.rows - 1; ++y) {
-        const uchar* current_row = image.ptr<uchar>(y);
-        uchar* result_row = result.ptr<uchar>(y);
+    cv::Mat result;
 
-        for (int x = channels; x < channels * (image.cols - 1); ++x) {
-            int sum = 5 * current_row[x];
-            sum -= current_row[x - channels];
-            sum -= current_row[x + channels];
-            sum -= current_row[x - channels * image.cols];
-            sum -= current_row[x + channels * image.cols];
+    // 创建拉普拉斯核
+    cv::Mat kernel = (cv::Mat_<float>(3, 3) <<
+                                            0, -1, 0,
+            -1,  5, -1,
+            0, -1, 0);
 
-            result_row[x] = cv::saturate_cast<uchar>(current_row[x] + value * sum / 255);
-        }
-    }
+    // 对图像进行卷积
+    cv::filter2D(image, result, CV_8U, kernel);
+
+    // 调整锐化强度
+    cv::addWeighted(image, 1.0, result, value / 10.0, 0, result);
+
+    // 将结果限制在合理范围内
+    cv::normalize(result, result, 0, 255, cv::NORM_MINMAX);
 
     return result;
 }
@@ -371,7 +369,8 @@ cv::Mat adjust::saturation_adjust(const cv::Mat &image, int value) {
                 s = pixel_hsv(0, 0)[1];
                 v = pixel_hsv(0, 0)[2];
 
-                s = std::max(0.0f, std::min(s + value / 100.0f, 1.0f));
+                // 线性变换
+                s = std::max(0.0f, std::min(s * value, 1.0f));
 
                 pixel_hsv(0, 0)[0] = h * 180.0;
                 pixel_hsv(0, 0)[1] = s;
@@ -384,6 +383,7 @@ cv::Mat adjust::saturation_adjust(const cv::Mat &image, int value) {
     return result;
 }
 
+//灰度化
 cv::Mat adjust::grayscale(const cv::Mat &image) {
     cv::Mat result(image.rows, image.cols, image.type());
     memcpy(result.data, image.data, image.total() * image.elemSize());
@@ -405,6 +405,7 @@ cv::Mat adjust::grayscale(const cv::Mat &image) {
     return result;
 }
 
+//边缘检测
 cv::Mat adjust::edge_detection(const cv::Mat &image) {
     // 深拷贝输入图像
     cv::Mat result(image.rows, image.cols, image.type());
