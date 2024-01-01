@@ -308,33 +308,23 @@ cv::Mat adjust::grayscale(const cv::Mat &image) {
 }
 
 cv::Mat adjust::edge_detection(const cv::Mat &image) {
+    // 创建结果图像
     cv::Mat result(image.rows, image.cols, image.type());
+
+    // 将输入图像数据复制到结果图像
     memcpy(result.data, image.data, image.total() * image.elemSize());
+
+    // 转换为8位无符号整数类型
     result.convertTo(result, CV_8U);
 
-    for (int y = 0; y < image.rows - 1; y++) {
-        for (int x = 0; x < image.cols - 1; x++) {
-            cv::Vec3b color0 = image.at<cv::Vec3b>(y, x);
-            cv::Vec3b color1 = image.at<cv::Vec3b>(y, x + 1);
-            cv::Vec3b color2 = image.at<cv::Vec3b>(y + 1, x);
-            cv::Vec3b color3 = image.at<cv::Vec3b>(y + 1, x + 1);
+    // 定义Laplacian算子
+    cv::Mat laplacianKernel = (cv::Mat_<float>(3, 3) << 0, 1, 0, 1, -4, 1, 0, 1, 0);
 
-            int r = abs(color0[2] - color3[2]);
-            int g = abs(color0[1] - color3[1]);
-            int b = abs(color0[0] - color3[0]);
-            int rgb = r + g + b;
+    // 应用Laplacian算子
+    cv::filter2D(result, result, -1, laplacianKernel);
 
-            int r1 = abs(color1[2] - color2[2]);
-            int g1 = abs(color1[1] - color2[1]);
-            int b1 = abs(color1[0] - color2[0]);
-            int rgb1 = r1 + g1 + b1;
-
-            int a = rgb + rgb1;
-            a = (a > 255) ? 255 : a;
-
-            result.at<uchar>(y, x) = static_cast<uchar>(a);
-        }
-    }
+    // 对结果进行模糊平滑处理以去除噪声
+    cv::GaussianBlur(result, result, cv::Size(3, 3), 0);
 
     return result;
 }
