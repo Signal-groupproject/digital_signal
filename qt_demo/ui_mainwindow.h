@@ -78,15 +78,18 @@ public:
     QLabel *angle_10;
     QWidget *tab_2;
     QGroupBox *HSL;
-    QSlider *coloration;
-    QSlider *saturation_2;
-    QSlider *brightness;
+    QSlider *colorationHSL;
+    QSlider *saturationHSL;
+    QSlider *brightnessHSL;
     QLabel *label_12;
     QLabel *label_13;
     QLabel *label_14;
-    QPushButton *red;
-    QPushButton *green;
-    QPushButton *blue;
+    QPushButton *redHSL;
+    QPushButton *greenHSL;
+    QPushButton *blueHSL;
+    QLabel *angle_11;
+    QLabel *angle_12;
+    QLabel *angle_13;
 
     void setupUi(QWidget *mainwindow)
     {
@@ -401,7 +404,9 @@ public:
         textEdit = new QTextEdit(dockWidgetContents);
         textEdit->setObjectName("textEdit");
         textEdit->setGeometry(QRect(23, 450, 131, 71));
-        textEdit->setStyleSheet(QString::fromUtf8("border: 1px solid black;"));
+        textEdit->setStyleSheet(QString::fromUtf8("border: 1px solid black;\n"
+"border: 2px solid qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 #ffd26f, stop: 1 #3677ff);\n"
+""));
         dockWidget->setWidget(dockWidgetContents);
         widget = new QWidget(mainwindow);
         widget->setObjectName("widget");
@@ -916,11 +921,12 @@ public:
         HSL->setObjectName("HSL");
         HSL->setGeometry(QRect(10, 10, 181, 281));
         HSL->setStyleSheet(QString::fromUtf8(" color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
-"	background-color:rgba(255,255,255,255);"));
-        coloration = new QSlider(HSL);
-        coloration->setObjectName("coloration");
-        coloration->setGeometry(QRect(10, 100, 161, 22));
-        coloration->setStyleSheet(QString::fromUtf8("QSlider::add-page:Horizontal {\n"
+"background-color:rgba(255,255,255,255);\n"
+""));
+        colorationHSL = new QSlider(HSL);
+        colorationHSL->setObjectName("colorationHSL");
+        colorationHSL->setGeometry(QRect(10, 100, 161, 22));
+        colorationHSL->setStyleSheet(QString::fromUtf8("QSlider::add-page:Horizontal {\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "    height: 4px;\n"
 "	background-color:rgba(255,255,255,0);\n"
@@ -943,13 +949,13 @@ public:
 "    background: qradialgradient(cx:0, cy:0, radius:1, fx:0.5, fy:0.5, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "}\n"
 ""));
-        coloration->setMinimum(-100);
-        coloration->setMaximum(100);
-        coloration->setOrientation(Qt::Horizontal);
-        saturation_2 = new QSlider(HSL);
-        saturation_2->setObjectName("saturation_2");
-        saturation_2->setGeometry(QRect(10, 170, 161, 22));
-        saturation_2->setStyleSheet(QString::fromUtf8("QSlider::add-page:Horizontal {\n"
+        colorationHSL->setMinimum(-100);
+        colorationHSL->setMaximum(100);
+        colorationHSL->setOrientation(Qt::Horizontal);
+        saturationHSL = new QSlider(HSL);
+        saturationHSL->setObjectName("saturationHSL");
+        saturationHSL->setGeometry(QRect(10, 170, 161, 22));
+        saturationHSL->setStyleSheet(QString::fromUtf8("QSlider::add-page:Horizontal {\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "    height: 4px;\n"
 "	background-color:rgba(255,255,255,0);\n"
@@ -972,13 +978,13 @@ public:
 "    background: qradialgradient(cx:0, cy:0, radius:1, fx:0.5, fy:0.5, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "}\n"
 ""));
-        saturation_2->setMinimum(-100);
-        saturation_2->setMaximum(100);
-        saturation_2->setOrientation(Qt::Horizontal);
-        brightness = new QSlider(HSL);
-        brightness->setObjectName("brightness");
-        brightness->setGeometry(QRect(10, 240, 161, 22));
-        brightness->setStyleSheet(QString::fromUtf8("QSlider::add-page:Horizontal {\n"
+        saturationHSL->setMinimum(-100);
+        saturationHSL->setMaximum(100);
+        saturationHSL->setOrientation(Qt::Horizontal);
+        brightnessHSL = new QSlider(HSL);
+        brightnessHSL->setObjectName("brightnessHSL");
+        brightnessHSL->setGeometry(QRect(10, 240, 161, 22));
+        brightnessHSL->setStyleSheet(QString::fromUtf8("QSlider::add-page:Horizontal {\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "    height: 4px;\n"
 "	background-color:rgba(255,255,255,0);\n"
@@ -1001,12 +1007,12 @@ public:
 "    background: qradialgradient(cx:0, cy:0, radius:1, fx:0.5, fy:0.5, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "}\n"
 ""));
-        brightness->setMinimum(-100);
-        brightness->setMaximum(100);
-        brightness->setOrientation(Qt::Horizontal);
+        brightnessHSL->setMinimum(-100);
+        brightnessHSL->setMaximum(100);
+        brightnessHSL->setOrientation(Qt::Horizontal);
         label_12 = new QLabel(HSL);
         label_12->setObjectName("label_12");
-        label_12->setGeometry(QRect(10, 80, 54, 16));
+        label_12->setGeometry(QRect(10, 80, 31, 16));
         label_12->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
 "	background-color:rgba(255,255,255,0);\n"
@@ -1028,10 +1034,10 @@ public:
 "	background-color:rgba(255,255,255,0);\n"
 "}\n"
 ""));
-        red = new QPushButton(HSL);
-        red->setObjectName("red");
-        red->setGeometry(QRect(10, 30, 31, 31));
-        red->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        redHSL = new QPushButton(HSL);
+        redHSL->setObjectName("redHSL");
+        redHSL->setGeometry(QRect(10, 30, 31, 31));
+        redHSL->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
 "    background: rgb(255, 0, 0);\n"
@@ -1045,10 +1051,10 @@ public:
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "}\n"
 ""));
-        green = new QPushButton(HSL);
-        green->setObjectName("green");
-        green->setGeometry(QRect(70, 30, 31, 31));
-        green->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        greenHSL = new QPushButton(HSL);
+        greenHSL->setObjectName("greenHSL");
+        greenHSL->setGeometry(QRect(70, 30, 31, 31));
+        greenHSL->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
 "    background: rgb(0, 255, 0);\n"
@@ -1089,10 +1095,10 @@ public:
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "}\n"
 ""));
-        blue = new QPushButton(HSL);
-        blue->setObjectName("blue");
-        blue->setGeometry(QRect(130, 30, 31, 31));
-        blue->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        blueHSL = new QPushButton(HSL);
+        blueHSL->setObjectName("blueHSL");
+        blueHSL->setGeometry(QRect(130, 30, 31, 31));
+        blueHSL->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
 "    background: rgb(0, 0, 255);\n"
@@ -1133,11 +1139,35 @@ public:
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "}\n"
 ""));
+        angle_11 = new QLabel(tab_2);
+        angle_11->setObjectName("angle_11");
+        angle_11->setGeometry(QRect(50, 90, 61, 16));
+        angle_11->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
+"background-color:rgba(255,255,255,0);\n"
+"}\n"
+""));
+        angle_12 = new QLabel(tab_2);
+        angle_12->setObjectName("angle_12");
+        angle_12->setGeometry(QRect(60, 160, 61, 16));
+        angle_12->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
+"background-color:rgba(255,255,255,0);\n"
+"}\n"
+""));
+        angle_13 = new QLabel(tab_2);
+        angle_13->setObjectName("angle_13");
+        angle_13->setGeometry(QRect(50, 230, 61, 16));
+        angle_13->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
+"background-color:rgba(255,255,255,0);\n"
+"}\n"
+""));
         tabWidget->addTab(tab_2, QString());
 
         retranslateUi(mainwindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(mainwindow);
@@ -1187,9 +1217,12 @@ public:
         label_12->setText(QCoreApplication::translate("mainwindow", "\350\211\262\347\233\270", nullptr));
         label_13->setText(QCoreApplication::translate("mainwindow", "\351\245\261\345\222\214\345\272\246", nullptr));
         label_14->setText(QCoreApplication::translate("mainwindow", "\346\230\216\345\272\246", nullptr));
-        red->setText(QString());
-        green->setText(QString());
-        blue->setText(QString());
+        redHSL->setText(QString());
+        greenHSL->setText(QString());
+        blueHSL->setText(QString());
+        angle_11->setText(QString());
+        angle_12->setText(QString());
+        angle_13->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("mainwindow", "\351\253\230\347\272\247\350\260\203\346\225\264", nullptr));
     } // retranslateUi
 

@@ -774,7 +774,7 @@ QPushButton:checked {
     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -1474,7 +1474,7 @@ background-color:rgba(255,255,255,255);
      <property name="title">
       <string>HSL</string>
      </property>
-     <widget class="QSlider" name="coloration">
+     <widget class="QSlider" name="colorationHSL">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1518,7 +1518,7 @@ QSlider::handle:Horizontal {
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QSlider" name="saturation_2">
+     <widget class="QSlider" name="saturationHSL">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1562,7 +1562,7 @@ QSlider::handle:Horizontal {
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QSlider" name="brightness">
+     <widget class="QSlider" name="brightnessHSL">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1611,7 +1611,7 @@ QSlider::handle:Horizontal {
        <rect>
         <x>10</x>
         <y>80</y>
-        <width>54</width>
+        <width>31</width>
         <height>16</height>
        </rect>
       </property>
@@ -1666,7 +1666,7 @@ QSlider::handle:Horizontal {
        <string>明度</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="red">
+     <widget class="QPushButton" name="redHSL">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1695,7 +1695,7 @@ QPushButton:checked {
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="green">
+     <widget class="QPushButton" name="greenHSL">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -1750,7 +1750,7 @@ QPushButton:checked {
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="blue">
+     <widget class="QPushButton" name="blueHSL">
       <property name="geometry">
        <rect>
         <x>130</x>

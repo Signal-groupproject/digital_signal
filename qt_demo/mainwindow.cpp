@@ -5,7 +5,7 @@
 Mat original_image,image_now; //初始图片和当前处理图像
 int image_index = -1;
 std::vector<cv::Mat> imageStates;
-int ismark = 0;
+int ismark = 0, hslCho = 0; // 默认红色处理
 
 mainwindow::mainwindow(QWidget *parent) :
         QWidget(parent),
@@ -39,7 +39,6 @@ void outError()
         // 没上传图片
         QMessageBox *messageBox = new QMessageBox();
         QMessageBox::information(nullptr, "错误提示", "您还没有上传图片，请点击加载图片进行上传");
-        return;
     }
 }
 // 水印勾选
@@ -217,6 +216,65 @@ void mainwindow::on_Save_Image_clicked()
     }
 }
 
+// HSL处理
+// 红色部分
+void mainwindow::on_redHSL_clicked() {
+    hslCho = 0;
+}
+
+// 绿色部分
+void mainwindow::on_greenHSL_clicked() {
+    hslCho = 1;
+}
+// 蓝色部分
+void mainwindow::on_blueHSL_clicked() {
+    hslCho = 2;
+}
+// 色相处理
+void mainwindow::on_colorationHSL_valueChanged(int value) {
+    outError();
+    ui->angle_9->setText(QString("%1").arg(value));
+    image_now = HSL::changeHue(image_now, value, hslCho);
+
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+void mainwindow::on_colorationHSL_sliderReleased() {
+    updateState();
+}
+// 饱和度处理
+void mainwindow::on_saturationHSL_valueChanged(int value) {
+    outError();
+    ui->angle_9->setText(QString("%1").arg(value));
+
+    image_now = adjust::cot_adjust(original_image,value);
+
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+void mainwindow::on_saturationHSL_sliderReleased() {
+    updateState();
+}
+// 明度处理
+void mainwindow::on_brightnessHSL_valueChanged(int value) {
+    outError();
+    ui->angle_9->setText(QString("%1").arg(value));
+
+    image_now = adjust::cot_adjust(original_image,value);
+
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+}
+void mainwindow::on_brightnessHSL_sliderReleased() {
+    updateState();
+}
+
 // 裁剪图片
 // 声明一个新的槽函数，用于处理裁剪结果的信号
 void mainwindow::handleCropResult(const cv::Mat& result) {
@@ -310,7 +368,7 @@ void mainwindow::on_addText_clicked() {
 // 高斯滤波实现图像平滑处理
 void mainwindow::on_smoothing_valueChanged(int value) {
     outError();
-    ui->angle_2->setText(QString("%1").arg(value));
+    ui->angle_10->setText(QString("%1").arg(value));
     image_now = adjust::smoothing(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     qImage = qImage.convertToFormat(QImage::Format_ARGB32);

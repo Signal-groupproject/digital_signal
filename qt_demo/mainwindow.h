@@ -14,6 +14,7 @@
 #include "ImageProcessingFunctions/revolve.h"
 #include "ImageProcessingFunctions/adjust.h"
 #include "ImageProcessingFunctions/copper.h"
+#include "ImageProcessingFunctions/hsl.h"
 #define test std::cout<<"This is a test";
 using namespace cv;
 
@@ -71,6 +72,16 @@ private slots:
     void on_smoothing_sliderReleased();
     void on_Grayscale_clicked();//灰度化
     void on_edge_detection_clicked();//边缘检测
+    void on_blueHSL_clicked();
+    void on_redHSL_clicked();
+    void on_greenHSL_clicked();
+    void on_colorationHSL_valueChanged(int value); //色相
+    void on_colorationHSL_sliderReleased();
+    void on_brightnessHSL_valueChanged(int value);
+    void on_brightnessHSL_sliderReleased();
+    void on_saturationHSL_sliderReleased();
+    void on_saturationHSL_valueChanged(int value);
+
 };
 
 #endif //QT_DEMO_MAINWINDOW_H
