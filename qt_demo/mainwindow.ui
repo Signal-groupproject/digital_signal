@@ -216,7 +216,6 @@ background-color:rgba(255,255,255,0);
     border-style: solid;
     border-width: 2px;
     padding: 5px;
-	image:url(:/1.png)
 }
 
 QPushButton:hover,
@@ -259,7 +258,6 @@ QPushButton:checked {
     border-style: solid;
     border-width: 2px;
     padding: 5px;
-    image:url(:/2.png)
 }
 
 QPushButton:hover,
@@ -296,7 +294,6 @@ QPushButton:checked {
     border-style: solid;
     border-width: 2px;
     padding: 5px;
-	image:url(:/X.svg)
 }
 
 QPushButton:hover,
@@ -333,7 +330,6 @@ QPushButton:checked {
     border-style: solid;
     border-width: 2px;
     padding: 5px;
-	image:url(:/Y.svg)
 }
 
 QPushButton:hover,

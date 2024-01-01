@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QFileDialog>
 #include <QPainter>
+#include <QPixmap>
 #include <QMessageBox>
 #include <QString>
 #include <QLineEdit>

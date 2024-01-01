@@ -11,6 +11,22 @@ mainwindow::mainwindow(QWidget *parent) :
         QWidget(parent),
         ui(new Ui::mainwindow) {
     ui->setupUi(this);
+    ui->pushButton1->setIcon(QIcon(".\\images\\images\\left.png"));
+    ui->pushButton1->setIconSize(QSize(50, 50));
+
+    ui->pushButton2->setIcon(QIcon(".\\images\\images\\right.png"));
+    ui->pushButton2->setIconSize(QSize(50, 50));
+
+    ui->pushButton3->setIcon(QIcon(".\\images\\images\\X.png"));
+    ui->pushButton3->setIconSize(QSize(50, 50));
+
+    ui->pushButton4->setIcon(QIcon(".\\images\\images\\Y.png"));
+    ui->pushButton4->setIconSize(QSize(50, 50));
+
+    ui->Withdraw->setIcon(QIcon(".\\images\\images\\prev.png"));
+    ui->Remake->setIcon(QIcon(".\\images\\images\\next.png"));
+    ui->merge->setIcon(QIcon(".\\images\\images\\merge.png"));
+
     setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);    // 禁止最大化按钮
     setFixedSize(this->width(),this->height());                     // 禁止拖动窗口大小
     // 监控水印是否勾选进行动作
