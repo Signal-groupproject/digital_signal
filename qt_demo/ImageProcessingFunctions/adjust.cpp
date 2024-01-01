@@ -1,6 +1,7 @@
 //
 // Created by wei'y'b on 2023/12/30.
 //
+#include <opencv2/core/types_c.h>
 #include "adjust.h"
 
 // 识别人脸
@@ -380,6 +381,7 @@ cv::Mat adjust::saturation_adjust(const cv::Mat &image, int value) {
             }
         }
     }
+    return result;
 }
 
 cv::Mat adjust::grayscale(const cv::Mat &image) {
@@ -424,5 +426,21 @@ cv::Mat adjust::edge_detection(const cv::Mat &image) {
 
 // 去雾
 cv::Mat adjust::defog(const cv::Mat &image) {
-    return cv::Mat();
+    cv::Mat blue, green, red;
+    cv::Mat bgr[3];
+    cv::split(image, bgr);
+
+    blue = bgr[0];
+    green = bgr[1];
+    red = bgr[2];
+
+    cv::Mat blue_equ, green_equ, red_equ;
+    cv::equalizeHist(blue, blue_equ);
+    cv::equalizeHist(green, green_equ);
+    cv::equalizeHist(red, red_equ);
+
+    cv::Mat equ;
+    cv::merge(std::vector<cv::Mat>{blue_equ, green_equ, red_equ}, equ);
+
+    return equ;
 }

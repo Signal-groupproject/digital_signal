@@ -5,6 +5,8 @@
 #ifndef QT_DEMO_ADJUST_H
 #define QT_DEMO_ADJUST_H
 #include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <vector>
 #include <QString>
 #include <QMessageBox>

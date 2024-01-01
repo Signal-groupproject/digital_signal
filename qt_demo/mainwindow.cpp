@@ -601,7 +601,7 @@ void mainwindow::on_beautiful_clicked() {
 // 去雾
 void mainwindow::on_defog_clicked() {
     if(!image_now.empty()){
-        image_now = adjust::processFace(image_now); // 人脸识别
+        image_now = adjust::defog(image_now); // 人脸识别
         updateState();
     }else{
         outError();
