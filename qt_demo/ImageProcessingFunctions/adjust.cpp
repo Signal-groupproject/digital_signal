@@ -7,6 +7,10 @@
 cv::Mat adjust::addTextToImage(const cv::Mat &image, const QString& text)
 {
     // 获取用户选择的文字大小
+    cv::Mat result(image.rows, image.cols, image.type());
+    memcpy(result.data, image.data, image.total() * image.elemSize());
+    result.convertTo(result, CV_8U);
+
     bool ok;
     int fontSize = QInputDialog::getInt(nullptr, "选择文字大小", "请输入文字大小（单位：像素）", 10, 1, 100, 1, &ok);
     if(!ok)
@@ -42,8 +46,8 @@ cv::Mat adjust::addTextToImage(const cv::Mat &image, const QString& text)
 
     // 在图片上绘制文字
     cv::Scalar textColorScalar(textColor.blue(), textColor.green(), textColor.red());
-    cv::putText(image, text.toStdString(), textPosition, cv::FONT_HERSHEY_SIMPLEX, fontSize / 10.0, textColorScalar, 2);
-    return image;
+    cv::putText(result, text.toStdString(), textPosition, cv::FONT_HERSHEY_SIMPLEX, fontSize / 10.0, textColorScalar, 2);
+    return result;
 }
 
 // 高斯模糊,平滑处理
