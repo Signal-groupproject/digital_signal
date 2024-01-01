@@ -280,7 +280,8 @@ void mainwindow::on_addText_clicked() {
     QString inText = ui->textEdit->toPlainText();
     QMessageBox *messageBox = new QMessageBox();
     messageBox->information(nullptr, "用户输入", "您输入的文字是：" + inText);
-
+    image_now = adjust::addTextToImage(image_now, inText);
+    updateState();
 }
 
 // 高斯滤波实现图像平滑处理

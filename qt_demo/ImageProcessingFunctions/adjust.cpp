@@ -2,7 +2,33 @@
 // Created by wei'y'b on 2023/12/30.
 //
 
+
 #include "adjust.h"
+
+// 把文字放图片上
+cv::Mat adjust::addTextToImage(const cv::Mat &image, const QString& text)
+{
+    // 选择文字位置
+    QMessageBox::information(nullptr, "选择位置", "请点击图片选择文字位置");
+    cv::Point textPosition;
+    cv::namedWindow("选择位置");
+    cv::imshow("选择位置", image);
+    cv::setMouseCallback("选择位置", [](int event, int x, int y, int flags, void* userdata) {
+        if (event == cv::EVENT_LBUTTONDOWN)
+        {
+            cv::Point* position = static_cast<cv::Point*>(userdata);
+            position->x = x;
+            position->y = y;
+            cv::destroyWindow("选择位置");
+        }
+    }, &textPosition);
+    cv::waitKey();
+
+    // 在图片上绘制文字
+    cv::putText(image, text.toStdString(), textPosition, cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(255, 255, 255), 2);
+
+    return image;
+}
 
 // 高斯模糊,平滑处理
 cv::Mat adjust::smoothing(const cv::Mat &image, int value) {

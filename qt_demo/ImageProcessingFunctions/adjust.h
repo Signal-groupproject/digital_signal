@@ -6,6 +6,9 @@
 #define QT_DEMO_ADJUST_H
 #include <opencv2/opencv.hpp>
 #include <vector>
+#include <QString>
+#include <QMessageBox>
+#include <QFileDialog>
 
 class adjust {
 public:
@@ -21,6 +24,7 @@ public:
     static cv::Mat smoothing(const cv::Mat &image, int value);
     static cv::Mat grayscale(const cv::Mat &image);
     static cv::Mat edge_detection(const cv::Mat &image);
+    static cv::Mat addTextToImage(const cv::Mat &image, const QString &text);
 };
 
 
