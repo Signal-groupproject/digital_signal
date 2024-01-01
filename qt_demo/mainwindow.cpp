@@ -8,18 +8,27 @@ std::vector<cv::Mat> imageStates;
 int ismark = 0;
 
 mainwindow::mainwindow(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::mainwindow) {
+        QWidget(parent),
+        ui(new Ui::mainwindow) {
     ui->setupUi(this);
     setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);    // 禁止最大化按钮
     setFixedSize(this->width(),this->height());                     // 禁止拖动窗口大小
     // 监控水印是否勾选进行动作
     connect(ui->checkBox, &QCheckBox::stateChanged, this, &mainwindow::onCheckBoxStateChanged);
 }
-
+void outError()
+{   // 错误提示
+    if (image_now.empty())
+    {
+        // 没上传图片
+        QMessageBox *messageBox = new QMessageBox();
+        QMessageBox::information(nullptr, "错误提示", "您还没有上传图片，请点击加载图片进行上传");
+    }
+}
 // 水印勾选
 void mainwindow::onCheckBoxStateChanged(int state)
 {
+    outError();
     if (state == Qt::Checked)
     {  // 加水印
         ismark = 1;
@@ -93,7 +102,7 @@ QImage mainwindow::Image_Processing(const QImage& qimage)
 void mainwindow::updateState() {
     // 当进行一个新操作时，删除当前图片位置以后所有图片状态，然后再更新当前图片进去
     if(image_index != -1)
-    imageStates.erase(imageStates.begin()+image_index+1, imageStates.end());
+        imageStates.erase(imageStates.begin()+image_index+1, imageStates.end());
     image_index++;
     imageStates.push_back(image_now);
 
@@ -105,6 +114,7 @@ void mainwindow::updateState() {
 }
 // 撤销操作
 void mainwindow::on_Withdraw_clicked() {
+    outError();
     if(image_index > 0){
         image_index--;
         image_now = imageStates[image_index];
@@ -117,6 +127,7 @@ void mainwindow::on_Withdraw_clicked() {
 }
 // 重做操作
 void mainwindow::on_Remake_clicked() {
+    outError();
     if(image_index < imageStates.size() - 1)
     {
         image_index++;
@@ -153,6 +164,7 @@ void mainwindow::on_Load_Image_clicked() {
     }
     // 更新初始图片、当前图片和图片状态存储
     original_image = imread(filePath.toStdString());
+//    std::cout<<original_image.channels()<<" ";
     if (original_image.empty()) {
         QMessageBox::warning(this, tr("警告"), tr("图片加载失败，请选择一个有效的图片文件。"));
         return;
@@ -167,6 +179,7 @@ void mainwindow::on_Load_Image_clicked() {
 // 保存图片
 void mainwindow::on_Save_Image_clicked()
 {
+    outError();
     QString savePath = QFileDialog::getSaveFileName(nullptr, "保存图像", "", "图像文件 (*.png *.jpg *.bmp)");
 
     if (!savePath.isEmpty()) {
@@ -194,6 +207,7 @@ void mainwindow::handleCropResult(const cv::Mat& result) {
     updateState();
 }
 void mainwindow::on_Crop_Image_clicked() {
+    outError();
     ImageLabel* label = new ImageLabel(ui->label_show);
 
     // 将 cropResultAvailable 信号连接到 handleCropResult 槽函数
@@ -207,6 +221,7 @@ void mainwindow::on_Crop_Image_clicked() {
 
 //角度滑动条变化，实时显示角度值
 void mainwindow::on_horizontalSlider_valueChanged(int value) {
+    outError();
     ui->angle->setText(QString("%1").arg(value));
     image_now = adjust::rotateImage(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
@@ -220,12 +235,14 @@ void mainwindow::on_horizontalSlider_sliderReleased() {
 }
 // 向右旋转90°
 void mainwindow::on_pushButton1_clicked() {
+    outError();
     image_now = Revolve90::left90(image_now);
     // 显示当前图像
     updateState();
 }
 // 向左旋转90°
 void mainwindow::on_pushButton2_clicked() {
+    outError();
     image_now = Revolve90::right90(image_now);
     // 显示当前图像
     updateState();
@@ -233,6 +250,7 @@ void mainwindow::on_pushButton2_clicked() {
 
 // x轴对称
 void mainwindow::on_pushButton3_clicked() {
+    outError();
     // 对图像进行x轴对称操作
     image_now = Symmetry::xSymmetry(image_now);
     // 显示当前图像
@@ -241,6 +259,7 @@ void mainwindow::on_pushButton3_clicked() {
 
 // y轴对称
 void mainwindow::on_pushButton4_clicked() {
+    outError();
     // 对图像进行y轴对称操作
     image_now = Symmetry::ySymmetry(image_now);
     // 显示当前图像
@@ -249,20 +268,44 @@ void mainwindow::on_pushButton4_clicked() {
 
 // 直方图均衡化
 void mainwindow::on_Equalize_clicked() {
-    // 对图像进行直方图均衡化
+    outError();
+    // 对图像进行y轴对称操作
     image_now = adjust::equalization(image_now);
     // 显示当前图像
     updateState();
 }
 
 // 添加文字
+//void mainwindow::onTextGet(QString str) {
+//    // 获取用户输入的文字
+//    QString text = lineEdit->text();
+//    QMessageBox *messageBox = new QMessageBox();
+//    // 显示用户输入的文字
+//    messageBox->information(nullptr, "用户输入", "您输入的文字是：" + text);
+//}
 void mainwindow::on_addText_clicked() {
+    outError();
+    // 创建一个文本框
+    QLineEdit *lineEdit = new QLineEdit();
+    // 清空文本框内容
+    lineEdit->clear();
 
+    // 弹出消息框，让用户输入文字
+    lineEdit->setWindowTitle("输入文字");
+    lineEdit->setPlaceholderText("请输入文字");
+    lineEdit->setText("");
+    lineEdit->setFocus();
+    lineEdit->show();
+    QString text = lineEdit->text();
+    // 显示用户输入的文字
+    QMessageBox *messageBox = new QMessageBox();
+    messageBox->information(nullptr, "用户输入", "您输入的文字是：" + text);
 }
 
 // 高斯滤波实现图像平滑处理
 void mainwindow::on_smoothing_valueChanged(int value) {
-    ui->angle_10->setText(QString("%1").arg(value));
+    outError();
+    ui->angle_2->setText(QString("%1").arg(value));
     image_now = adjust::smoothing(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     qImage = qImage.convertToFormat(QImage::Format_ARGB32);
@@ -275,6 +318,7 @@ void mainwindow::on_smoothing_sliderReleased() {
 
 //光感调整
 void mainwindow::on_light_perception_valueChanged(int value) {
+    outError();
     ui->angle_2->setText(QString("%1").arg(value));
     image_now = adjust::light_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
@@ -289,6 +333,7 @@ void mainwindow::on_light_perception_sliderReleased() {
 
 // 曝光调整
 void mainwindow::on_exposure_valueChanged(int value) {
+    outError();
     ui->angle_4->setText(QString("%1").arg(value));
     image_now = adjust::exposure_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
@@ -303,6 +348,7 @@ void mainwindow::on_exposure_sliderReleased() {
 
 // 对比度调整
 void mainwindow::on_contrast_ratio_valueChanged(int value) {
+    outError();
     ui->angle_5->setText(QString("%1").arg(value));
     image_now = adjust::contrast_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
@@ -317,6 +363,7 @@ void mainwindow::on_contrast_ratio_sliderReleased() {
 
 //锐化
 void mainwindow::on_sharpening_valueChanged(int value) {
+    outError();
     ui->angle_6->setText(QString("%1").arg(value));
     image_now = adjust::sharpen_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
@@ -331,6 +378,7 @@ void mainwindow::on_sharpening_sliderReleased() {
 
 //色温
 void mainwindow::on_color_temperature_valueChanged(int value) {
+    outError();
     ui->angle_7->setText(QString("%1").arg(value));
     image_now = adjust::cot_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
@@ -345,6 +393,7 @@ void mainwindow::on_color_temperature_sliderReleased() {
 
 //色调
 void mainwindow::on_tone_valueChanged(int value) {
+    outError();
     ui->angle_8->setText(QString("%1").arg(value));
     image_now = adjust::cot_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
@@ -359,6 +408,7 @@ void mainwindow::on_tone_sliderReleased() {
 
 //饱和度
 void mainwindow::on_saturation_valueChanged(int value) {
+    outError();
     ui->angle_9->setText(QString("%1").arg(value));
     image_now = adjust::cot_adjust(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
@@ -373,6 +423,7 @@ void mainwindow::on_saturation_sliderReleased() {
 
 //图层合并
 void mainwindow::on_merge_clicked() {
+    outError();
     original_image = image_now;
     image_index = -1;
     imageStates.clear();
@@ -380,11 +431,13 @@ void mainwindow::on_merge_clicked() {
 }
 
 void mainwindow::on_Grayscale_clicked() {
+    outError();
     image_now = adjust::grayscale(image_now);
     updateState();
 }
 
 void mainwindow::on_edge_detection_clicked() {
+    outError();
     image_now = adjust::edge_detection(image_now);
     updateState();
 }

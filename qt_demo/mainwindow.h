@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <QMessageBox>
 #include <QString>
+#include <QLineEdit>
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include "ImageProcessingFunctions/revolve.h"
