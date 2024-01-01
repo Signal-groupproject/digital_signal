@@ -233,7 +233,7 @@ void mainwindow::on_blueHSL_clicked() {
 // 色相处理
 void mainwindow::on_colorationHSL_valueChanged(int value) {
     outError();
-    ui->angle_9->setText(QString("%1").arg(value));
+    ui->angle_11->setText(QString("%1").arg(value));
     image_now = HSL::changeHue(image_now, value, hslCho);
 
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
@@ -247,7 +247,7 @@ void mainwindow::on_colorationHSL_sliderReleased() {
 // 饱和度处理
 void mainwindow::on_saturationHSL_valueChanged(int value) {
     outError();
-    ui->angle_9->setText(QString("%1").arg(value));
+    ui->angle_12->setText(QString("%1").arg(value));
 
     image_now = adjust::cot_adjust(original_image,value);
 
@@ -262,7 +262,7 @@ void mainwindow::on_saturationHSL_sliderReleased() {
 // 明度处理
 void mainwindow::on_brightnessHSL_valueChanged(int value) {
     outError();
-    ui->angle_9->setText(QString("%1").arg(value));
+    ui->angle_13->setText(QString("%1").arg(value));
 
     image_now = adjust::cot_adjust(original_image,value);
 
