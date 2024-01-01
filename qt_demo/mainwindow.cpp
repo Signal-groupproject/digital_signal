@@ -143,6 +143,7 @@ void mainwindow::on_Remake_clicked() {
 //图像对比
 //通过调用全局变量实现图像处理前后对比
 void mainwindow::on_Contrast_pressed() {
+    outError();
     QImage qImage(original_image.data, original_image.cols, original_image.rows, original_image.step, QImage::Format_BGR888);
     qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
@@ -164,7 +165,6 @@ void mainwindow::on_Load_Image_clicked() {
     }
     // 更新初始图片、当前图片和图片状态存储
     original_image = imread(filePath.toStdString());
-//    std::cout<<original_image.channels()<<" ";
     if (original_image.empty()) {
         QMessageBox::warning(this, tr("警告"), tr("图片加载失败，请选择一个有效的图片文件。"));
         return;
@@ -173,7 +173,6 @@ void mainwindow::on_Load_Image_clicked() {
     image_index = -1;
     image_now = original_image;
     updateState();
-    std::cout<<image_now.channels();
 }
 
 // 保存图片
