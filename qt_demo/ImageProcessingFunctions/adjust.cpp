@@ -308,23 +308,20 @@ cv::Mat adjust::grayscale(const cv::Mat &image) {
 }
 
 cv::Mat adjust::edge_detection(const cv::Mat &image) {
-    // 创建结果图像
+    // 深拷贝输入图像
     cv::Mat result(image.rows, image.cols, image.type());
-
-    // 将输入图像数据复制到结果图像
     memcpy(result.data, image.data, image.total() * image.elemSize());
 
-    // 转换为8位无符号整数类型
+    // 转换为8位灰度图像
     result.convertTo(result, CV_8U);
 
-    // 定义Laplacian算子
-    cv::Mat laplacianKernel = (cv::Mat_<float>(3, 3) << 0, 1, 0, 1, -4, 1, 0, 1, 0);
+    // 使用Laplacian算子进行边缘检测
+    cv::Mat laplacian;
+    cv::Laplacian(result, laplacian, CV_16S, 3, 1, 0, cv::BORDER_DEFAULT);
+    cv::convertScaleAbs(laplacian, result);
 
-    // 应用Laplacian算子
-    cv::filter2D(result, result, -1, laplacianKernel);
-
-    // 对结果进行模糊平滑处理以去除噪声
-    cv::GaussianBlur(result, result, cv::Size(3, 3), 0);
+    // 模糊平滑处理以去除高频噪声
+    cv::GaussianBlur(result, result, cv::Size(3, 3), 0, 0, cv::BORDER_DEFAULT);
 
     return result;
 }
