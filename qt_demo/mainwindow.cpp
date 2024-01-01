@@ -23,9 +23,10 @@ mainwindow::mainwindow(QWidget *parent) :
     ui->pushButton4->setIcon(QIcon(".\\images\\images\\Y.png"));
     ui->pushButton4->setIconSize(QSize(50, 50));
 
-    ui->Withdraw->setIcon(QIcon(".\\images\\images\\prev.png"));
-    ui->Remake->setIcon(QIcon(".\\images\\images\\next.png"));
+    ui->Withdraw->setIcon(QIcon(".\\images\\images\\withdraw.png"));
+    ui->Remake->setIcon(QIcon(".\\images\\images\\remake.png"));
     ui->merge->setIcon(QIcon(".\\images\\images\\merge.png"));
+    ui->Contrast->setIcon(QIcon(".\\images\\images\\contrast.png"));
 
     setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);    // 禁止最大化按钮
     setFixedSize(this->width(),this->height());                     // 禁止拖动窗口大小
