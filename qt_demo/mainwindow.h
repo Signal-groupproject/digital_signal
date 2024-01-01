@@ -64,7 +64,8 @@ private slots:
     void on_merge_clicked();//图层合并
     void onCheckBoxStateChanged(int state);//水印
     void on_addText_clicked(); //添加文字
-    void on_smoothing_clicked(); //图像平滑
+    void on_smoothing_valueChanged(int value); //图像平滑
+    void on_smoothing_sliderReleased();
 };
 
 #endif //QT_DEMO_MAINWINDOW_H

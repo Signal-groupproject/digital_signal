@@ -18,6 +18,7 @@ public:
     static cv::Mat equalization(const cv::Mat& image);
     static cv::Mat saturation_adjust(const cv::Mat& image, int value);
     static cv::Mat rotateImage(const cv::Mat &image, int value);
+    static cv::Mat smoothing(const cv::Mat &image, int value);
 };
 
 

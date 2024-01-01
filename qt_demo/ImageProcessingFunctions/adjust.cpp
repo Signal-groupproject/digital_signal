@@ -3,6 +3,11 @@
 //
 
 #include "adjust.h"
+
+// 高斯模糊,平滑处理
+cv::Mat adjust::smoothing(const cv::Mat &image, int value) {
+
+}
 // 根据拉动角度旋转图片
 cv::Mat adjust::rotateImage(const cv::Mat& image, int value) {
     // 计算旋转中心
