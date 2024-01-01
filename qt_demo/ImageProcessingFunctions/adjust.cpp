@@ -26,8 +26,12 @@ cv::Mat adjust::processFace(const cv::Mat& image) {
         // 获取人脸区域
         cv::Mat faceROI = blurredImage(faceRect);
 
-        // 对人脸部分进行3x3的高斯模糊
-        cv::GaussianBlur(faceROI, faceROI, cv::Size(3, 3), 0);
+        // 创建一个3x3的高斯模糊内核
+        cv::Mat kernel = (cv::Mat_<float>(3, 3) << 1, 2, 1, 2, 4, 2, 1, 2, 1);
+        kernel /= 16;  // 标准化内核
+
+        // 执行卷积运算
+        cv::filter2D(faceROI, faceROI, -1, kernel);
 
         // 将处理后的人脸区域重新放回原图
         faceROI.copyTo(blurredImage(faceRect));
