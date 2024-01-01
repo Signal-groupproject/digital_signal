@@ -1,14 +1,19 @@
 //
 // Created by wei'y'b on 2023/12/30.
 //
-
-
 #include "adjust.h"
 
 // 把文字放图片上
 cv::Mat adjust::addTextToImage(const cv::Mat &image, const QString& text)
 {
-    // 选择文字位置
+    // 获取用户选择的文字大小
+    bool ok;
+    int fontSize = QInputDialog::getInt(nullptr, "选择文字大小", "请输入文字大小（单位：像素）", 10, 1, 100, 1, &ok);
+
+    // 获取用户选择的文字颜色
+    QColor textColor = QColorDialog::getColor(Qt::black, nullptr, "选择文字颜色");
+
+// 选择文字位置
     QMessageBox::information(nullptr, "选择位置", "请点击图片选择文字位置");
     cv::Point textPosition;
     cv::namedWindow("选择位置");
@@ -25,8 +30,8 @@ cv::Mat adjust::addTextToImage(const cv::Mat &image, const QString& text)
     cv::waitKey();
 
     // 在图片上绘制文字
-    cv::putText(image, text.toStdString(), textPosition, cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(255, 255, 255), 2);
-
+    cv::Scalar textColorScalar(textColor.blue(), textColor.green(), textColor.red());
+    cv::putText(image, text.toStdString(), textPosition, cv::FONT_HERSHEY_SIMPLEX, fontSize / 10.0, textColorScalar, 2);
     return image;
 }
 

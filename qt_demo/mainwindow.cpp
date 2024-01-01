@@ -23,6 +23,7 @@ void outError()
         // 没上传图片
         QMessageBox *messageBox = new QMessageBox();
         QMessageBox::information(nullptr, "错误提示", "您还没有上传图片，请点击加载图片进行上传");
+        return;
     }
 }
 // 水印勾选

@@ -9,6 +9,8 @@
 #include <QString>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QInputDialog>
+#include <QColorDialog>
 
 class adjust {
 public:
