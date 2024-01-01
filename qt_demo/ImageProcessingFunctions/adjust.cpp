@@ -286,5 +286,26 @@ cv::Mat adjust::saturation_adjust(const cv::Mat &image, int value) {
     }
 }
 
-//曲线调色
-//HSL
+cv::Mat adjust::grayscale(const cv::Mat &image) {
+    cv::Mat result(image.size(), image.type());
+
+    for (int y = 0; y < image.rows; y++) {
+        for (int x = 0; x < image.cols; x++) {
+            // 获取像素值
+            cv::Vec3b pixel = image.at<cv::Vec3b>(y, x);
+
+            // 灰度转换的一种方法(RGB求平均值)
+            int average = (pixel[0] + pixel[1] + pixel[2]) / 3;
+
+            // 设置新图像的像素值
+            result.at<cv::Vec3b>(y, x) = cv::Vec3b(average, average, average);
+        }
+    }
+
+    return result;
+}
+
+cv::Mat adjust::edge_detection(const cv::Mat &image) {
+
+
+}

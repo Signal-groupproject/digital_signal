@@ -1,3 +1,4 @@
+#include <QImage>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -160,6 +161,7 @@ void mainwindow::on_Load_Image_clicked() {
     image_index = -1;
     image_now = original_image;
     updateState();
+    std::cout<<image_now.channels();
 }
 
 // 保存图片
@@ -247,7 +249,7 @@ void mainwindow::on_pushButton4_clicked() {
 
 // 直方图均衡化
 void mainwindow::on_Equalize_clicked() {
-    // 对图像进行y轴对称操作
+    // 对图像进行直方图均衡化
     image_now = adjust::equalization(image_now);
     // 显示当前图像
     updateState();
@@ -261,7 +263,6 @@ void mainwindow::on_addText_clicked() {
 // 高斯滤波实现图像平滑处理
 void mainwindow::on_smoothing_valueChanged(int value) {
     ui->angle_10->setText(QString("%1").arg(value));
-
     image_now = adjust::smoothing(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     qImage = qImage.convertToFormat(QImage::Format_ARGB32);
@@ -375,5 +376,15 @@ void mainwindow::on_merge_clicked() {
     original_image = image_now;
     image_index = -1;
     imageStates.clear();
+    updateState();
+}
+
+void mainwindow::on_Grayscale_clicked() {
+    image_now = adjust::grayscale(image_now);
+    updateState();
+}
+
+void mainwindow::on_edge_detection_clicked() {
+    image_now = adjust::edge_detection(image_now);
     updateState();
 }

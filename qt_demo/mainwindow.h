@@ -66,6 +66,8 @@ private slots:
     void on_addText_clicked(); //添加文字
     void on_smoothing_valueChanged(int value); //图像平滑
     void on_smoothing_sliderReleased();
+    void on_Grayscale_clicked();//灰度化
+    void on_edge_detection_clicked();//边缘检测
 };
 
 #endif //QT_DEMO_MAINWINDOW_H
