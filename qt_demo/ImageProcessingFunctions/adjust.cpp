@@ -9,10 +9,21 @@ cv::Mat adjust::addTextToImage(const cv::Mat &image, const QString& text)
     // 获取用户选择的文字大小
     bool ok;
     int fontSize = QInputDialog::getInt(nullptr, "选择文字大小", "请输入文字大小（单位：像素）", 10, 1, 100, 1, &ok);
+    if(!ok)
+    {
+        QMessageBox *messageBox = new QMessageBox();
+        QMessageBox::information(nullptr, "错误提示", "获取文字大小失败");
+        return image;
+    }
 
     // 获取用户选择的文字颜色
     QColor textColor = QColorDialog::getColor(Qt::black, nullptr, "选择文字颜色");
-
+    if(!textColor.isValid())
+    {
+        QMessageBox *messageBox = new QMessageBox();
+        QMessageBox::information(nullptr, "错误提示", "获取文字颜色失败");
+        return image;
+    }
 // 选择文字位置
     QMessageBox::information(nullptr, "选择位置", "请点击图片选择文字位置");
     cv::Point textPosition;
