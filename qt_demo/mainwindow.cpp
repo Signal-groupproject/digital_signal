@@ -99,6 +99,7 @@ QImage mainwindow::Image_Processing(const QImage& qimage)
 
     return processed_image;
 }
+
 // 每当对图像进行一次操作，将其更新在存储数组中，并重新显示
 void mainwindow::updateState() {
     // 当进行一个新操作时，删除当前图片位置以后所有图片状态，然后再更新当前图片进去
@@ -113,6 +114,7 @@ void mainwindow::updateState() {
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
+
 // 撤销操作
 void mainwindow::on_Withdraw_clicked() {
     outError();
@@ -126,6 +128,7 @@ void mainwindow::on_Withdraw_clicked() {
         ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
     }
 }
+
 // 重做操作
 void mainwindow::on_Remake_clicked() {
     outError();
@@ -141,8 +144,7 @@ void mainwindow::on_Remake_clicked() {
     }
 }
 
-//图像对比
-//通过调用全局变量实现图像处理前后对比
+//图像对比，通过调用全局变量实现图像处理前后对比
 void mainwindow::on_Contrast_pressed() {
     outError();
     QImage qImage(original_image.data, original_image.cols, original_image.rows, original_image.step, QImage::Format_BGR888);
@@ -277,12 +279,16 @@ void mainwindow::on_Equalize_clicked() {
 
 // 添加文字
 void mainwindow::on_addText_clicked() {
-    outError();
-    QString inText = ui->textEdit->toPlainText();
-    QMessageBox *messageBox = new QMessageBox();
-    messageBox->information(nullptr, "用户输入", "您输入的文字是：" + inText);
-    image_now = adjust::addTextToImage(image_now, inText);
-    updateState();
+    if(!original_image.empty()){
+        QString inText = ui->textEdit->toPlainText();
+        QMessageBox *messageBox = new QMessageBox();
+        messageBox->information(nullptr, "用户输入", "您输入的文字是：" + inText);
+        image_now = adjust::addTextToImage(image_now, inText);
+        updateState();
+    }else{
+        outError();
+    }
+
 }
 
 // 高斯滤波实现图像平滑处理
@@ -413,14 +419,19 @@ void mainwindow::on_merge_clicked() {
     updateState();
 }
 
+//灰度化
 void mainwindow::on_Grayscale_clicked() {
     outError();
     image_now = adjust::grayscale(image_now);
     updateState();
 }
 
+//边缘检测
 void mainwindow::on_edge_detection_clicked() {
-    outError();
-    image_now = adjust::edge_detection(image_now);
-    updateState();
+    if(!image_now.empty()){
+        image_now = adjust::edge_detection(image_now);
+        updateState();
+    }else{
+        outError();
+    }
 }
