@@ -68,8 +68,8 @@ public:
     QLabel *angle_9;
     QSlider *saturation;
     QLabel *label_10;
-    QSlider *smoothing;
     QLabel *label_11;
+    QSlider *smoothing;
     QWidget *tab_2;
 
     void setupUi(QWidget *mainwindow)
@@ -796,6 +796,14 @@ public:
 "	background-color:rgba(255,255,255,0);\n"
 "}\n"
 ""));
+        label_11 = new QLabel(tab);
+        label_11->setObjectName("label_11");
+        label_11->setGeometry(QRect(10, 430, 71, 16));
+        label_11->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
+"	background-color:rgba(255,255,255,0);\n"
+"}\n"
+""));
         smoothing = new QSlider(tab);
         smoothing->setObjectName("smoothing");
         smoothing->setGeometry(QRect(10, 460, 161, 22));
@@ -822,17 +830,9 @@ public:
 "    background: qradialgradient(cx:0, cy:0, radius:1, fx:0.5, fy:0.5, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "}\n"
 ""));
-        smoothing->setMinimum(-100);
+        smoothing->setMinimum(0);
         smoothing->setMaximum(100);
         smoothing->setOrientation(Qt::Horizontal);
-        label_11 = new QLabel(tab);
-        label_11->setObjectName("label_11");
-        label_11->setGeometry(QRect(10, 430, 71, 16));
-        label_11->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
-"	background-color:rgba(255,255,255,0);\n"
-"}\n"
-""));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
