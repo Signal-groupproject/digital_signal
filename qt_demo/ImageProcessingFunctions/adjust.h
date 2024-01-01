@@ -27,6 +27,7 @@ public:
     static cv::Mat grayscale(const cv::Mat &image);
     static cv::Mat edge_detection(const cv::Mat &image);
     static cv::Mat addTextToImage(const cv::Mat &image, const QString &text);
+    static cv::Mat processFace(const cv::Mat &image);
 };
 
 

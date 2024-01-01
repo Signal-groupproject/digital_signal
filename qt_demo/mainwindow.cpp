@@ -506,3 +506,13 @@ void mainwindow::on_edge_detection_clicked() {
         outError();
     }
 }
+
+// 人像美颜
+void mainwindow::on_beautiful_clicked() {
+    if(!image_now.empty()){
+        image_now = adjust::processFace(image_now); // 人脸识别
+        updateState();
+    }else{
+        outError();
+    }
+}

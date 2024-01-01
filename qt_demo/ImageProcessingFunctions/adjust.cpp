@@ -3,6 +3,38 @@
 //
 #include "adjust.h"
 
+// 识别人脸
+cv::Mat adjust::processFace(const cv::Mat& image) {
+    cv::CascadeClassifier faceCascade;
+    std::string cascadePath = "./cascade/haarcascade_frontalface_alt.xml";
+    if (!faceCascade.load(cascadePath)) {
+        QMessageBox *messageBox = new QMessageBox();
+        QMessageBox::information(nullptr, "错误提示", "加载级联分类器失败");
+        return image;
+    }
+
+    cv::Mat grayImage;
+    cv::cvtColor(image, grayImage, cv::COLOR_BGR2GRAY);
+    cv::equalizeHist(grayImage, grayImage);
+
+    cv::Mat blurredImage = image.clone();  // 创建一个副本用于结果
+
+    std::vector<cv::Rect> faces;
+    faceCascade.detectMultiScale(grayImage, faces, 1.1, 3);
+
+    for (const cv::Rect& faceRect : faces) {
+        // 获取人脸区域
+        cv::Mat faceROI = blurredImage(faceRect);
+
+        // 对人脸部分进行3x3的高斯模糊
+        cv::GaussianBlur(faceROI, faceROI, cv::Size(3, 3), 0);
+
+        // 将处理后的人脸区域重新放回原图
+        faceROI.copyTo(blurredImage(faceRect));
+    }
+
+    return blurredImage;
+}
 // 把文字放图片上
 cv::Mat adjust::addTextToImage(const cv::Mat &image, const QString& text)
 {
