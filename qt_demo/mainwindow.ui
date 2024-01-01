@@ -203,7 +203,7 @@ background-color:rgba(255,255,255,0);
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>170</y>
+       <y>150</y>
        <width>71</width>
        <height>71</height>
       </rect>
@@ -246,7 +246,7 @@ QPushButton:checked {
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>170</y>
+       <y>150</y>
        <width>75</width>
        <height>71</height>
       </rect>
@@ -283,7 +283,7 @@ QPushButton:checked {
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>260</y>
+       <y>230</y>
        <width>75</width>
        <height>71</height>
       </rect>
@@ -320,7 +320,7 @@ QPushButton:checked {
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>260</y>
+       <y>230</y>
        <width>75</width>
        <height>71</height>
       </rect>
@@ -357,7 +357,7 @@ QPushButton:checked {
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>350</y>
+       <y>320</y>
        <width>181</width>
        <height>31</height>
       </rect>
@@ -397,7 +397,7 @@ QPushButton:checked {
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>400</y>
+       <y>360</y>
        <width>181</width>
        <height>31</height>
       </rect>
@@ -428,6 +428,86 @@ QPushButton:checked {
      </property>
      <property name="text">
       <string>添加文字</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Grayscale">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>400</y>
+       <width>181</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    font: 10pt &quot;微软雅黑&quot;;
+    color: #FFFFFF;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+QPushButton:hover,
+QPushButton:pressed,
+QPushButton:checked {
+    color: #FFFFFF;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
+}
+
+QPushButton:pressed,
+QPushButton:checked {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>灰度化</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="edge_detection">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>440</y>
+       <width>181</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    font: 10pt &quot;微软雅黑&quot;;
+    color: #FFFFFF;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+QPushButton:hover,
+QPushButton:pressed,
+QPushButton:checked {
+    color: #FFFFFF;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);
+}
+
+QPushButton:pressed,
+QPushButton:checked {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>边缘检测</string>
      </property>
      <property name="checkable">
       <bool>false</bool>
@@ -687,7 +767,7 @@ QPushButton:checked {
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>基础调整1</string>
+     <string>基础调整</string>
     </attribute>
     <widget class="QLabel" name="angle_2">
      <property name="geometry">
@@ -1341,10 +1421,30 @@ QSlider::handle:Horizontal {
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
+    <widget class="QLabel" name="angle_10">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>430</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);
+background-color:rgba(255,255,255,0);
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
-     <string>基础调整2</string>
+     <string>高级调整</string>
     </attribute>
    </widget>
   </widget>

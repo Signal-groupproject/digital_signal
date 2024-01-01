@@ -260,7 +260,7 @@ void mainwindow::on_addText_clicked() {
 
 // 高斯滤波实现图像平滑处理
 void mainwindow::on_smoothing_valueChanged(int value) {
-    ui->angle_2->setText(QString("%1").arg(value));
+    ui->angle_10->setText(QString("%1").arg(value));
 
     image_now = adjust::smoothing(original_image,value);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
