@@ -259,9 +259,19 @@ void mainwindow::on_addText_clicked() {
 }
 
 // 高斯滤波实现图像平滑处理
-void mainwindow::on_smoothing_clicked() {
+void mainwindow::on_smoothing_valueChanged(int value) {
+    ui->angle_2->setText(QString("%1").arg(value));
 
+    image_now = adjust::smoothing(original_image,value);
+    QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+    qImage = qImage.convertToFormat(QImage::Format_ARGB32);
+    QImage processed_image = Image_Processing(qImage);
+    ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
+void mainwindow::on_smoothing_sliderReleased() {
+    updateState();
+}
+
 //光感调整
 void mainwindow::on_light_perception_valueChanged(int value) {
     ui->angle_2->setText(QString("%1").arg(value));
