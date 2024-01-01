@@ -9,8 +9,9 @@
 class HSL {
 
 public:
-    static cv::Mat changeHue(const cv::Mat& image, int hue, int cho);
-
+    static cv::Mat changeHue(const cv::Mat& image, int value, int cho);
+    static cv::Mat changeSaturation(const cv::Mat& image, int value, int cho);
+    static cv::Mat changeBrightness(const cv::Mat& image, int value, int cho);
 };
 
 

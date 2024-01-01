@@ -235,7 +235,6 @@ void mainwindow::on_colorationHSL_valueChanged(int value) {
     outError();
     ui->angle_11->setText(QString("%1").arg(value));
     image_now = HSL::changeHue(original_image, value, hslCho);
-
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
@@ -248,9 +247,7 @@ void mainwindow::on_colorationHSL_sliderReleased() {
 void mainwindow::on_saturationHSL_valueChanged(int value) {
     outError();
     ui->angle_12->setText(QString("%1").arg(value));
-
-    image_now = adjust::cot_adjust(original_image,value);
-
+    image_now = HSL::changeSaturation(original_image, value, hslCho);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
@@ -263,9 +260,7 @@ void mainwindow::on_saturationHSL_sliderReleased() {
 void mainwindow::on_brightnessHSL_valueChanged(int value) {
     outError();
     ui->angle_13->setText(QString("%1").arg(value));
-
-    image_now = adjust::cot_adjust(original_image,value);
-
+    image_now = HSL::changeBrightness(original_image, value, hslCho);
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     qImage = qImage.convertToFormat(QImage::Format_ARGB32);
     QImage processed_image = Image_Processing(qImage);
@@ -357,7 +352,7 @@ void mainwindow::on_addText_clicked() {
         QString inText = ui->textEdit->toPlainText();
         QMessageBox *messageBox = new QMessageBox();
         messageBox->information(nullptr, "用户输入", "您输入的文字是：" + inText);
-        
+
         image_now = adjust::addTextToImage(image_now, inText);
         updateState();
     }else{
