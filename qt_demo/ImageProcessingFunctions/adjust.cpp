@@ -287,7 +287,9 @@ cv::Mat adjust::saturation_adjust(const cv::Mat &image, int value) {
 }
 
 cv::Mat adjust::grayscale(const cv::Mat &image) {
-    cv::Mat result(image.size(), image.type());
+    cv::Mat result(image.rows, image.cols, image.type());
+    memcpy(result.data, image.data, image.total() * image.elemSize());
+    result.convertTo(result, CV_8U);
 
     for (int y = 0; y < image.rows; y++) {
         for (int x = 0; x < image.cols; x++) {
@@ -306,6 +308,33 @@ cv::Mat adjust::grayscale(const cv::Mat &image) {
 }
 
 cv::Mat adjust::edge_detection(const cv::Mat &image) {
+    cv::Mat result(image.rows, image.cols, image.type());
+    memcpy(result.data, image.data, image.total() * image.elemSize());
+    result.convertTo(result, CV_8U);
 
+    for (int y = 0; y < image.rows - 1; y++) {
+        for (int x = 0; x < image.cols - 1; x++) {
+            cv::Vec3b color0 = image.at<cv::Vec3b>(y, x);
+            cv::Vec3b color1 = image.at<cv::Vec3b>(y, x + 1);
+            cv::Vec3b color2 = image.at<cv::Vec3b>(y + 1, x);
+            cv::Vec3b color3 = image.at<cv::Vec3b>(y + 1, x + 1);
 
+            int r = abs(color0[2] - color3[2]);
+            int g = abs(color0[1] - color3[1]);
+            int b = abs(color0[0] - color3[0]);
+            int rgb = r + g + b;
+
+            int r1 = abs(color1[2] - color2[2]);
+            int g1 = abs(color1[1] - color2[1]);
+            int b1 = abs(color1[0] - color2[0]);
+            int rgb1 = r1 + g1 + b1;
+
+            int a = rgb + rgb1;
+            a = (a > 255) ? 255 : a;
+
+            result.at<uchar>(y, x) = static_cast<uchar>(a);
+        }
+    }
+
+    return result;
 }
