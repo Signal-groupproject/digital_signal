@@ -17,6 +17,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -37,9 +38,9 @@ public:
     QPushButton *pushButton4;
     QPushButton *Equalize;
     QPushButton *addText;
-    QPushButton *smoothing;
-    QPushButton *edge_detection;
     QPushButton *Grayscale;
+    QPushButton *edge_detection;
+    QTextEdit *textEdit;
     QWidget *widget;
     QPushButton *Contrast;
     QLabel *label_show;
@@ -71,6 +72,9 @@ public:
     QLabel *angle_9;
     QSlider *saturation;
     QLabel *label_10;
+    QLabel *label_11;
+    QSlider *smoothing;
+    QLabel *angle_10;
     QWidget *tab_2;
 
     void setupUi(QWidget *mainwindow)
@@ -285,7 +289,7 @@ public:
 ""));
         Equalize = new QPushButton(dockWidgetContents);
         Equalize->setObjectName("Equalize");
-        Equalize->setGeometry(QRect(0, 310, 181, 31));
+        Equalize->setGeometry(QRect(0, 320, 181, 31));
         Equalize->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
@@ -311,7 +315,7 @@ public:
         Equalize->setCheckable(false);
         addText = new QPushButton(dockWidgetContents);
         addText->setObjectName("addText");
-        addText->setGeometry(QRect(0, 350, 181, 31));
+        addText->setGeometry(QRect(30, 530, 111, 31));
         addText->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
@@ -335,61 +339,9 @@ public:
 "}\n"
 ""));
         addText->setCheckable(false);
-        smoothing = new QPushButton(dockWidgetContents);
-        smoothing->setObjectName("smoothing");
-        smoothing->setGeometry(QRect(0, 390, 181, 31));
-        smoothing->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
-"    color: #FFFFFF;\n"
-"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"    border-radius: 15px;\n"
-"    border-style: solid;\n"
-"    border-width: 2px;\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover,\n"
-"QPushButton:pressed,\n"
-"QPushButton:checked {\n"
-"    color: #FFFFFF;\n"
-"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"}\n"
-"\n"
-"QPushButton:pressed,\n"
-"QPushButton:checked {\n"
-"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"}\n"
-""));
-        smoothing->setCheckable(false);
-        edge_detection = new QPushButton(dockWidgetContents);
-        edge_detection->setObjectName("edge_detection");
-        edge_detection->setGeometry(QRect(0, 430, 181, 31));
-        edge_detection->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
-"    color: #FFFFFF;\n"
-"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"    border-radius: 15px;\n"
-"    border-style: solid;\n"
-"    border-width: 2px;\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover,\n"
-"QPushButton:pressed,\n"
-"QPushButton:checked {\n"
-"    color: #FFFFFF;\n"
-"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"}\n"
-"\n"
-"QPushButton:pressed,\n"
-"QPushButton:checked {\n"
-"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"}\n"
-""));
-        edge_detection->setCheckable(false);
         Grayscale = new QPushButton(dockWidgetContents);
         Grayscale->setObjectName("Grayscale");
-        Grayscale->setGeometry(QRect(0, 470, 181, 31));
+        Grayscale->setGeometry(QRect(0, 360, 181, 31));
         Grayscale->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
@@ -413,6 +365,36 @@ public:
 "}\n"
 ""));
         Grayscale->setCheckable(false);
+        edge_detection = new QPushButton(dockWidgetContents);
+        edge_detection->setObjectName("edge_detection");
+        edge_detection->setGeometry(QRect(0, 400, 181, 31));
+        edge_detection->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover,\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+"\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+""));
+        edge_detection->setCheckable(false);
+        textEdit = new QTextEdit(dockWidgetContents);
+        textEdit->setObjectName("textEdit");
+        textEdit->setGeometry(QRect(23, 450, 131, 71));
+        textEdit->setStyleSheet(QString::fromUtf8("border: 1px solid black;"));
         dockWidget->setWidget(dockWidgetContents);
         widget = new QWidget(mainwindow);
         widget->setObjectName("widget");
@@ -875,6 +857,51 @@ public:
 "	background-color:rgba(255,255,255,0);\n"
 "}\n"
 ""));
+        label_11 = new QLabel(tab);
+        label_11->setObjectName("label_11");
+        label_11->setGeometry(QRect(10, 430, 71, 16));
+        label_11->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
+"	background-color:rgba(255,255,255,0);\n"
+"}\n"
+""));
+        smoothing = new QSlider(tab);
+        smoothing->setObjectName("smoothing");
+        smoothing->setGeometry(QRect(10, 460, 161, 22));
+        smoothing->setStyleSheet(QString::fromUtf8("QSlider::add-page:Horizontal {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    height: 4px;\n"
+"	background-color:rgba(255,255,255,0);\n"
+"}\n"
+"\n"
+"QSlider::sub-page:Horizontal {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    height: 4px;\n"
+"	background-color:rgba(255,255,255,0);\n"
+"}\n"
+"\n"
+"QSlider::groove:Horizontal {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    height: 10px;\n"
+"}\n"
+"\n"
+"QSlider::handle:Horizontal {\n"
+"    width: 8px;\n"
+"    margin: -4 0px;\n"
+"    background: qradialgradient(cx:0, cy:0, radius:1, fx:0.5, fy:0.5, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+""));
+        smoothing->setMinimum(0);
+        smoothing->setMaximum(100);
+        smoothing->setOrientation(Qt::Horizontal);
+        angle_10 = new QLabel(tab);
+        angle_10->setObjectName("angle_10");
+        angle_10->setGeometry(QRect(70, 430, 61, 16));
+        angle_10->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"    color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffd26f, stop: 1 #3677ff);\n"
+"background-color:rgba(255,255,255,0);\n"
+"}\n"
+""));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
@@ -902,9 +929,8 @@ public:
         pushButton4->setText(QString());
         Equalize->setText(QCoreApplication::translate("mainwindow", "\347\233\264\346\226\271\345\233\276\345\235\207\350\241\241\345\214\226", nullptr));
         addText->setText(QCoreApplication::translate("mainwindow", "\346\267\273\345\212\240\346\226\207\345\255\227", nullptr));
-        smoothing->setText(QCoreApplication::translate("mainwindow", "\345\233\276\345\203\217\345\271\263\346\273\221\357\274\210\351\253\230\346\226\257\346\273\244\346\263\242\357\274\211", nullptr));
-        edge_detection->setText(QCoreApplication::translate("mainwindow", "\350\276\271\347\274\230\346\243\200\346\265\213", nullptr));
         Grayscale->setText(QCoreApplication::translate("mainwindow", "\347\201\260\345\272\246\345\214\226", nullptr));
+        edge_detection->setText(QCoreApplication::translate("mainwindow", "\350\276\271\347\274\230\346\243\200\346\265\213", nullptr));
         Contrast->setText(QString());
         label_show->setText(QString());
         Withdraw->setText(QString());
@@ -926,6 +952,8 @@ public:
         angle_8->setText(QString());
         angle_9->setText(QString());
         label_10->setText(QCoreApplication::translate("mainwindow", "\351\245\261\345\222\214\345\272\246\350\260\203\346\225\264\357\274\232", nullptr));
+        label_11->setText(QCoreApplication::translate("mainwindow", "\345\271\263\346\273\221\345\244\204\347\220\206\357\274\232", nullptr));
+        angle_10->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("mainwindow", "\345\237\272\347\241\200\350\260\203\346\225\264", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("mainwindow", "\351\253\230\347\272\247\350\260\203\346\225\264", nullptr));
     } // retranslateUi

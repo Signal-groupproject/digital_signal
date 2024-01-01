@@ -275,30 +275,12 @@ void mainwindow::on_Equalize_clicked() {
 }
 
 // 添加文字
-//void mainwindow::onTextGet(QString str) {
-//    // 获取用户输入的文字
-//    QString text = lineEdit->text();
-//    QMessageBox *messageBox = new QMessageBox();
-//    // 显示用户输入的文字
-//    messageBox->information(nullptr, "用户输入", "您输入的文字是：" + text);
-//}
 void mainwindow::on_addText_clicked() {
     outError();
-    // 创建一个文本框
-    QLineEdit *lineEdit = new QLineEdit();
-    // 清空文本框内容
-    lineEdit->clear();
-
-    // 弹出消息框，让用户输入文字
-    lineEdit->setWindowTitle("输入文字");
-    lineEdit->setPlaceholderText("请输入文字");
-    lineEdit->setText("");
-    lineEdit->setFocus();
-    lineEdit->show();
-    QString text = lineEdit->text();
-    // 显示用户输入的文字
+    QString inText = ui->textEdit->toPlainText();
     QMessageBox *messageBox = new QMessageBox();
-    messageBox->information(nullptr, "用户输入", "您输入的文字是：" + text);
+    messageBox->information(nullptr, "用户输入", "您输入的文字是：" + inText);
+
 }
 
 // 高斯滤波实现图像平滑处理

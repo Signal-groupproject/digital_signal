@@ -8,6 +8,7 @@
 #include <QString>
 #include <QLineEdit>
 #include <iostream>
+#include <string>
 #include <opencv2/opencv.hpp>
 #include "ImageProcessingFunctions/revolve.h"
 #include "ImageProcessingFunctions/adjust.h"

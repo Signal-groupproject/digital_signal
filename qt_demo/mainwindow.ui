@@ -396,9 +396,9 @@ QPushButton:checked {
     <widget class="QPushButton" name="addText">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>360</y>
-       <width>181</width>
+       <x>30</x>
+       <y>530</y>
+       <width>111</width>
        <height>31</height>
       </rect>
      </property>
@@ -437,7 +437,7 @@ QPushButton:checked {
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>400</y>
+       <y>360</y>
        <width>181</width>
        <height>31</height>
       </rect>
@@ -477,7 +477,7 @@ QPushButton:checked {
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>440</y>
+       <y>400</y>
        <width>181</width>
        <height>31</height>
       </rect>
@@ -511,6 +511,19 @@ QPushButton:checked {
      </property>
      <property name="checkable">
       <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit">
+     <property name="geometry">
+      <rect>
+       <x>23</x>
+       <y>450</y>
+       <width>131</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid black;</string>
      </property>
     </widget>
    </widget>
