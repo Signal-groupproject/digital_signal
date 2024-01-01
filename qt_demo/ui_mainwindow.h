@@ -90,6 +90,8 @@ public:
     QLabel *angle_11;
     QLabel *angle_12;
     QLabel *angle_13;
+    QPushButton *defog;
+    QPushButton *beautiful;
 
     void setupUi(QWidget *mainwindow)
     {
@@ -1163,11 +1165,63 @@ public:
 "background-color:rgba(255,255,255,0);\n"
 "}\n"
 ""));
+        defog = new QPushButton(tab_2);
+        defog->setObjectName("defog");
+        defog->setGeometry(QRect(10, 310, 181, 31));
+        defog->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover,\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+"\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+""));
+        defog->setCheckable(false);
+        beautiful = new QPushButton(tab_2);
+        beautiful->setObjectName("beautiful");
+        beautiful->setGeometry(QRect(10, 350, 181, 31));
+        beautiful->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover,\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+"\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+""));
+        beautiful->setCheckable(false);
         tabWidget->addTab(tab_2, QString());
 
         retranslateUi(mainwindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(mainwindow);
@@ -1223,6 +1277,8 @@ public:
         angle_11->setText(QString());
         angle_12->setText(QString());
         angle_13->setText(QString());
+        defog->setText(QCoreApplication::translate("mainwindow", "\345\216\273\351\233\276", nullptr));
+        beautiful->setText(QCoreApplication::translate("mainwindow", "\344\272\272\345\203\217\347\276\216\351\242\234", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("mainwindow", "\351\253\230\347\272\247\350\260\203\346\225\264", nullptr));
     } // retranslateUi
 
