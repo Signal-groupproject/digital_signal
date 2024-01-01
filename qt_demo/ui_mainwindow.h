@@ -36,6 +36,8 @@ public:
     QPushButton *pushButton3;
     QPushButton *pushButton4;
     QPushButton *Equalize;
+    QPushButton *addText;
+    QPushButton *smoothing;
     QWidget *widget;
     QPushButton *Contrast;
     QLabel *label_show;
@@ -43,6 +45,7 @@ public:
     QPushButton *Save_Image;
     QCheckBox *checkBox;
     QPushButton *Remake;
+    QPushButton *merge;
     QTabWidget *tabWidget;
     QWidget *tab;
     QLabel *angle_2;
@@ -207,10 +210,9 @@ public:
         pushButton2->setObjectName("pushButton2");
         pushButton2->setGeometry(QRect(100, 170, 75, 71));
         pushButton2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"    border-radius: 15px;\n"
+"    border-radius: 20px;\n"
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    padding: 5px;\n"
@@ -233,10 +235,9 @@ public:
         pushButton3->setObjectName("pushButton3");
         pushButton3->setGeometry(QRect(10, 260, 75, 71));
         pushButton3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"    border-radius: 15px;\n"
+"    border-radius: 20px;\n"
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    padding: 5px;\n"
@@ -259,10 +260,9 @@ public:
         pushButton4->setObjectName("pushButton4");
         pushButton4->setGeometry(QRect(100, 260, 75, 71));
         pushButton4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
-"    border-radius: 15px;\n"
+"    border-radius: 20px;\n"
 "    border-style: solid;\n"
 "    border-width: 2px;\n"
 "    padding: 5px;\n"
@@ -307,6 +307,58 @@ public:
 "}\n"
 ""));
         Equalize->setCheckable(false);
+        addText = new QPushButton(dockWidgetContents);
+        addText->setObjectName("addText");
+        addText->setGeometry(QRect(0, 400, 181, 31));
+        addText->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover,\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+"\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+""));
+        addText->setCheckable(false);
+        smoothing = new QPushButton(dockWidgetContents);
+        smoothing->setObjectName("smoothing");
+        smoothing->setGeometry(QRect(0, 450, 181, 31));
+        smoothing->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover,\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+"\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+""));
+        smoothing->setCheckable(false);
         dockWidget->setWidget(dockWidgetContents);
         widget = new QWidget(mainwindow);
         widget->setObjectName("widget");
@@ -402,6 +454,31 @@ public:
         Remake->setObjectName("Remake");
         Remake->setGeometry(QRect(610, 470, 31, 31));
         Remake->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover,\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    color: #FFFFFF;\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+"\n"
+"QPushButton:pressed,\n"
+"QPushButton:checked {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffd26f, stop:1 #3677ff);\n"
+"}\n"
+""));
+        merge = new QPushButton(widget);
+        merge->setObjectName("merge");
+        merge->setGeometry(QRect(670, 230, 31, 31));
+        merge->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    font: 10pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";\n"
 "    color: #FFFFFF;\n"
 "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffd26f, stop:1 #3677ff);\n"
@@ -770,12 +847,15 @@ public:
         pushButton3->setText(QString());
         pushButton4->setText(QString());
         Equalize->setText(QCoreApplication::translate("mainwindow", "\347\233\264\346\226\271\345\233\276\345\235\207\350\241\241\345\214\226", nullptr));
+        addText->setText(QCoreApplication::translate("mainwindow", "\346\267\273\345\212\240\346\226\207\345\255\227", nullptr));
+        smoothing->setText(QCoreApplication::translate("mainwindow", "\345\233\276\345\203\217\345\271\263\346\273\221\357\274\210\351\253\230\346\226\257\346\273\244\346\263\242\357\274\211", nullptr));
         Contrast->setText(QString());
         label_show->setText(QString());
         Withdraw->setText(QString());
         Save_Image->setText(QCoreApplication::translate("mainwindow", "\344\277\235\345\255\230\345\233\276\347\211\207", nullptr));
         checkBox->setText(QCoreApplication::translate("mainwindow", "\346\260\264\345\215\260", nullptr));
         Remake->setText(QString());
+        merge->setText(QString());
         angle_2->setText(QString());
         label_3->setText(QCoreApplication::translate("mainwindow", "\345\205\211\346\204\237\350\260\203\346\225\264\357\274\232", nullptr));
         label_5->setText(QCoreApplication::translate("mainwindow", "\346\233\235\345\205\211\350\260\203\346\225\264\357\274\232", nullptr));

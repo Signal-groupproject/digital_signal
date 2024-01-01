@@ -245,6 +245,23 @@ void mainwindow::on_pushButton4_clicked() {
     updateState();
 }
 
+// 直方图均衡化
+void mainwindow::on_Equalize_clicked() {
+    // 对图像进行y轴对称操作
+    image_now = adjust::equalization(image_now);
+    // 显示当前图像
+    updateState();
+}
+
+// 添加文字
+void mainwindow::on_addText_clicked() {
+
+}
+
+// 高斯滤波实现图像平滑处理
+void mainwindow::on_smoothing_clicked() {
+
+}
 //光感调整
 void mainwindow::on_light_perception_valueChanged(int value) {
     ui->angle_2->setText(QString("%1").arg(value));
@@ -254,12 +271,12 @@ void mainwindow::on_light_perception_valueChanged(int value) {
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
-//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
+// 通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_light_perception_sliderReleased() {
     updateState();
 }
 
-//曝光调整
+// 曝光调整
 void mainwindow::on_exposure_valueChanged(int value) {
     ui->angle_4->setText(QString("%1").arg(value));
     image_now = adjust::exposure_adjust(original_image,value);
@@ -268,12 +285,12 @@ void mainwindow::on_exposure_valueChanged(int value) {
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
-//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
+// 通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_exposure_sliderReleased() {
     updateState();
 }
 
-//对比度调整
+// 对比度调整
 void mainwindow::on_contrast_ratio_valueChanged(int value) {
     ui->angle_5->setText(QString("%1").arg(value));
     image_now = adjust::contrast_adjust(original_image,value);
@@ -282,16 +299,8 @@ void mainwindow::on_contrast_ratio_valueChanged(int value) {
     QImage processed_image = Image_Processing(qImage);
     ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
 }
-//通过检测滑动条释放时刻的状态来更新全局图像数组的内容
+// 通过检测滑动条释放时刻的状态来更新全局图像数组的内容
 void mainwindow::on_contrast_ratio_sliderReleased() {
-    updateState();
-}
-
-//直方图均衡化
-void mainwindow::on_Equalize_clicked() {
-    // 对图像进行y轴对称操作
-    image_now = adjust::equalization(image_now);
-    // 显示当前图像
     updateState();
 }
 
