@@ -234,7 +234,7 @@ void mainwindow::on_blueHSL_clicked() {
 void mainwindow::on_colorationHSL_valueChanged(int value) {
     outError();
     ui->angle_11->setText(QString("%1").arg(value));
-    image_now = HSL::changeHue(image_now, value, hslCho);
+    image_now = HSL::changeHue(original_image, value, hslCho);
 
     QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
     qImage = qImage.convertToFormat(QImage::Format_ARGB32);
