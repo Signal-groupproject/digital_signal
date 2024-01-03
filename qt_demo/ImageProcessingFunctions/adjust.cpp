@@ -357,7 +357,35 @@ cv::Mat adjust::cot_adjust(const cv::Mat &image, int value) {
 
 //色调
 cv::Mat adjust::tone_adjust(const cv::Mat &image, int value) {
-    cv::Mat result(image.size(),image.type());
+    cv::Mat result = image.clone();
+    cv::cvtColor(result, result, cv::COLOR_BGR2HSV);
+
+    int rows = result.rows;
+    int cols = result.cols;
+
+    // 调整因子，控制颜色变化的程度
+    float scale = 0.04f;
+
+    for (int i = 0; i < rows; ++i) {
+        cv::Vec3b* row_ptr = result.ptr<cv::Vec3b>(i);
+
+        for (int j = 0; j < cols; ++j) {
+            int hue = row_ptr[j][0];
+
+            // 根据 value 值调整色调
+            hue -= value * scale;
+
+            // 确保色调值在有效范围内 [0, 179]
+            if (hue < 0)
+                hue += 180;
+            else if (hue >= 180)
+                hue -= 180;
+
+            row_ptr[j][0] = hue;
+        }
+    }
+
+    cv::cvtColor(result, result, cv::COLOR_HSV2BGR);
     return result;
 }
 
