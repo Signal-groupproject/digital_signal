@@ -16,6 +16,8 @@
 #include "ImageProcessingFunctions/copper.h"
 #include "ImageProcessingFunctions/hsl.h"
 #define test std::cout<<"This is a test";
+#define show_image { cv::imshow("test", image_now); \
+                             cv::waitKey(); };
 using namespace cv;
 
 QT_BEGIN_NAMESPACE
