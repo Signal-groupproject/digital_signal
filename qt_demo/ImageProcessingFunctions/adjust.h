@@ -9,6 +9,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <vector>
 #include <QString>
+#include <QPainter>
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QInputDialog>

@@ -54,32 +54,17 @@ cv::Mat adjust::processFace(const cv::Mat& image) {
 
     return blurredImage;
 }
+
 // 把文字放图片上
 cv::Mat adjust::addTextToImage(const cv::Mat &image, const QString& text)
 {
     // 获取用户选择的文字大小
-    cv::Mat result(image.rows, image.cols, image.type());
-    memcpy(result.data, image.data, image.total() * image.elemSize());
-    result.convertTo(result, CV_8U);
-
-    bool ok;
-    int fontSize = QInputDialog::getInt(nullptr, "选择文字大小", "请输入文字大小（单位：像素）", 10, 1, 100, 1, &ok);
-    if(!ok)
-    {
-        QMessageBox *messageBox = new QMessageBox();
-        QMessageBox::information(nullptr, "错误提示", "获取文字大小失败");
-        return image;
-    }
+    int fontSize = QInputDialog::getInt(nullptr, "选择文字大小", "请输入文字大小（单位：像素）", 10, 1, 100, 1);
 
     // 获取用户选择的文字颜色
     QColor textColor = QColorDialog::getColor(Qt::black, nullptr, "选择文字颜色");
-    if(!textColor.isValid())
-    {
-        QMessageBox *messageBox = new QMessageBox();
-        QMessageBox::information(nullptr, "错误提示", "获取文字颜色失败");
-        return image;
-    }
-// 选择文字位置
+
+    // 选择文字位置
     QMessageBox::information(nullptr, "选择位置", "请点击图片选择文字位置");
     cv::Point textPosition;
     cv::namedWindow("选择位置");
@@ -95,10 +80,19 @@ cv::Mat adjust::addTextToImage(const cv::Mat &image, const QString& text)
     }, &textPosition);
     cv::waitKey();
 
-    // 在图片上绘制文字
-    cv::Scalar textColorScalar(textColor.blue(), textColor.green(), textColor.red());
-    cv::putText(result, text.toStdString(), textPosition, cv::FONT_HERSHEY_SIMPLEX, fontSize / 10.0, textColorScalar, 2);
-    return result;
+    // 将OpenCV图像转换为Qt图像
+    QImage qtImage(image.data, image.cols, image.rows, image.step, QImage::Format_RGB888);
+
+    // 在Qt图像上绘制文字
+    QPainter painter(&qtImage);
+    painter.setPen(QColor(textColor.blue(), textColor.green(), textColor.red()));
+    painter.setFont(QFont("Arial", fontSize));
+    painter.drawText(QPoint(textPosition.x, textPosition.y), text);
+
+    // 将Qt图像转换回OpenCV图像
+    cv::Mat result(qtImage.height(), qtImage.width(), CV_8UC3, const_cast<uchar*>(qtImage.bits()), qtImage.bytesPerLine());
+
+    return result.clone();  // 克隆图像以确保内存不被释放
 }
 
 // 高斯模糊,平滑处理
