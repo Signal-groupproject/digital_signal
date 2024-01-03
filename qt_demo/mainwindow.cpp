@@ -16,15 +16,14 @@ mainwindow::mainwindow(QWidget *parent) :
     QPixmap backgroundImage(".\\images\\images\\bg.png");
     QSize windowSize = this->size();
 
-// 调整背景图片大小以填充窗口
+    // 调整背景图片大小以填充窗口
     QPixmap scaledBackground = backgroundImage.scaledToWidth(windowSize.width(), Qt::SmoothTransformation);
-
     QPalette palette;
     palette.setBrush(QPalette::Window, scaledBackground);
-
     this->setAutoFillBackground(true);
     this->setPalette(palette);
 
+    //设置按钮Icon以及窗口Icon
     ui->pushButton1->setIcon(QIcon(".\\images\\images\\left.png"));
     ui->pushButton1->setIconSize(QSize(50, 50));
 
@@ -42,17 +41,21 @@ mainwindow::mainwindow(QWidget *parent) :
     ui->merge->setIcon(QIcon(".\\images\\images\\merge.png"));
     ui->Contrast->setIcon(QIcon(".\\images\\images\\contrast.png"));
 
+    ui->dockWidget->setFeatures(QDockWidget::NoDockWidgetFeatures);//隐藏工具栏的放大和关闭按钮
+
     setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);    // 禁止最大化按钮
     setFixedSize(this->width(),this->height());                     // 禁止拖动窗口大小
     // 监控水印是否勾选进行动作
     connect(ui->checkBox, &QCheckBox::stateChanged, this, &mainwindow::onCheckBoxStateChanged);
 }
+
 void outError()
 {   // 错误提示
     // 没上传图片
     QMessageBox *messageBox = new QMessageBox();
     QMessageBox::information(nullptr, "错误提示", "您还没有上传图片，请点击加载图片进行上传");
 }
+
 // 水印勾选
 void mainwindow::onCheckBoxStateChanged(int state) {
     if (!image_now.empty()) {
@@ -247,7 +250,6 @@ void mainwindow::on_Save_Image_clicked() {
 void mainwindow::on_redHSL_clicked() {
     hslCho = 0;
 }
-
 // 绿色部分
 void mainwindow::on_greenHSL_clicked() {
     hslCho = 1;
@@ -272,6 +274,7 @@ void mainwindow::on_colorationHSL_valueChanged(int value) {
 void mainwindow::on_colorationHSL_sliderReleased() {
     updateState();
 }
+
 // 饱和度处理
 void mainwindow::on_saturationHSL_valueChanged(int value) {
     if (!image_now.empty()) {
@@ -288,6 +291,7 @@ void mainwindow::on_saturationHSL_valueChanged(int value) {
 void mainwindow::on_saturationHSL_sliderReleased() {
     updateState();
 }
+
 // 明度处理
 void mainwindow::on_brightnessHSL_valueChanged(int value) {
     if (!image_now.empty()) {
@@ -346,6 +350,7 @@ void mainwindow::on_horizontalSlider_valueChanged(int value) {
 void mainwindow::on_horizontalSlider_sliderReleased() {
     updateState();
 }
+
 // 向左旋转90°
 void mainwindow::on_pushButton1_clicked() {
     if (!image_now.empty()) {
@@ -357,6 +362,7 @@ void mainwindow::on_pushButton1_clicked() {
         outError();
     }
 }
+
 // 向右旋转90°
 void mainwindow::on_pushButton2_clicked() {
     if(!image_now.empty()){
@@ -535,7 +541,7 @@ void mainwindow::on_color_temperature_sliderReleased() {
 void mainwindow::on_tone_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_8->setText(QString("%1").arg(value));
-        image_now = adjust::cot_adjust(slider_image, value);
+        image_now = adjust::tone_adjust(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -553,7 +559,7 @@ void mainwindow::on_tone_sliderReleased() {
 void mainwindow::on_saturation_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_9->setText(QString("%1").arg(value));
-        image_now = adjust::cot_adjust(slider_image, value);
+        image_now = adjust::saturation_adjust(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -619,4 +625,21 @@ void mainwindow::on_defog_clicked() {
     }else{
         outError();
     }
+}
+
+//颗粒感
+void mainwindow::on_particle_valueChanged(int value) {
+    if (!image_now.empty()) {
+        ui->angle_14->setText(QString("%1").arg(value));
+        image_now = adjust::particle_adjust(slider_image, value);
+        QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
+        qImage = qImage.convertToFormat(QImage::Format_ARGB32);
+        QImage processed_image = Image_Processing(qImage);
+        ui->label_show->setPixmap(QPixmap::fromImage(processed_image));
+    }else{
+        outError();
+    }
+}
+void mainwindow::on_particle_sliderReleased() {
+    updateState();
 }

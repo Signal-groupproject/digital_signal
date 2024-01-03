@@ -83,6 +83,8 @@ private slots:
     void on_saturationHSL_valueChanged(int value);
     void on_beautiful_clicked();
     void on_defog_clicked();
+    void on_particle_valueChanged(int value);
+    void on_particle_sliderReleased();
 };
 
 #endif //QT_DEMO_MAINWINDOW_H

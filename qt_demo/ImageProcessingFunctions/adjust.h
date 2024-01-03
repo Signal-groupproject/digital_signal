@@ -14,6 +14,12 @@
 #include <QInputDialog>
 #include <QColorDialog>
 
+#define max2(a,b) (a>b?a:b)
+#define max3(a,b,c) (a>b?max2(a,c):max2(b,c))
+#define min2(a,b) (a<b?a:b)
+#define min3(a,b,c) (a<b?min2(a,c):min2(b,c))
+
+
 class adjust {
 public:
     static cv::Mat light_adjust(const cv::Mat &image, int value);
@@ -31,6 +37,7 @@ public:
     static cv::Mat addTextToImage(const cv::Mat &image, const QString &text);
     static cv::Mat processFace(const cv::Mat &image);
     static cv::Mat defog(const cv::Mat &image);
+    static cv::Mat particle_adjust(const cv::Mat &image, int value);
 };
 
 

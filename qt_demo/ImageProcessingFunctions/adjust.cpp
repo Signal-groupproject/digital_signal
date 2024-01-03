@@ -109,6 +109,7 @@ cv::Mat adjust::smoothing(const cv::Mat &image, int value) {
 
     return smoothed;
 }
+
 // 根据拉动角度旋转图片
 cv::Mat adjust::rotateImage(const cv::Mat& image, int value) {
     // 计算旋转中心
@@ -123,6 +124,7 @@ cv::Mat adjust::rotateImage(const cv::Mat& image, int value) {
 
     return rotatedImage;
 }
+
 // 直方图均衡化
 cv::Mat adjust::equalization(const cv::Mat& image)
 {
@@ -249,7 +251,7 @@ cv::Mat adjust::exposure_adjust(const cv::Mat &image, int value) {
     }
 
     // 将曝光因子限制在-100到100之间
-    int adjusted_exposure = std::max(-100, std::min(100, value));
+    int adjusted_exposure = (value >= -100 && value <= -70) ? -70 : value;
 
     for (int i = 0; i < rows; ++i) {
         uchar* p = result.ptr<uchar>(i);
@@ -305,22 +307,31 @@ cv::Mat adjust::contrast_adjust(const cv::Mat &image, int value) {
 //锐化
 cv::Mat adjust::sharpen_adjust(const cv::Mat &image, int value) {
     cv::Mat result;
-
-    // 创建拉普拉斯核
-    cv::Mat kernel = (cv::Mat_<float>(3, 3) <<
-                                            0, -1, 0,
-            -1,  5, -1,
-            0, -1, 0);
-
-    // 对图像进行卷积
-    cv::filter2D(image, result, CV_8U, kernel);
-
-    // 调整锐化强度
-    cv::addWeighted(image, 1.0, result, value / 10.0, 0, result);
-
-    // 将结果限制在合理范围内
-    cv::normalize(result, result, 0, 255, cv::NORM_MINMAX);
-
+    cv::Mat s = image.clone();
+    cv::Mat kernel;
+    switch (image.channels())
+    {
+        case 0:
+            kernel = (cv::Mat_<int>(3, 3) <<
+                                          0, -1, 0,
+                    -1, 4, -1,
+                    0, -1, 0
+            );
+        case 1:
+            kernel = (cv::Mat_<int>(3, 3) <<
+                                          -1, -1, -1,
+                    -1, 8, -1,
+                    -1, -1, -1
+            );
+        default:
+            kernel = (cv::Mat_<int>(3, 3) <<
+                                          0, -1, 0,
+                    -1, 4, -1,
+                    0, -1, 0
+            );
+    }
+    cv::filter2D(s, s, s.depth(), kernel);
+    result = image + s * 0.01 * value;
     return result;
 }
 
@@ -337,7 +348,7 @@ cv::Mat adjust::cot_adjust(const cv::Mat &image, int value) {
         uchar *output_pixel = result.ptr<uchar>(i);
 
         for (int j = 0; j < image_cols; ++j) {
-            for (int c = 2; c >= 0; --c) { // Loop through B, G, R channels
+            for (int c = 2; c >= 0; --c) {
                 int value = input_pixel[j * 3 + c] + ((c == 0) ? -level : level);
                 output_pixel[j * 3 + c] = cv::saturate_cast<uchar>(value);
             }
@@ -355,28 +366,49 @@ cv::Mat adjust::tone_adjust(const cv::Mat &image, int value) {
 
 //饱和度调整
 cv::Mat adjust::saturation_adjust(const cv::Mat &image, int value) {
+    float increment = value * 1.0f / 100;
     cv::Mat result = image.clone();
+    int row = image.rows;
+    int col = image.cols;
 
-    if (image.channels() == 3) {
-        for (int i = 0; i < result.rows; i++) {
-            for (int j = 0; j < result.cols; j++) {
-                cv::Vec3b &pixel = result.at<cv::Vec3b>(i, j);
+    for (int i = 0; i < row; ++i) {
+        uchar* t = result.ptr<uchar>(i);
+        const uchar* s = image.ptr<uchar>(i);
 
-                float h, s, v;
-                cv::Mat3f pixel_hsv;
-                cv::cvtColor(cv::Mat(1, 1, CV_8UC3, pixel), pixel_hsv, cv::COLOR_BGR2HSV);
-                h = pixel_hsv(0, 0)[0] / 180.0;
-                s = pixel_hsv(0, 0)[1];
-                v = pixel_hsv(0, 0)[2];
+        for (int j = 0; j < col; ++j) {
+            uchar b = s[3 * j];
+            uchar g = s[3 * j + 1];
+            uchar r = s[3 * j + 2];
 
-                // 线性变换
-                s = std::max(0.0f, std::min(s * value, 1.0f));
+            float max_val = max3(r, g, b);
+            float min_val = min3(r, g, b);
+            float delta = (max_val - min_val) / 255;
+            if (delta == 0)
+                continue;
 
-                pixel_hsv(0, 0)[0] = h * 180.0;
-                pixel_hsv(0, 0)[1] = s;
-                pixel_hsv(0, 0)[2] = v;
+            float temp = (max_val + min_val) / 255;
+            float L = temp / 2;
+            float S = 0, alpha = 0;
 
-                cv::cvtColor(pixel_hsv, cv::Mat(1, 1, CV_8UC3, pixel), cv::COLOR_HSV2BGR);
+            if (L < 0.5)
+                S = delta / temp;
+            else
+                S = delta / (2 - temp);
+
+            if (increment >= 0) {
+                if ((increment + S) >= 1)
+                    alpha = S;
+                else
+                    alpha = 1 - increment;
+                alpha = 1 / alpha - 1;
+                t[3 * j + 2] = static_cast<uchar>(r + (r - L * 255) * alpha);
+                t[3 * j + 1] = static_cast<uchar>(g + (g - L * 255) * alpha);
+                t[3 * j] = static_cast<uchar>(b + (b - L * 255) * alpha);
+            } else {
+                alpha = increment;
+                t[3 * j + 2] = static_cast<uchar>(L * 255 + (r - L * 255) * (1 + alpha));
+                t[3 * j + 1] = static_cast<uchar>(L * 255 + (g - L * 255) * (1 + alpha));
+                t[3 * j] = static_cast<uchar>(L * 255 + (b - L * 255) * (1 + alpha));
             }
         }
     }
@@ -440,8 +472,35 @@ cv::Mat adjust::defog(const cv::Mat &image) {
     cv::equalizeHist(green, green_equ);
     cv::equalizeHist(red, red_equ);
 
-    cv::Mat equ;
-    cv::merge(std::vector<cv::Mat>{blue_equ, green_equ, red_equ}, equ);
+    cv::Mat result;
+    cv::merge(std::vector<cv::Mat>{blue_equ, green_equ, red_equ}, result);
 
-    return equ;
+    return result;
+}
+
+//颗粒感
+cv::Mat adjust::particle_adjust(const cv::Mat &image, int value) {
+    int row = image.rows;
+    int col = image.cols;
+    if (value > 100)
+        value = 100;
+    if (value < 0)
+        value = 0;
+    cv::Mat result = image.clone();
+    for (int i = 0; i < row; ++i)
+    {
+        uchar *t = result.ptr<uchar>(i);
+        for (int j = 0; j < col; ++j)
+        {
+            for (int k = 0; k < 3; ++k)
+            {
+                int temp = t[3 * j + k];
+                temp += ((rand() % (2 * value)) - value);
+                if (temp < 0)temp = 0;
+                if (temp > 255)temp = 255;
+                t[3 * j + k] = temp;
+            }
+        }
+    }
+    return result;
 }
