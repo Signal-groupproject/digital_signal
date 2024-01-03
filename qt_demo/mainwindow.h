@@ -81,9 +81,7 @@ private slots:
     void on_brightnessHSL_sliderReleased();
     void on_saturationHSL_sliderReleased();
     void on_saturationHSL_valueChanged(int value);
-
     void on_beautiful_clicked();
-
     void on_defog_clicked();
 };
 

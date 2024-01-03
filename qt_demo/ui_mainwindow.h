@@ -653,7 +653,7 @@ public:
 "                            background: qradialgradient(cx:0, cy:0, radius:1, fx:0.5, fy:0.5, stop:0 #ffd26f, stop:1 #3677ff);\n"
 "                            }\n"
 "                        "));
-        exposure->setMinimum(-100);
+        exposure->setMinimum(-60);
         exposure->setMaximum(100);
         exposure->setOrientation(Qt::Horizontal);
         angle_4 = new QLabel(tab);

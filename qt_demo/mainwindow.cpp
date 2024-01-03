@@ -2,10 +2,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-Mat original_image,image_now; //初始图片和当前处理图像
+Mat image_now, slider_image; //当前处理图像、滑块处理图像
 int image_index = -1;
 std::vector<cv::Mat> imageStates;
-int ismark = 0, hslCho = 0; // 默认红色处理
+int ismark = 0, hslCho = 0; // HSL默认红色处理
 
 mainwindow::mainwindow(QWidget *parent) :
         QWidget(parent),
@@ -79,10 +79,12 @@ void mainwindow::onCheckBoxStateChanged(int state) {
             cv::addWeighted(roi, 1.0, watermarkImage, 0.5, 0, roi);
 
             image_now = imageWithWatermark;
+            slider_image = image_now;   // 同时更新滑块处理图像
             updateState();
         } else if (state == Qt::Unchecked && ismark) { // 若上一次动作是有加水印的，则现在回退到未加状态
             ismark = 0;
             image_now = imageStates[--image_index];
+            slider_image = image_now;   // 同时更新滑块处理图像
             updateState();
         }
     }else{
@@ -148,6 +150,7 @@ void mainwindow::on_Withdraw_clicked() {
         if (image_index > 0) {
             image_index--;
             image_now = imageStates[image_index];
+            slider_image = image_now;   // 同时更新滑块处理图像
             // 显示当前图像
             QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
             qImage = qImage.convertToFormat(QImage::Format_ARGB32);
@@ -165,6 +168,7 @@ void mainwindow::on_Remake_clicked() {
         if (image_index < imageStates.size() - 1) {
             image_index++;
             image_now = imageStates[image_index];
+            slider_image = image_now;   // 同时更新滑块处理图像
             // 显示当前图像
             QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
             qImage = qImage.convertToFormat(QImage::Format_ARGB32);
@@ -178,8 +182,8 @@ void mainwindow::on_Remake_clicked() {
 
 //图像对比，通过调用全局变量实现图像处理前后对比
 void mainwindow::on_Contrast_pressed() {
-    if (!image_now.empty()) {
-        QImage qImage(original_image.data, original_image.cols, original_image.rows, original_image.step,
+    if (!imageStates.empty()) {
+        QImage qImage(imageStates[0].data,imageStates[0].cols, imageStates[0].rows, imageStates[0].step,
                       QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -203,14 +207,14 @@ void mainwindow::on_Load_Image_clicked() {
         return;
     }
     // 更新初始图片、当前图片和图片状态存储
-    original_image = imread(filePath.toStdString());
-    if (original_image.empty()) {
+    image_now = imread(filePath.toStdString());
+    if (image_now.empty()) {
         QMessageBox::warning(this, tr("警告"), tr("图片加载失败，请选择一个有效的图片文件。"));
         return;
     }
     imageStates.clear();
     image_index = -1;
-    image_now = original_image;
+    slider_image = image_now;
     updateState();
 }
 
@@ -256,7 +260,7 @@ void mainwindow::on_blueHSL_clicked() {
 void mainwindow::on_colorationHSL_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_11->setText(QString("%1").arg(value));
-        image_now = HSL::changeHue(original_image, value, hslCho);
+        image_now = HSL::changeHue(slider_image, value, hslCho);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -272,7 +276,7 @@ void mainwindow::on_colorationHSL_sliderReleased() {
 void mainwindow::on_saturationHSL_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_12->setText(QString("%1").arg(value));
-        image_now = HSL::changeSaturation(original_image, value, hslCho);
+        image_now = HSL::changeSaturation(slider_image, value, hslCho);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -288,7 +292,7 @@ void mainwindow::on_saturationHSL_sliderReleased() {
 void mainwindow::on_brightnessHSL_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_13->setText(QString("%1").arg(value));
-        image_now = HSL::changeBrightness(original_image, value, hslCho);
+        image_now = HSL::changeBrightness(slider_image, value, hslCho);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -306,6 +310,7 @@ void mainwindow::on_brightnessHSL_sliderReleased() {
 void mainwindow::handleCropResult(const cv::Mat& result) {
     // 处理接收到的 result 的值
     image_now = result;
+    slider_image = image_now;   // 同时更新滑块处理图像
     updateState();
 }
 void mainwindow::on_Crop_Image_clicked() {
@@ -328,7 +333,7 @@ void mainwindow::on_Crop_Image_clicked() {
 void mainwindow::on_horizontalSlider_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle->setText(QString("%1").arg(value));
-        image_now = adjust::rotateImage(original_image, value);
+        image_now = adjust::rotateImage(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -345,6 +350,7 @@ void mainwindow::on_horizontalSlider_sliderReleased() {
 void mainwindow::on_pushButton1_clicked() {
     if (!image_now.empty()) {
         image_now = Revolve90::left90(image_now);
+        slider_image = image_now;   // 同时更新滑块处理图像
         // 显示当前图像
         updateState();
     }else{
@@ -355,6 +361,7 @@ void mainwindow::on_pushButton1_clicked() {
 void mainwindow::on_pushButton2_clicked() {
     if(!image_now.empty()){
     image_now = Revolve90::right90(image_now);
+    slider_image = image_now;   // 同时更新滑块处理图像
     // 显示当前图像
     updateState();
     }else{
@@ -367,6 +374,7 @@ void mainwindow::on_pushButton3_clicked() {
     if (!image_now.empty()) {
         // 对图像进行x轴对称操作
         image_now = Symmetry::xSymmetry(image_now);
+        slider_image = image_now;   // 同时更新滑块处理图像
         // 显示当前图像
         updateState();
     }else{
@@ -379,6 +387,7 @@ void mainwindow::on_pushButton4_clicked() {
     if (!image_now.empty()) {
         // 对图像进行y轴对称操作
         image_now = Symmetry::ySymmetry(image_now);
+        slider_image = image_now;   // 同时更新滑块处理图像
         // 显示当前图像
         updateState();
     }else{
@@ -391,6 +400,7 @@ void mainwindow::on_Equalize_clicked() {
     if (!image_now.empty()) {
         // 对图像进行y轴对称操作
         image_now = adjust::equalization(image_now);
+        slider_image = image_now;   // 同时更新滑块处理图像
         // 显示当前图像
         updateState();
     }else{
@@ -400,12 +410,13 @@ void mainwindow::on_Equalize_clicked() {
 
 // 添加文字
 void mainwindow::on_addText_clicked() {
-    if(!original_image.empty()){
+    if(!image_now.empty()){
         QString inText = ui->textEdit->toPlainText();
         QMessageBox *messageBox = new QMessageBox();
         messageBox->information(nullptr, "用户输入", "您输入的文字是：" + inText);
 
         image_now = adjust::addTextToImage(image_now, inText);
+        slider_image = image_now;   // 同时更新滑块处理图像
         updateState();
     }else{
         outError();
@@ -417,7 +428,7 @@ void mainwindow::on_addText_clicked() {
 void mainwindow::on_smoothing_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_10->setText(QString("%1").arg(value));
-        image_now = adjust::smoothing(original_image, value);
+        image_now = adjust::smoothing(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -434,7 +445,7 @@ void mainwindow::on_smoothing_sliderReleased() {
 void mainwindow::on_light_perception_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_2->setText(QString("%1").arg(value));
-        image_now = adjust::light_adjust(original_image, value);
+        image_now = adjust::light_adjust(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -452,7 +463,7 @@ void mainwindow::on_light_perception_sliderReleased() {
 void mainwindow::on_exposure_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_4->setText(QString("%1").arg(value));
-        image_now = adjust::exposure_adjust(original_image, value);
+        image_now = adjust::exposure_adjust(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -470,7 +481,7 @@ void mainwindow::on_exposure_sliderReleased() {
 void mainwindow::on_contrast_ratio_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_5->setText(QString("%1").arg(value));
-        image_now = adjust::contrast_adjust(original_image, value);
+        image_now = adjust::contrast_adjust(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -488,7 +499,7 @@ void mainwindow::on_contrast_ratio_sliderReleased() {
 void mainwindow::on_sharpening_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_6->setText(QString("%1").arg(value));
-        image_now = adjust::sharpen_adjust(original_image, value);
+        image_now = adjust::sharpen_adjust(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -506,7 +517,7 @@ void mainwindow::on_sharpening_sliderReleased() {
 void mainwindow::on_color_temperature_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_7->setText(QString("%1").arg(value));
-        image_now = adjust::cot_adjust(original_image, value);
+        image_now = adjust::cot_adjust(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -524,7 +535,7 @@ void mainwindow::on_color_temperature_sliderReleased() {
 void mainwindow::on_tone_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_8->setText(QString("%1").arg(value));
-        image_now = adjust::cot_adjust(original_image, value);
+        image_now = adjust::cot_adjust(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -542,7 +553,7 @@ void mainwindow::on_tone_sliderReleased() {
 void mainwindow::on_saturation_valueChanged(int value) {
     if (!image_now.empty()) {
         ui->angle_9->setText(QString("%1").arg(value));
-        image_now = adjust::cot_adjust(original_image, value);
+        image_now = adjust::cot_adjust(slider_image, value);
         QImage qImage(image_now.data, image_now.cols, image_now.rows, image_now.step, QImage::Format_BGR888);
         qImage = qImage.convertToFormat(QImage::Format_ARGB32);
         QImage processed_image = Image_Processing(qImage);
@@ -559,9 +570,7 @@ void mainwindow::on_saturation_sliderReleased() {
 //图层合并
 void mainwindow::on_merge_clicked() {
     if (!image_now.empty()) {
-        original_image = image_now;
-        image_index = -1;
-        imageStates.clear();
+        slider_image = image_now;
         updateState();
     }else{
         outError();
@@ -572,6 +581,7 @@ void mainwindow::on_merge_clicked() {
 void mainwindow::on_Grayscale_clicked() {
     if (!image_now.empty()) {
         image_now = adjust::grayscale(image_now);
+        slider_image = image_now;   // 同时更新滑块处理图像
         updateState();
     }else{
         outError();
@@ -582,6 +592,7 @@ void mainwindow::on_Grayscale_clicked() {
 void mainwindow::on_edge_detection_clicked() {
     if(!image_now.empty()){
         image_now = adjust::edge_detection(image_now);
+        slider_image = image_now;   // 同时更新滑块处理图像
         updateState();
     }else{
         outError();
@@ -592,6 +603,7 @@ void mainwindow::on_edge_detection_clicked() {
 void mainwindow::on_beautiful_clicked() {
     if(!image_now.empty()){
         image_now = adjust::processFace(image_now); // 人脸识别
+        slider_image = image_now;   // 同时更新滑块处理图像
         updateState();
     }else{
         outError();
@@ -601,7 +613,8 @@ void mainwindow::on_beautiful_clicked() {
 // 去雾
 void mainwindow::on_defog_clicked() {
     if(!image_now.empty()){
-        image_now = adjust::defog(image_now); // 人脸识别
+        image_now = adjust::defog(image_now); // 去雾
+        slider_image = image_now;   // 同时更新滑块处理图像
         updateState();
     }else{
         outError();
