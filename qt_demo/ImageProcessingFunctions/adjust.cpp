@@ -288,11 +288,8 @@ cv::Mat adjust::contrast_adjust(const cv::Mat &image, int value) {
             int green = row_ptr[j * channels + 1];
             int red = row_ptr[j * channels + 2];
 
-            // 将对比度因子限制在-100到100之间
-            int adjusted_contrast = std::max(-100, std::min(100, value));
-
             // 计算对比度调整的倍数
-            float contrast_multiplier = (100.0f + adjusted_contrast) / 100.0f;
+            float contrast_multiplier = (100.0f + value/3 - 5) / 100.0f + 1e-3;
 
             // 调整每个通道的颜色值
             row_ptr[j * channels] = cv::saturate_cast<uchar>(contrast_multiplier * blue);
@@ -487,20 +484,23 @@ cv::Mat adjust::particle_adjust(const cv::Mat &image, int value) {
     if (value < 0)
         value = 0;
     cv::Mat result = image.clone();
-    for (int i = 0; i < row; ++i)
-    {
+    for (int i = 0; i < row; ++i) {
         uchar *t = result.ptr<uchar>(i);
-        for (int j = 0; j < col; ++j)
-        {
-            for (int k = 0; k < 3; ++k)
-            {
+
+        for (int j = 0; j < col; ++j) {
+            for (int k = 0; k < 3; ++k) {
                 int temp = t[3 * j + k];
-                temp += ((rand() % (2 * value)) - value);
-                if (temp < 0)temp = 0;
-                if (temp > 255)temp = 255;
+
+// 限制随机变化在 [0, 2 * value] 范围内
+                temp += ((rand() % (2 * value + 1)) - value);
+
+// 修正越界值
+                temp = std::max(0, std::min(255, temp));
+
                 t[3 * j + k] = temp;
             }
         }
     }
     return result;
 }
+
