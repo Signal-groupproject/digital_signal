@@ -14,14 +14,9 @@ cv::Mat adjust::processFace(const cv::Mat& image) {
         return image;
     }
 
-    cv::Mat grayImage;
-    cv::cvtColor(image, grayImage, cv::COLOR_BGR2GRAY);
-    cv::equalizeHist(grayImage, grayImage);
-
-    cv::Mat blurredImage = image.clone();  // 创建一个副本用于结果
-
+    cv::Mat blurredImage = image.clone();
     std::vector<cv::Rect> faces;
-    faceCascade.detectMultiScale(grayImage, faces, 1.1, 3);
+    faceCascade.detectMultiScale(image, faces, 1.1, 3);
 
     for (const cv::Rect& faceRect : faces) {
         // 获取人脸区域
