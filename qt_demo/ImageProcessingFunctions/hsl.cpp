@@ -10,7 +10,7 @@ cv::Mat HSL::changeHue(const cv::Mat& image, int value, int cho)
     // 将图像从BGR颜色空间转换为HSV颜色空间
     cv::Mat hsvImage;
     cv::cvtColor(image, hsvImage, cv::COLOR_BGR2HSV);
-    if(value < 0) value /= 2;
+    value /= 10;
     // 定义颜色的HSV范围
     cv::Scalar lower, upper;
     if (cho == 0) { // 红色
@@ -35,8 +35,7 @@ cv::Mat HSL::changeHue(const cv::Mat& image, int value, int cho)
     for (int i = 0; i < modifiedImage.rows; ++i) {
         for (int j = 0; j < modifiedImage.cols; ++j) {
             if (mask.at<uchar>(i, j) > 0) {
-                modifiedImage.at<cv::Vec3b>(i, j)[1] = std::min(modifiedImage.at<cv::Vec3b>(i, j)[1] + value, 255); // 修改饱和度分量（S）
-                modifiedImage.at<cv::Vec3b>(i, j)[2] = std::max(modifiedImage.at<cv::Vec3b>(i, j)[2]+0, 0);
+                modifiedImage.at<cv::Vec3b>(i, j)[0] = (modifiedImage.at<cv::Vec3b>(i, j)[0] + value)%180;
             }
         }
     }
@@ -118,7 +117,7 @@ cv::Mat HSL::changeBrightness(const cv::Mat& image, int value, int cho) {
     for (int i = 0; i < modifiedImage.rows; ++i) {
         for (int j = 0; j < modifiedImage.cols; ++j) {
             if (mask.at<uchar>(i, j) > 0) {
-                modifiedImage.at<cv::Vec3b>(i, j)[2] = std::min(modifiedImage.at<cv::Vec3b>(i, j)[2] + value, 255); // 修改明度分量（V）
+                modifiedImage.at<cv::Vec3b>(i, j)[2] = std::min(modifiedImage.at<cv::Vec3b>(i, j)[2] + value, 255);
                 modifiedImage.at<cv::Vec3b>(i, j)[2] = std::max(modifiedImage.at<cv::Vec3b>(i, j)[2]+0, 0);
             }
         }
