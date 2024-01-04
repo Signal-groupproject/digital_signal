@@ -102,7 +102,6 @@ cv::Mat adjust::smoothing(const cv::Mat &image, int value) {
     value = 2*value+1;  // 确保奇数，内核大小为value*value
     cv::Mat smoothed;
     cv::GaussianBlur(image, smoothed, cv::Size(value, value), 0);
-
     return smoothed;
 }
 
@@ -446,23 +445,7 @@ cv::Mat adjust::edge_detection(const cv::Mat &image) {
 
 // 去雾
 cv::Mat adjust::defog(const cv::Mat &image) {
-    cv::Mat blue, green, red;
-    cv::Mat bgr[3];
-    cv::split(image, bgr);
-
-    blue = bgr[0];
-    green = bgr[1];
-    red = bgr[2];
-
-    cv::Mat blue_equ, green_equ, red_equ;
-    cv::equalizeHist(blue, blue_equ);
-    cv::equalizeHist(green, green_equ);
-    cv::equalizeHist(red, red_equ);
-
-    cv::Mat result;
-    cv::merge(std::vector<cv::Mat>{blue_equ, green_equ, red_equ}, result);
-
-    return result;
+    return adjust::equalization(image);
 }
 
 //颗粒感
